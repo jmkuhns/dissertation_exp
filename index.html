@@ -1,23 +1,23 @@
 <!DOCTYPE html><html class=''>
 <head>
-    <title>Pattern Comparison</title>
-    <script src="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/jspsych.js" charset="utf-8"></script>
-    <script src = "https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/plugins/jspsych-image-keyboard-response.js"></script>
-    <script src="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/plugins/jspsych-html-keyboard-response.js" charset="utf-8"></script>
-    <link rel="stylesheet" href="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/css/jspsych.css">
-    <script src="https://jmkuhns.github.io/pattern-comparison/experiment.js"></script>
+    <title>Grocery Prices</title>
+    <script>src="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/jspsych.js" charset="utf-8"</script>
+    <script>src="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/plugins/jspsych-html-button-response.js" charset="utf-8"</script>
+    <script src="https://jmkuhns.github.io/pattern-dissertation_exp/jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/css/jspsych.css">
+    <script src="https://jmkuhns.github.io/dissertation_exp/experiment.js"></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
 
 </head>
 <body>
 <!-- copy this to qualtrics -->
 
-    <link rel="stylesheet" href="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/css/jspsych.css" type="text/css"></link>
+    <link rel="stylesheet" href="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/css/jspsych.css"></link>
     <div>
         <span style="font-size: 24px;">
             <br><br>
             If you are seeing this message for <span style="color: rgb(255, 100, 0);"><b>more than 5 minutes</b></span>,<br>
-            please screen-capture this screen and send the image to us.
+            please screen-capture this screen and send the image to us at jmkuhns@uncg.edu.
             <br><br>
             <span style="font-size: 28px;">We are very sorry for the inconvenience.</span>
         </span>
@@ -27,8 +27,8 @@
     <style>
         #display_stage_background {
             width: 100vw;
-            background-color: white;
-            max-width:100%;  
+            background-color: #d0d0d0;
+            max-width:100%;
             z-index: -1;
         }
 
@@ -38,7 +38,7 @@
             top: 1vh;
             height: 98vh;
             width: 98vw;
-            background-color: white;
+            background-color: #d0d0d0;
             box-shadow: 1px 1px 1px #999;
             border-radius: 15px;
             z-index: 0;
@@ -60,19 +60,16 @@
   qthis.hideNextButton();
 
   var bud = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js";
-  var jslib_url = "https://jmkuhns.github.io/pattern-comparison/"; // "https://<your-github-username>.github.io/jsPsych/"
+  var jslib_url = "https://jmkuhns.github.io/dissertation_exp/"; // "https://<your-github-username>.github.io/jsPsych/"
 
   // the below urls must be accessible with your browser
   // for example, https://kywch.github.io/jsPsych/jspsych.js
   var requiredResources = [
   	bud,
-      jslib_url + "jspsych-6-2/jspsych.js",
-      jslib_url + "jspsych-6-2/plugins/jspsych-html-keyboard-response.js",
-  	//jslib_url + "js/math.min.js",
-  	jslib_url + "js/jspsych/plugins/jspsych-call-function.js",
-  	jslib_url + "js/jspsych/plugins/jspsych-survey-text.js",
-  	jslib_url + "jspsych-6-2/plugins/jspsych-image-keyboard-response.js",
-  	jslib_url + "experiment.js"
+    jslib_url + "jspsych-6.3.1/jspsych.js",
+    jslib_url + "jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js",
+  	jslib_url + "jspsych-6.3.1/plugins/jspsych-html-button-response.js",
+  	jslib_url + "grocery_price.js"
   ];
 
   function loadScript(idx) {
@@ -97,7 +94,7 @@
 
   	//experimental session defining variables
 
-      var task_name = "pattern-comparison";
+      var task_name = "grocery_price";
       var sbj_id = "${e://Field/sub_id}";
 
       // must put save_data php url here
