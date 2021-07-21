@@ -1,0 +1,147 @@
+<!DOCTYPE html><html class=''>
+<head>
+    <title>Pattern Comparison</title>
+    <script src="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/jspsych.js" charset="utf-8"></script>
+    <script src = "https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/plugins/jspsych-image-keyboard-response.js"></script>
+    <script src="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/plugins/jspsych-html-keyboard-response.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/css/jspsych.css">
+    <script src="https://jmkuhns.github.io/pattern-comparison/experiment.js"></script>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+
+</head>
+<body>
+<!-- copy this to qualtrics -->
+
+    <link rel="stylesheet" href="https://jmkuhns.github.io/pattern-comparison/jspsych-6-2/css/jspsych.css" type="text/css"></link>
+    <div>
+        <span style="font-size: 24px;">
+            <br><br>
+            If you are seeing this message for <span style="color: rgb(255, 100, 0);"><b>more than 5 minutes</b></span>,<br>
+            please screen-capture this screen and send the image to us.
+            <br><br>
+            <span style="font-size: 28px;">We are very sorry for the inconvenience.</span>
+        </span>
+    </div>
+
+
+    <style>
+        #display_stage_background {
+            width: 100vw;
+            background-color: white;
+            max-width:100%;  
+            z-index: -1;
+        }
+
+        #display_stage {
+            position: fixed;
+            left: 1vw;
+            top: 1vh;
+            height: 98vh;
+            width: 98vw;
+            background-color: white;
+            box-shadow: 1px 1px 1px #999;
+            border-radius: 15px;
+            z-index: 0;
+            overflow-y: hidden;
+            overflow-x: hidden;
+        }
+    </style>
+
+
+<!-- end copy to qualtrics -->
+</body>
+<script>
+  	//var responseIdFromSessionID = jQuery('#SessionID').val().replace("SS_", "R_");
+
+  	// Retrieve Qualtrics object and save in qthis
+  var qthis = this;
+
+  // Hide buttons
+  qthis.hideNextButton();
+
+  var bud = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js";
+  var jslib_url = "https://jmkuhns.github.io/pattern-comparison/"; // "https://<your-github-username>.github.io/jsPsych/"
+
+  // the below urls must be accessible with your browser
+  // for example, https://kywch.github.io/jsPsych/jspsych.js
+  var requiredResources = [
+  	bud,
+      jslib_url + "jspsych-6-2/jspsych.js",
+      jslib_url + "jspsych-6-2/plugins/jspsych-html-keyboard-response.js",
+  	//jslib_url + "js/math.min.js",
+  	jslib_url + "js/jspsych/plugins/jspsych-call-function.js",
+  	jslib_url + "js/jspsych/plugins/jspsych-survey-text.js",
+  	jslib_url + "jspsych-6-2/plugins/jspsych-image-keyboard-response.js",
+  	jslib_url + "experiment.js"
+  ];
+
+  function loadScript(idx) {
+      console.log("Loading ", requiredResources[idx]);
+      jQuery.getScript(requiredResources[idx], function () {
+          if ((idx + 1) < requiredResources.length) {
+              loadScript(idx + 1);
+          } else {
+              initExp();
+          }
+      });
+  }
+
+  if (window.Qualtrics && (!window.frameElement || window.frameElement.id !== "mobile-preview-view")) {
+      loadScript(0);
+  }
+
+
+  // jQuery is loaded in Qualtrics by default
+  jQuery("<div id = 'display_stage_background'></div>").appendTo('body');
+  jQuery("<div id = 'display_stage'></div>").appendTo('body');
+
+  	//experimental session defining variables
+
+      var task_name = "pattern-comparison";
+      var sbj_id = "${e://Field/sub_id}";
+
+      // must put save_data php url here
+      var save_url = "https://psy.uncg.edu/exp_data/save_data.php";
+      var data_dir = "pattern-comparison/data";
+
+      // my preference is to include the task and sbj_id in the file name
+      var file_name = task_name + '_' + sbj_id;
+
+      function save_data_json() {
+          jQuery.ajax({
+              type: 'post',
+              cache: false,
+              url: save_url,
+              data: {
+                  data_dir: data_dir,
+                  file_name: file_name + '.json', // the file type should be added
+                  exp_data: jsPsych.data.get().json()
+              }
+          });
+      }
+
+   function initExp() {
+
+  	 jsPsych.init({
+               timeline: timeline,
+               display_element: 'display_stage',
+               on_data_update: function(){
+       		            save_data_json();
+       	       },
+               on_finish: function () {
+                 save_data_json();
+  				   // clear the stage
+      			   jQuery('display_stage').remove();
+       			   jQuery('display_stage_background').remove();
+
+        			  // simulate click on Qualtrics "next" button, making use of the Qualtrics JS API
+        			  qthis.clickNextButton();
+           //
+
+  			 }
+  	 });
+   }
+
+</script>
+</body>
+</html>
