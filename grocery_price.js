@@ -65,8 +65,8 @@ var test_function = {
      html =  '<div class="row">' +
        '<div class="column">' +
        jsPsych.timelineVariable('item') +
-       '</div>' +
-       '<div class="column"> $ ' +
+       // '</div>' +
+        '  $ ' +
        jsPsych.timelineVariable("test_price")+
        '</div>'+
      '</div>';
