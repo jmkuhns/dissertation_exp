@@ -62,14 +62,14 @@ var test_function = {
       {
         type: 'html-button-response',
         stimulus:  function(){
-
-     html =  '<div class="column">'+
-            '<div class="row">' +
-          jsPsych.timelineVariable('item') +
-            '</div>' +
-            '<div class="row"> $ ' + jsPsych.timelineVariable("test_price")+
-              '</div>'+
-            '</div>';
+     html =  '<div class="row">' +
+       '<div class="column">' +
+       jsPsych.timelineVariable('item') +
+       '</div>' +
+       '<div class="column"> $ ' +
+       jsPsych.timelineVariable("test_price")+
+       '</div>'+
+     '</div>';
           return html;
         },
         choices: jsPsych.timelineVariable('buttons'),
