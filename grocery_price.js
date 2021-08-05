@@ -61,7 +61,14 @@ var test_function = {
     timeline: [
       {
         type: 'html-button-response',
-        stimulus: jsPsych.timelineVariable('test_shuffled'),
+        stimulus:  function(){
+          html='<div class="row">'+'<div class="column">' +
+          jsPsych.timelineVariable('item') +
+          '</div>' +
+          '<div class="column"> $ ' + jsPsych.timelineVariable("test_price")+
+          '</div><div>';
+          return html;
+        },
         choices: jsPsych.timelineVariable('buttons'),
         prompt: jsPsych.timelineVariable('question_prompt')
       }
