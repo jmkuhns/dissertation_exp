@@ -66,7 +66,7 @@ var test_function = {
           jsPsych.timelineVariable('item') +
           '</div>' +
           '<div class="column"> $ ' + jsPsych.timelineVariable("test_price")+
-          '</div><div>';
+          '</div></div>';
           return html;
         },
         choices: jsPsych.timelineVariable('buttons'),
@@ -75,7 +75,7 @@ var test_function = {
     ],
     timeline_variables: [
       {question_type: ["associative"] ,
-      buttons: ["studied together", "not studied together"],
+      buttons: ["Studied together", "Not studied together"],
       data: ["old", "new"],
       question_prompt: ["<br><br><br><p style='font-size:25px'>Were these items studied together?</p>"]},
       {question_type: ["source"] ,
