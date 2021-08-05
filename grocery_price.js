@@ -58,8 +58,8 @@ var study_instructions={
   '<br><br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.</p>',
   '<br><br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. The market-priced items will be under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.</p>'
 ],
-  key_forward: 39,
-  key_backward: 37,
+//  key_forward: 39,
+//  key_backward: 37,
   post_trial_gap: 300,
   data:{
     memory: 'memory',
@@ -119,8 +119,8 @@ var test_instructions = {
   '<br><br><p>Test pairs will be presented in a random order. The memory test is self-paced. However, once you click an option, the test will advance to the next question. Please be careful before selecting an option, because you will not be able to go back and change your answers.</p><br><p>You may press the Left arrow key to review any previous instructions. Otherwise, you may press the Right arrow key to begin the memory test.</p>'
 
 ],
-  key_forward: 39,
-  key_backward: 37,
+//  key_forward: 39,
+//  key_backward: 37,
   post_trial_gap: 300,
   data:{
     memory: 'memory',
@@ -288,8 +288,8 @@ var test_function = {
   		'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
   	  '<br><p>Press the right arrow key to begin the practice trials.</p>'
   	],
-  		key_forward: 39,
-  		key_backward: 37,
+  //		key_forward: 39,
+  //		key_backward: 37,
   		post_trial_gap: 250,
   		data:{pattern: 'pattern',
   	    exp_stage: "instructions"
@@ -667,8 +667,8 @@ var test_function = {
     '<br><p>Press the right arrow key to begin.</p>'
   ],
     post_trial_gap: 250,
-  	key_forward: 39,
-  	key_backward: 37,
+  //	key_forward: 39,
+  //	key_backward: 37,
     data:{pattern: 'pattern',
       exp_stage: "instructions"
     },
