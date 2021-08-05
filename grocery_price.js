@@ -41,8 +41,11 @@ var l_test_names = ["test_list_1",
   "test_list_10"];
 
 // select set the study list for the experiment
-var study = eval(l_web_names[list]);
-var test = eval(l_test_names[list]);
+// var study = eval(l_web_names[list]);
+// var test = eval(l_test_names[list]);
+
+
+
 
 // study and test will be filled out variables
 // as if they were manually defined
