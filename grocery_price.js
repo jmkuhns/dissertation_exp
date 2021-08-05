@@ -957,7 +957,7 @@ var test_function = {
   					}
   			}
   };
-
+timeline.push(study_instructions_welcome);
 timeline.push(study_instructions);
 timeline.push(study_timeline);
 // quick foray in to a pattern comparison task
