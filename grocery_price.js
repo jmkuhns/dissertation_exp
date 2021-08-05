@@ -41,8 +41,8 @@ var l_test_names = ["test_list_1",
   "test_list_10"];
 
 // select set the study list for the experiment
-// var study = eval(l_web_names[list]);
-// var test = eval(l_test_names[list]);
+var study = eval(l_web_names[list]);
+var test = eval(l_test_names[list]);
 
 
 
@@ -87,7 +87,7 @@ var test_function = {
     timeline: [test_function],
     timeline_variables: test_shuffled,
     randomize_order: true,
-    on_finish: console.log(list);
+    on_finish: console.log(list)
   }
 
 
