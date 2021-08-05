@@ -54,7 +54,29 @@ var test = eval(l_test_names[list]);
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
 
-
+var study_function = {
+  timeline: [
+    {
+      type: 'html-keyboard-response',
+      stimulus: function(){
+        html =  '<div class="row">' +
+                    '<div class="column">' +
+                    "<p style='font-size:25px'>" +
+                    jsPsych.timelineVariable('item') +
+                    '  $' +
+                    jsPsych.timelineVariable("study_price")+
+                    "</p><br><br>" +
+                    '</div>'+
+                    '</div>';
+      },
+      choices: jsPsych.NO_KEYS,
+      trial_duration = 6000,
+      post_trial_gap: function(){
+  return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
+}
+    }
+  ]
+}
 
 
 var test_function = {
@@ -79,7 +101,7 @@ var test_function = {
         },
         choices: jsPsych.timelineVariable('buttons'),
         post_trial_gap: function(){
-    return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450], 1)[0];
+    return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
   }
       }
     ],
