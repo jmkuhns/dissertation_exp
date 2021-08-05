@@ -73,15 +73,16 @@ var study_function = {
     {
       type: 'html-keyboard-response',
       stimulus: function(){
-        html =  '<div class="row">' +
-                    '<div class="column">' +
-                    "<p style='font-size:25px'>" +
-                    jsPsych.timelineVariable('item') +
-                    '  $' +
-                    jsPsych.timelineVariable("study_price")+
-                    "</p><br><br>" +
-                    '</div>'+
-                    '</div>';
+        html =  '<div class = "row">' +
+           '<div class="column">' +
+            "<p style='font-size:25px'>" +
+           jsPsych.timelineVariable('item') +
+           // '</div>' +
+            '  $' +
+           jsPsych.timelineVariable("price")+
+            "</p><br><br>" +
+           '</div>'+
+         '</div>';
       },
       choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
@@ -118,7 +119,7 @@ var test_instructions = {
 
   '<br><br><p>Test pairs will be presented in a random order. The memory test is self-paced. However, once you click an option, the test will advance to the next question. Please be careful before selecting an option, because you will not be able to go back and change your answers.</p><br><p>You may press the Left arrow key to review any previous instructions. Otherwise, you may press the Right arrow key to begin the memory test.</p>'
 
-],
+  ],
 //  key_forward: 39,
 //  key_backward: 37,
   post_trial_gap: 300,
