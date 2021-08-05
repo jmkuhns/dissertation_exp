@@ -67,10 +67,12 @@ var test_function = {
      '</div>'+
      '<div class = "row">' +
        '<div class="column">' +
+        "<p style='font-size:25px'>" +
        jsPsych.timelineVariable('item') +
        // '</div>' +
         '  $ ' +
        jsPsych.timelineVariable("test_price")+
+        "</p>" +
        '</div>'+
      '</div>';
           return html;
@@ -82,15 +84,15 @@ var test_function = {
       {question_type: ["associative"] ,
       buttons: ["Studied together", "Not studied together"],
       data: ["old", "new"],
-      question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br><br><br>"]},
+      question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br>"]},
       {question_type: ["source"] ,
       buttons: ["Less than $6", "More than $10", "Not studied"],
       data: ["MP", "OP", "new"],
-      question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br><br>"]},
+      question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br>"]},
       {question_type: ["item"] ,
       buttons: ["Yes", "No"],
       data: ["old", "new"],
-      question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br><br>"]}
+      question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br>"]}
     ]
 
   }
