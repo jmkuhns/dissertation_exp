@@ -45,6 +45,7 @@ var test = eval(l_test_names[list]);
 
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
+
 var study_instructions = {
   type: "instructions-min-viewing-time",
   pages:[
@@ -56,7 +57,6 @@ var study_instructions = {
 ],
   key_forward: 39,
   key_backward: 37,
-  min_viewing_time: 3000,
   post_trial_gap: 300,
   data:{
     memory: 'memory',
