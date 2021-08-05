@@ -82,15 +82,15 @@ var test_function = {
     ],
     timeline_variables: [
       {question_type: ["associative"] ,
-      buttons: ["Studied together", "Not studied together"],
+      buttons: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
       data: ["old", "new"],
       question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br>"]},
       {question_type: ["source"] ,
-      buttons: ["Less than $6", "More than $10", "Not studied"],
+      buttons: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
       data: ["MP", "OP", "new"],
       question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br>"]},
       {question_type: ["item"] ,
-      buttons: ["Yes", "No"],
+      buttons: ["<p style='font-size:25px'>Yes</p>", "<p style='font-size:25px'>No</p>"],
       data: ["old", "new"],
       question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br>"]}
     ]
