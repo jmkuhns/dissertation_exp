@@ -77,7 +77,10 @@ var test_function = {
      '</div>';
           return html;
         },
-        choices: jsPsych.timelineVariable('buttons')
+        choices: jsPsych.timelineVariable('buttons'),
+        post_trial_gap: function(){
+    return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350, 400, 450], 1)[0];
+  }
       }
     ],
     timeline_variables: [
