@@ -85,7 +85,7 @@ var study_function = {
          '</div>';
          return html;
       },
-      choices: jsPsych.NO_KEYS,
+    //  choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
       post_trial_gap: function(){
   return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
