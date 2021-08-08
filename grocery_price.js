@@ -83,6 +83,7 @@ var study_function = {
             "</p><br><br>" +
            '</div>'+
          '</div>';
+         return html;
       },
       choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
@@ -157,21 +158,24 @@ var test_function = {
       }
     ],
     timeline_variables: [
-      {question_type: ["associative"] ,
-      buttons: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
-      data: {memory: "memory",
-      exp_stage: "study"},
-      question_prompt: ["<p style='font-size:25px'>Was this grocery-item and price pair studied together?</p><br><br>"]},
-      {question_type: ["source"] ,
-      buttons: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
-      data: {memory: "memory",
-      exp_stage: "study"},
-      question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"]},
-      {question_type: ["item"] ,
-      buttons: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
-      data: {memory: "memory",
-      exp_stage: "study"},
-      question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"]}
+      {
+        question_type: ["associative"] ,
+        buttons: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
+        data: {memory: "memory", exp_stage: "study"},
+        question_prompt: ["<p style='font-size:25px'>Was this grocery-item and price pair studied together?</p><br><br>"]
+      },
+      {
+        question_type: ["source"] ,
+        buttons: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
+        data: {memory: "memory", exp_stage: "study"},
+        question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"]
+      },
+      {
+        question_type: ["item"] ,
+        buttons: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
+        data: {memory: "memory", exp_stage: "study"},
+        question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"]
+      }
     ]
 
   }
