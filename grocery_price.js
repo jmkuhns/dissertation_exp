@@ -313,12 +313,13 @@ var test_function = {
   	                     //practice_left[practice_index] +
   	                     ' style="width:150px;height:150px";>' +
   	                     '</img>' +
-  	                '</div>' +
-  	                '<div class="column"><img src=' +
+  	                //'</div>' +
+  	                //'<div class="column">'+
+                    '<img src=' +
   	                jsPsych.timelineVariable("stimulus_2", true) +
   	                //practice_right[practice_index] +
   	                '  style="width:150px;height:150px";></img>'+
-  	                '</div>'+
+  	                //'</div>'+
   	              '</div>';
   	    return html;
   	  }
@@ -378,11 +379,12 @@ var test_function = {
   												jsPsych.timelineVariable("stimulus_1", true) +
   													 ' style="width:150px;height:150px";>' +
   													 '</img>' +
-  											'</div>' +
-  											'<div class="column"><img src=' +
+  											//'</div>' +
+  											//'<div class="column">'+
+                        '<img src=' +
   											jsPsych.timelineVariable("stimulus_2", true) +
   											'  style="width:150px;height:150px";></img>'+
-  											'</div>'+
+  											//'</div>'+
   										'</div>';
   					return html;
   				},
