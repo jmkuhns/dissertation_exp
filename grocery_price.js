@@ -55,8 +55,8 @@ var study_instructions_welcome = {
 var study_instructions={
   type: "instructions",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
-  '<br><br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.</p>',
-  '<br><br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect that market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.</p>'
+  '<br><br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p.1</p>',
+  '<br><br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect that market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p.2</p>'
 ],
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
@@ -107,18 +107,18 @@ var test_instructions = {
   pages:[
     "<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>",
   '<p style:"font-size:30px">Memory Test</p>' +
-  '<br><br><p>In the upcoming memory test, you will be presented with grocery-items and prices in a random order. Some of the test pairs will be composed of grocery-items and prices that were studied, as well as grocery-items and  prices that were not on the study list. There will be four kinds of test pairs: (a) a test pair that is the same as the study pair, that is, the grocery-item and price were studied together (intact pair); (b) a test pair that consists of a grocery-item and price that were studied in different pairs (rearranged pair); (c) a test pair that consists of a studied grocery-item and a price that was not on the study list (old-new pair); (d) a test pair where both the grocery-item and price were not on the study list (new-new pair).</p><br>Press the right arrow key to continue the instructions.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.</p>',
+  '<br><br><p>In the upcoming memory test, you will be presented with grocery-items and prices in a random order. Some of the test pairs will be composed of grocery-items and prices that were studied, as well as grocery-items and  prices that were not on the study list. There will be four kinds of test pairs: (a) a test pair that is the same as the study pair, that is, the grocery-item and price were studied together (intact pair); (b) a test pair that consists of a grocery-item and price that were studied in different pairs (rearranged pair); (c) a test pair that consists of a studied grocery-item and a price that was not on the study list (old-new pair); (d) a test pair where both the grocery-item and price were not on the study list (new-new pair).</p><br>Press the right arrow key to continue the instructions.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p.1/6</p>',
 
-  '<br><br><p>You will answer three multiple choice questions for each test pair. The response options for each question are written in capital letters. For each test pair, you will be asked: (1.) to judge whether the grocery-item and price were originally STUDIED together or were NOT STUDIED TOGETHER; (2.) to judge whether the grocery-item was originally paired with a price LESS THAN $6, MORE THAN $10, or to indicate that the the grocery-item in the test pair was NOT STUDIED; (3.) to judge whether the price in each test pair was on the study list, responding STUDIED if the price was on the study list, and responding NOT STUDIED if the price was not on the study list.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.</p>',
+  '<br><br><p>You will answer three multiple choice questions for each test pair. The response options for each question are written in capital letters. For each test pair, you will be asked: (1.) to judge whether the grocery-item and price were originally STUDIED together or were NOT STUDIED TOGETHER; (2.) to judge whether the grocery-item was originally paired with a price LESS THAN $6, MORE THAN $10, or to indicate that the the grocery-item in the test pair was NOT STUDIED; (3.) to judge whether the price in each test pair was on the study list, responding STUDIED if the price was on the study list, and responding NOT STUDIED if the price was not on the study list.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p.2/6</p>',
 
-  '<br><br><p>For each test pair, the first question will ask you to judge whether the grocery-item and price were originally STUDIED TOGETHER, or were NOT STUDIED TOGETHER. You should only indicate that the grocery-item and price in a test pair were STUDIED TOGETHER if they are intact. For every other type of test pair, you should indicate that the pairs were NOT STUDIED TOGETHER. In other words, you should respond that any rearranged, old-new, or new-new test pairs were NOT STUDIED TOGETHER.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.</p>',
+  '<br><br><p>For each test pair, the first question will ask you to judge whether the grocery-item and price were originally STUDIED TOGETHER, or were NOT STUDIED TOGETHER. You should only indicate that the grocery-item and price in a test pair were STUDIED TOGETHER if they are intact. For every other type of test pair, you should indicate that the pairs were NOT STUDIED TOGETHER. In other words, you should respond that any rearranged, old-new, or new-new test pairs were NOT STUDIED TOGETHER.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p.3/6</p>',
 
-  '<br><br><p>The second question will ask you to judge whether the grocery-item in each test pair was originally paired with a price that was LESS THAN $6, MORE THAN $10, or whether the grocery-item was NOT STUDIED at all. It is important to note that the prices in test pairs may or may not be in the same price range as the original study price. Grocery-items in rearranged and old-new test pairs may be paired with a price that is LESS THAN $6 at study, but may be paired with a price that is MORE THAN $10 at test. Grocery-items that were NOT STUDIED will only be paired with prices that were NOT STUDIED as well (i.e., new-new test pairs).</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.</p>',
+  '<br><br><p>The second question will ask you to judge whether the grocery-item in each test pair was originally paired with a price that was LESS THAN $6, MORE THAN $10, or whether the grocery-item was NOT STUDIED at all. It is important to note that the prices in test pairs may or may not be in the same price range as the original study price. Grocery-items in rearranged and old-new test pairs may be paired with a price that is LESS THAN $6 at study, but may be paired with a price that is MORE THAN $10 at test. Grocery-items that were NOT STUDIED will only be paired with prices that were NOT STUDIED as well (i.e., new-new test pairs).</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p.4/6</p>',
 
 
-  '<br><br><p>The third question will ask you to judge whether the price in each test pair was originally STUDIED or was NOT STUDIED. Prices in test pairs that were NOT STUDIED can be paired with grocery-items that were on the study list, and with grocery-items that were NOT STUDIED.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.</p>',
+  '<br><br><p>The third question will ask you to judge whether the price in each test pair was originally STUDIED or was NOT STUDIED. Prices in test pairs that were NOT STUDIED can be paired with grocery-items that were on the study list, and with grocery-items that were NOT STUDIED.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p.5/6</p>',
 
-  '<br><br><p>Test pairs will be presented in a random order. The memory test is self-paced. However, once you click an option, the test will advance to the next question. Please be careful before selecting an option, because you will not be able to go back and change your answers.</p><br><p>You may press the Left arrow key to review any previous instructions. Otherwise, you may press the Right arrow key to begin the memory test.</p>'
+  '<br><br><p>Test pairs will be presented in a random order. The memory test is self-paced. However, once you click an option, the test will advance to the next question. Please be careful before selecting an option, because you will not be able to go back and change your answers.</p><br><p>You may press the Left arrow key to review any previous instructions. Otherwise, you may press the Right arrow key to begin the memory test.<br><br><br>p.6/6</p>'
 
   ],
 //  key_forward: "ArrowRight",
@@ -144,7 +144,7 @@ var test_function = {
         "<p style='font-size:25px'>" +
        jsPsych.timelineVariable('item') +
        // '</div>' +
-        '  $' +
+        ' -- $' +
        jsPsych.timelineVariable("test_price")+
         "</p><br><br>" +
        '</div>'+
@@ -162,19 +162,51 @@ var test_function = {
         question_type: ["associative"] ,
         buttons: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Was this grocery-item and price pair studied together?</p><br><br>"]
+        question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br><br>"],
       },
       {
         question_type: ["source"] ,
         buttons: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"]
+        question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"],
+        stimulus:  function(){
+            html =  '<div class="row">' +
+            jsPsych.timelineVariable('question_prompt') +
+            '</div>'+
+            '<div class = "row">' +
+            '<div class="column">' +
+            "<p style='font-size:25px'><u>" +
+            jsPsych.timelineVariable('item') +
+            // '</div>' +
+            '</u> -- $' +
+            jsPsych.timelineVariable("test_price")+
+            "</p><br><br>" +
+            '</div>'+
+            '</div>';
+          return html;
+        }
       },
       {
         question_type: ["item"] ,
         buttons: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"]
+        question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"],
+        stimulus:  function(){
+            html =  '<div class="row">' +
+            jsPsych.timelineVariable('question_prompt') +
+            '</div>'+
+            '<div class = "row">' +
+            '<div class="column">' +
+            "<p style='font-size:25px'>" +
+            jsPsych.timelineVariable('item') +
+            // '</div>' +
+            ' -- <u>$' +
+            jsPsych.timelineVariable("test_price")+
+            "</u></p><br><br>" +
+            '</div>'+
+            '</div>';
+          return html;
+        }
       }
     ]
 
@@ -963,9 +995,9 @@ var test_function = {
   			}
   };
 
-//timeline.push(study_instructions_welcome);
-//timeline.push(study_instructions);
-//timeline.push(study_timeline);
+timeline.push(study_instructions_welcome);
+timeline.push(study_instructions);
+timeline.push(study_timeline);
 // quick foray in to a pattern comparison task
   timeline.push(instructions);
   timeline.push(alt_practice);
