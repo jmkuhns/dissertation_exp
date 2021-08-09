@@ -78,7 +78,7 @@ var study_function = {
             "<p style='font-size:25px'>" +
            jsPsych.timelineVariable('item') +
            // '</div>' +
-            '  $' +
+            ' -- $' +
            jsPsych.timelineVariable("price")+
             "</p><br><br>" +
            '</div>'+
@@ -960,9 +960,10 @@ var test_function = {
   					}
   			}
   };
-timeline.push(study_instructions_welcome);
-timeline.push(study_instructions);
-timeline.push(study_timeline);
+
+//timeline.push(study_instructions_welcome);
+//timeline.push(study_instructions);
+//timeline.push(study_timeline);
 // quick foray in to a pattern comparison task
   timeline.push(instructions);
   timeline.push(alt_practice);
