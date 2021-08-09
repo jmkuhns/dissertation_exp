@@ -344,7 +344,7 @@ var test_function = {
   	                  jsPsych.timelineVariable("stimulus_1", true) +
   	                     //practice_left[practice_index] +
   	                     ' style="width:150px;height:150px";>' +
-  	                     '</img>' +
+  	                     '</img><p>   </p>' +
   	                //'</div>' +
   	                //'<div class="column">'+
                     '<img src=' +
@@ -410,7 +410,7 @@ var test_function = {
   											'<div class="column"><img src=' +
   												jsPsych.timelineVariable("stimulus_1", true) +
   													 ' style="width:150px;height:150px";>' +
-  													 '</img>' +
+  													 '</img><p>   </p>' +
   											//'</div>' +
   											//'<div class="column">'+
                         '<img src=' +
