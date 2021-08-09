@@ -55,8 +55,8 @@ var study_instructions_welcome = {
 var study_instructions={
   type: "instructions",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
-  '<br><br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p.1</p>',
-  '<br><br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect that market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p.2</p>'
+  '<br><br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p.1/2</p>',
+  '<br><br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect that market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p.2/2</p>'
 ],
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
@@ -321,9 +321,9 @@ var test_function = {
         "You have completed study of the grocery items. Before taking the memory test, you will complete a pattern comparison task. Press the right arrow key to begin.",
   	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
   	  '<br><br><p>In this task you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to respond as accurately and rapidly as you can.</p>' +
-  	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.</p>',
+  	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.<br><br><br>p.1/2</p>',
   		'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
-  	  '<br><p>Press the right arrow key to begin the practice trials.</p>'
+  	  '<br><p>Press the right arrow key to begin the practice trials.<br><br><br>p.1/2</p>'
   	],
   //		key_forward: "ArrowRight",
   //		key_backward: "ArrowLeft",
