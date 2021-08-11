@@ -212,6 +212,19 @@ var test_function = {
 
   }
 
+var attn_check = {
+  timeline:
+  [{
+    type: "html-KeyboardResponse",
+    stimulus:  function(){
+      html = '';
+      return html;
+    },
+  }]
+
+}
+
+
   var test_timeline = {
     timeline: [test_function],
     timeline_variables: test_shuffled,
