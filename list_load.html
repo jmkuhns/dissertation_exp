@@ -3,7 +3,30 @@
          <script src ="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/jspsych.js"></script>
          <script src = "https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/plugins/jspsych-html-button-response.js"></script>
          <script src="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js" charset="utf-8"></script>
+         <div id="jspsych_target">&nbsp;</div><div><br></div>
 
+
+             <style>
+                 #display_stage_background {
+                     width: 100vw;
+                     background-color: white;
+                     z-index: -1;
+                 }
+
+                 #display_stage {
+                     position: fixed;
+                     left: 1vw;
+                     top: 1vh;
+                     height: 98vh;
+                     width: 98vw;
+                     background-color: white;
+                     box-shadow: 1px 1px 1px #999;
+                     border-radius: 15px;
+                     z-index: 0;
+                     overflow-y: hidden;
+                     overflow-x: hidden;
+                 }
+             </style><link href="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/css/jspsych.css" rel="stylesheet" type="text/css">
            <script type = "text/javascript" src = "grocery_lists/study_lists/list_2.js"></script>
            <script type = "text/javascript" src = "grocery_lists/test_lists/list_2.js"></script>
        </head>
