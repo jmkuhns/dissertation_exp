@@ -212,25 +212,76 @@ var test_function = {
 
   }
 
-var attn_check = {
-  timeline:
-  [{
-    type: "html-keyboard-response",
-    stimulus:  function(){
-      html = '';
-      return html;
-    },
-  }]
-
-}
-
-
+  var attn_check = {
+    type: 'survey-text',
+    questions: [
+      { prompt: function(){
+        html = "<p>Please type the word " +
+        jsPsych.timelineVariable("word") +
+        " into the text box below.</p>";
+        return html;
+      }
+    }],
+    data: {
+  		exp_stage: "attention_check"
+  	},
+    timeline_variables: [
+      { word: "wires" , name: "word1" },
+      { word: "theme" , name: "word2" },
+      { word: "lone" , name: "word3" },
+      { word: "morsel" , name: "word4" }
+  ]
+  };
   var test_timeline = {
-    timeline: [test_function],
-    timeline_variables: test_shuffled,
-    randomize_order: true,
-    on_finish: console.log(list)
+      timeline: [test_function],
+      timeline_variables: test_shuffled,
+      //randomize_order: true,
+      on_finish: console.log(list)
+    };
+
+var expanded_test = {
+  timeline: [test_timeline, attn_check],
+  sample:{
+    type: "without-replacement",
+    size: 84,
+    weights: [80, 4]
   }
+
+};
+
+//var trial = {
+//    type: 'html-keyboard-response',
+//    stimulus: 'This trial is in a loop. Press R to repeat this trial, or C to continue.'
+//}
+
+/*
+var loop_node = {
+    timeline: [trial],
+    loop_function: function(data){
+        if(jsPsych.pluginAPI.compareKeys(data.values()[0].response, 'r')){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+*/
+
+/*
+var repetition_count = 0;
+
+var procedure = {
+    timeline: [trial_1, trial_2],
+    repetitions: 3,
+    on_timeline_start: function() {
+        repetition_count++;
+        console.log('Repetition number ',repetition_count,' has just started.');
+    },
+    on_timeline_finish: function() {
+        console.log('Repetition number ',repetition_count,' has just finished.')
+    }
+}
+*/
 
 // pattern comparison below here; timeline pushed at very end
 
@@ -1010,8 +1061,11 @@ var attn_check = {
   };
 
 timeline.push(study_instructions_welcome);
+/*
 timeline.push(study_instructions);
 timeline.push(study_timeline);
+*/
+/*
 // quick foray in to a pattern comparison task
   timeline.push(instructions);
   timeline.push(alt_practice);
@@ -1021,7 +1075,9 @@ timeline.push(study_timeline);
   timeline.push(interim_instructions_2);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
-
+*/
 // now back to memory
-  timeline.push(test_instructions);
-  timeline.push(test_timeline);
+
+//  timeline.push(test_instructions);
+
+  timeline.push(expanded_test);
