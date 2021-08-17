@@ -215,7 +215,7 @@ var test_function = {
 var attn_check = {
   timeline:
   [{
-    type: "html-KeyboardResponse",
+    type: "html-keyboard-response",
     stimulus:  function(){
       html = '';
       return html;
