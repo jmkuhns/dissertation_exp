@@ -245,7 +245,7 @@ var expanded_test = {
   timeline: [test_timeline, attn_check],
   sample:{
     type: "without-replacement",
-    size: 2,
+    size: 84,
     weights: [20, 1]
   }
 
