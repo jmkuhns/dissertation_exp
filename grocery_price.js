@@ -212,7 +212,15 @@ var test_function = {
 
   }
 
-  var attn_check = {
+var attn_check_words_init = [
+    { word: "wires" },
+    { word: "theme" },
+    { word: "lone"  },
+    { word: "morsel" }
+  ];
+var attn_check_words = jsPsych.randomization.shuffle(attn_check_words_init);
+
+var attn_check = {
     type: 'survey-text',
     questions: [
       { prompt: function(){
@@ -223,14 +231,8 @@ var test_function = {
       }
     }],
     data: {
-  		exp_stage: "attention_check"
-  	},
-    timeline_variables: [
-      { word: "wires" , name: "word1" },
-      { word: "theme" , name: "word2" },
-      { word: "lone" , name: "word3" },
-      { word: "morsel" , name: "word4" }
-  ]
+  		exp_stage: "attention_check"},
+    timeline_variables: attn_check_words
   };
   var test_timeline = {
       timeline: [test_function],
@@ -243,8 +245,8 @@ var expanded_test = {
   timeline: [test_timeline, attn_check],
   sample:{
     type: "without-replacement",
-    size: 84,
-    weights: [80, 4]
+    size: 2,
+    weights: [20, 1]
   }
 
 };
