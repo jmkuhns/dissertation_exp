@@ -234,6 +234,7 @@ var attn_check = {
   		exp_stage: "attention_check"},
     timeline_variables: attn_check_words
   };
+
   var test_timeline = {
       timeline: [test_function],
       timeline_variables: test_shuffled,
@@ -246,44 +247,78 @@ var expanded_test = {
   sample:{
     type: "without-replacement",
     size: 84,
-    weights: [20, 1]
+    weights: [80, 4]
   }
 
 };
-
-//var trial = {
-//    type: 'html-keyboard-response',
-//    stimulus: 'This trial is in a loop. Press R to repeat this trial, or C to continue.'
-//}
-
 /*
-var loop_node = {
-    timeline: [trial],
-    loop_function: function(data){
-        if(jsPsych.pluginAPI.compareKeys(data.values()[0].response, 'r')){
-            return true;
-        } else {
-            return false;
-        }
-    }
+var foo = [];
+for (var i = 0; i <= 83; i++) {
+    foo.push(i);
+  }
+  var attention_check_sample = jsPsych.randomization.sampleWithoutReplacement(foo, 4);
+
+  // the console log below is so that you can see which trial indices were selected to be attention checks
+   // each time you run the experiment
+   console.log('attention check trials: ', attention_check_sample);
+
+   // create a new array based on trial info, but with the 'att_check' property changed to 'true'
+   // for the trials that were randomly sampled
+   var trial_info_att_checks = [];
+   trial_info.forEach(function(el, ind) {
+     if (attention_check_sample.includes(ind)) {
+       el.att_check = true;
+       trial_info_att_checks.push(el);
+     } else {
+       trial_info_att_checks.push(el);
+     }
+   });
+
+var attention_check_location = null;
+var trial_counter = 0;
+var pick_attention_check_location = {
+	type: 'call-function',
+	func: function(){
+		// creating possible location array for easier modification of where the trial can occur
+
+		attention_check_location = jsPsych.randomization.sampleWithoutReplacement(possible_locations, 1)[0];
+	}
 }
+
+
+var attention_check_conditional = {
+	timeline: [attn_check],
+	conditional_function: function(){
+		trial_counter++; // can increment the counter here because this code will run on every iteration of the timeline
+		if(trial_counter == attention_check_location){
+			return true;
+		} else {
+			return false;
+		}
+	}
+}
+
+var block = {
+	timeline: [attention_check_conditional, ready_scr, pic_scr, blank_scr],
+	timeline_variables: trial_stimuli,
+	sample: {
+		type: 'custom',
+		fn: function () {
+			var order = jsPsych.randomization.shuffle(groups); // shuffle 4 groups
+			var selected_items = [];
+			// iterate through 4 groups and get four image from each group
+			for (var i = 0; i < 4; i++) {
+                        	var new_items = jsPsych.randomization.sampleWithReplacement(order[i], 4); //select four items from each emotion group
+				selected_items = selected_items.concat(new_items);
+			}
+			var final_items = jsPsych.randomization.shuffle(selected_items);
+			return final_items;
+		}
+	},
+};
+
 */
 
-/*
-var repetition_count = 0;
-
-var procedure = {
-    timeline: [trial_1, trial_2],
-    repetitions: 3,
-    on_timeline_start: function() {
-        repetition_count++;
-        console.log('Repetition number ',repetition_count,' has just started.');
-    },
-    on_timeline_finish: function() {
-        console.log('Repetition number ',repetition_count,' has just finished.')
-    }
-}
-*/
 
 // pattern comparison below here; timeline pushed at very end
 
