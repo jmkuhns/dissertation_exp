@@ -46,6 +46,11 @@ var test = eval(l_test_names[list]);
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
 
+for(var i = 0; i < 60; i++) {
+    test_shuffled[i].att_chk = false;
+}
+
+
 var study_instructions_welcome = {
   type: 'html-keyboard-response',
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
@@ -231,7 +236,8 @@ var attn_check = {
       }
     }],
     data: {
-  		exp_stage: "attention_check"},
+  		exp_stage: "attention_check"
+    },
     timeline_variables: attn_check_words
   };
 
