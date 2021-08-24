@@ -51,93 +51,150 @@
 <!-- end copy to qualtrics -->
 </body>
 <script>
-  	//var responseIdFromSessionID = jQuery('#SessionID').val().replace("SS_", "R_");
 
-  	// Retrieve Qualtrics object and save in qthis
-  var qthis = this;
+//Qualtrics.SurveyEngine.addOnload(function()
+//{
+	/*Place your JavaScript here to run when the page loads*/
+	// example code taken from from: https://kywch.github.io/jsPsych-in-Qualtrics/flanker/
+	// javascript library is jsPsych: https://www.jspsych.org/
+	// information about data properties/storage: https://www.jspsych.org/overview/data/
 
-  // Hide buttons
-  qthis.hideNextButton();
+	//var responseIdFromSessionID = jQuery('#SessionID').val().replace("SS_", "R_");
 
-  var bud = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js";
-  var jslib_url = "https://jmkuhns.github.io/dissertation_exp/"; // "https://<your-github-username>.github.io/jsPsych/"
+	// Retrieve Qualtrics object and save in qthis
+var qthis = this;
 
-  // the below urls must be accessible with your browser
-  // for example, https://kywch.github.io/jsPsych/jspsych.js
-  var requiredResources = [
-  	bud,
+// Hide buttons
+qthis.hideNextButton();
+
+var bud = "https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js";
+var jslib_url = "https://jmkuhns.github.io/dissertation_exp/"; // "https://<your-github-username>.github.io/jsPsych/"
+var study_url = "https://jmkuhns.github.io/dissertation_exp/grocery_lists/study_lists/";
+var test_url = "https://jmkuhns.github.io/dissertation_exp/grocery_lists/test_lists/";
+// var patt_url = "https://jmkuhns.github.io/pattern-comparison/"; // "https://<your-github-username>.github.io/jsPsych/"
+
+
+// the below urls must be accessible with your browser
+// for example, https://kywch.github.io/jsPsych/jspsych.js
+var requiredResources = [
+	bud,
     jslib_url + "jspsych-6.3.1/jspsych.js",
-    jslib_url + "jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js",
-  	jslib_url + "jspsych-6.3.1/plugins/jspsych-html-button-response.js",
-  	jslib_url + "grocery_price.js"
-  ];
+    jslib_url + "jspsych-6.3.1/plugins/jspsych-html-button-response.js",
+	jslib_url + "jspsych-6.3.1/plugins/jspsych-image-keyboard-response.js",
+	jslib_url + "jspsych-6.3.1/css/jspsych.css",
+	jslib_url + "jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js",
+	jslib_url + "jspsych-6.3.1/plugins/jspsych-instructions.js",
+	jslib_url + "jspsych-6.3.1/plugins/jspsych-survey-text.js",
+	study_url + "list_1.js",
+	study_url + "list_2.js",
+	study_url + "list_3.js",
+	study_url + "list_4.js",
+	study_url + "list_5.js",
+	study_url + "list_6.js",
+	study_url + "list_7.js",
+	study_url + "list_8.js",
+	study_url + "list_9.js",
+	study_url + "list_10.js",
+	test_url + "list_1.js",
+	test_url + "list_2.js",
+	test_url + "list_3.js",
+	test_url + "list_4.js",
+	test_url + "list_5.js",
+	test_url + "list_6.js",
+	test_url + "list_7.js",
+	test_url + "list_8.js",
+	test_url + "list_9.js",
+	test_url + "list_10.js",
+	jslib_url + "grocery_price.js"
+];
 
-  function loadScript(idx) {
-      console.log("Loading ", requiredResources[idx]);
-      jQuery.getScript(requiredResources[idx], function () {
-          if ((idx + 1) < requiredResources.length) {
-              loadScript(idx + 1);
-          } else {
-              initExp();
-          }
-      });
-  }
+function loadScript(idx) {
+    console.log("Loading ", requiredResources[idx]);
+    jQuery.getScript(requiredResources[idx], function () {
+        if ((idx + 1) < requiredResources.length) {
+            loadScript(idx + 1);
+        } else {
+            initExp();
+        }
+    });
+}
 
-  if (window.Qualtrics && (!window.frameElement || window.frameElement.id !== "mobile-preview-view")) {
-      loadScript(0);
-  }
+if (window.Qualtrics && (!window.frameElement || window.frameElement.id !== "mobile-preview-view")) {
+    loadScript(0);
+}
 
 
-  // jQuery is loaded in Qualtrics by default
-  jQuery("<div id = 'display_stage_background'></div>").appendTo('body');
-  jQuery("<div id = 'display_stage'></div>").appendTo('body');
+// jQuery is loaded in Qualtrics by default
+jQuery("<div id = 'display_stage_background'></div>").appendTo('body');
+jQuery("<div id = 'display_stage'></div>").appendTo('body');
 
-  	//experimental session defining variables
+	//experimental session defining variables
 
-      var task_name = "grocery_price";
-      var sbj_id = "${e://Field/sub_id}";
+    var task_name = "grocery_ya";
+    var sbj_id = "${e://Field/id}";
+	//var pattern = "${e://Field/pattern}";
+	//var memory = "${e://Field/memory}";
 
-      // must put save_data php url here
-      var save_url = "https://psy.uncg.edu/exp_data/save_data.php";
-      var data_dir = "memory/grocery/data";
+    // must put save_data php url here
+    var save_url = "https://psy.uncg.edu/exp_data/save_data.php";
+    var data_dir = "memory/grocery/data";
 
-      // my preference is to include the task and sbj_id in the file name
-      var file_name = task_name + '_' + sbj_id;
+    // my preference is to include the task and sbj_id in the file name
+   var file_name = task_name + '_'   + sbj_id;
+	// var pattern_name = task_name + '_' + pattern + '_' + sbj_id;
+    function save_data_json() {
+        jQuery.ajax({
+            type: 'post',
+            cache: false,
+            url: save_url,
+            data: {
+                data_dir: data_dir,
+                file_name: file_name + '.json', // the file type should be added
+                exp_data: jsPsych.data.get().json()
+            }
+        });
+    }
 
-      function save_data_json() {
-          jQuery.ajax({
-              type: 'post',
-              cache: false,
-              url: save_url,
-              data: {
-                  data_dir: data_dir,
-                  file_name: file_name + '.json', // the file type should be added
-                  exp_data: jsPsych.data.get().json()
-              }
-          });
-      }
+ function initExp() {
 
-   function initExp() {
+	 jsPsych.init({
+             timeline: [preload, timeline],
+     	//	 preload_images:[p1_left, p1_right, p2_left, p2_right], // image preloading goes here
+      // preloading was deprecated
+             display_element: 'display_stage',
+             on_data_update: function(){
+     		            save_data_json();
+				 		//save_data_json2();
+     	       },
+             on_finish: function () {
+               save_data_json();
+				   // clear the stage
+    			   jQuery('#display_stage').remove();
+     			   jQuery('#display_stage_background').remove();
 
-  	 jsPsych.init({
-               timeline: timeline,
-               display_element: 'display_stage',
-               on_data_update: function(){
-       		            save_data_json();
-       	       },
-               on_finish: function () {
-                 save_data_json();
-  				   // clear the stage
-      			   jQuery('display_stage').remove();
-       			   jQuery('display_stage_background').remove();
+      			  // simulate click on Qualtrics "next" button, making use of the Qualtrics JS API
+      			  qthis.clickNextButton();
+         //
 
-        			  // simulate click on Qualtrics "next" button, making use of the Qualtrics JS API
-        			  qthis.clickNextButton();
-           //
+			 }
+	 });
+ }
 
-  			 }
-  	 });
-   }
+//});
+
+Qualtrics.SurveyEngine.addOnReady(function()
+{
+	/*Place your JavaScript here to run when the page is fully displayed*/
+
+});
+
+Qualtrics.SurveyEngine.addOnUnload(function()
+{
+	/*Place your JavaScript here to run when the page is unloaded*/
+
+});
+
+
 
 </script>
 </body>
