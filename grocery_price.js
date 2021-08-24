@@ -557,19 +557,18 @@ var block = {
   				type: "html-keyboard-response",
   				choices: ["ArrowLeft", "ArrowRight"],
   				stimulus: function(){
-  					var html='<div class="row">' +
-  											'<div class="column"><img src=' +
-  												jsPsych.timelineVariable("stimulus_1", true) +
-  													 ' style="width:150px;height:150px";>' +
-  													 '</img><p>   </p>' +
-  											//'</div>' +
-  											//'<div class="column">'+
-                        '<img src=' +
-  											jsPsych.timelineVariable("stimulus_2", true) +
-  											'  style="width:150px;height:150px";></img>'+
-  											//'</div>'+
-  										'</div>';
-  					return html;
+            var html='<div class="row">' +
+            											'<div class="column"><img src=' +
+            												jsPsych.timelineVariable("stimulus_1") +
+            													 ' style="width:150px;height:150px";>' +
+            													 '</img>' +
+            											'</div>' +
+            											'<div class="column"><img src=' +
+            											jsPsych.timelineVariable("stimulus_2") +
+            											'  style="width:150px;height:150px";></img>'+
+            											'</div>'+
+            										'</div>';
+            					return html;
   				},
   						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
   					//	post_trial_gap: 250,
