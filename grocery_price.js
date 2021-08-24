@@ -46,8 +46,9 @@ var test = eval(l_test_names[list]);
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
 
-for(var i = 0; i < 60; i++) {
+for(var i = 0; i < 80; i++) {
     test_shuffled[i].att_chk = false;
+    test_shuffled[i].trial_id = i;
 }
 
 
