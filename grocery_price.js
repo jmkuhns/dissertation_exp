@@ -219,10 +219,10 @@ var test_function = {
   }
 
 var attn_check_words_init = [
-    { word: "wires" },
-    { word: "theme" },
-    { word: "lone"  },
-    { word: "morsel" }
+    { word: "wires", att_chk = true },
+    { word: "theme", att_chk = true },
+    { word: "lone", att_chk = true  },
+    { word: "morsel", att_chk = true }
   ];
 var attn_check_words = jsPsych.randomization.shuffle(attn_check_words_init);
 
