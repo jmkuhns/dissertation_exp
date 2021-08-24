@@ -19,19 +19,21 @@
 
              // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
              const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
-           // put num in first twenty
-           var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
-           // next twenty become 21-40
-           var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range(24, 39, 1))[0];
+             // put num in first twenty; 0-19
+             var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
+             // next is 20-39
+             var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range(23, 38, 1))[0];
+             // 40-59
+             var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range(43, 58, 1))[0];
+             // 60-79
+             var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range(63, 78, 1))[0];
 
-           var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range(45, 59, 1))[0];
+           var test_shuf_one = test_list_2.slice(0,atten_check_one);
+           var test_shuf_two = test_list_2.slice(atten_check_one, atten_check_two);
+           var test_shuf_three = test_list_2.slice(atten_check_two, atten_check_three);
+           var test_shuf_four = test_list_2.slice(atten_check_three, atten_check_four);
+           var test_shuf_five = test_list_2.slice(atten_check_four);
 
-           var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range(66, 78, 1))[0];
-
-           test_list_2.splice(atten_check_one, 0, attn_check_words_shuf[0]);
-           test_list_2.splice(atten_check_two, 0, attn_check_words_shuf[1]);
-           test_list_2.splice(atten_check_three, 0, attn_check_words_shuf[2]);
-           test_list_2.splice(atten_check_four, 0, attn_check_words_shuf[3]);
            </script>
        </head>
    </html>
