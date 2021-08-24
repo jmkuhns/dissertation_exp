@@ -5,5 +5,33 @@
          <script src="https://jmkuhns.github.io/dissertation_exp/jspsych-6.3.1/plugins/jspsych-html-keyboard-response.js" charset="utf-8"></script>
 
            <script type = "text/javascript" src = "grocery_lists/test_lists/list_2.js"></script>
+
+
+           <script>
+           var attn_check_words = [
+               { word: "wires", att_chk: true },
+               { word: "theme", att_chk: true },
+               { word: "lone", att_chk: true  },
+               { word: "morsel", att_chk: true }
+             ];
+
+           var attn_check_words_shuf = jsPsych.randomization.shuffle(attn_check_words);
+
+             // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
+             const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+           // put num in first twenty
+           var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
+           // next twenty become 21-40
+           var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range(24, 39, 1))[0];
+
+           var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range(45, 59, 1))[0];
+
+           var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range(66, 78, 1))[0];
+
+           test_list_2.splice(atten_check_one, 0, attn_check_words_shuf[0]);
+           test_list_2.splice(atten_check_two, 0, attn_check_words_shuf[1]);
+           test_list_2.splice(atten_check_three, 0, attn_check_words_shuf[2]);
+           test_list_2.splice(atten_check_four, 0, attn_check_words_shuf[3]);
+           </script>
        </head>
    </html>
