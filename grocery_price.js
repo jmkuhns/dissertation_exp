@@ -36,21 +36,55 @@ var l_test_names = ["test_list_1",
 var study = eval(l_web_names[list]);
 var test = eval(l_test_names[list]);
 
+for(var i = 0; i < 80; i++) {
+    test[i].att_chk = false;
+}
 
+var attn_check_words = [
+    { word: "wires", att_chk: true },
+    { word: "theme", att_chk: true },
+    { word: "lone", att_chk: true  },
+    { word: "morsel", att_chk: true }
+  ];
 
+var attn_check_words_shuf = jsPsych.randomization.shuffle(attn_check_words);
 
-// study and test will be filled out variables
-// as if they were manually defined
-// var prac = [{bob: "hey", phil: "yo"}, {bob:"yo", phil: "hey"}];
+  // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
+  const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+// put num in first twenty; 0-19
+var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
+// next is 20-39
+var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range(23, 38, 1))[0];
+// 40-59
+var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range(43, 58, 1))[0];
+// 60-79
+var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range(63, 78, 1))[0];
 
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
 
-for(var i = 0; i < 80; i++) {
-    test_shuffled[i].att_chk = false;
-    test_shuffled[i].trial_id = i;
-}
+// slice selects obj at first index and includes objs up to but not including second index
+var test_shuf_one = test_shuffled.slice(0,atten_check_one);
+var test_shuf_two = test_shuffled.slice(atten_check_one, atten_check_two);
+var test_shuf_three = test_shuffled.slice(atten_check_two, atten_check_three);
+var test_shuf_four = test_shuffled.slice(atten_check_three, atten_check_four);
+var test_shuf_five = test_shuffled.slice(atten_check_four);
 
+
+var attn_check = {
+    type: 'survey-text',
+    questions: [
+      { prompt: function(){
+        html = "<p>Please type the word " +
+        jsPsych.timelineVariable("word") +
+        " into the text box below.</p>";
+        return html;
+      }
+    }],
+    data: {
+  		exp_stage: "attention_check"
+    }
+  };
 
 var study_instructions_welcome = {
   type: 'html-keyboard-response',
@@ -138,41 +172,34 @@ var test_instructions = {
 
 
 var test_function = {
-    timeline: [
-      {
-        type: 'html-button-response',
-        stimulus:  function(){
-     html =  '<div class="row">' +
-    jsPsych.timelineVariable('question_prompt') +
-     '</div>'+
-     '<div class = "row">' +
-       '<div class="column">' +
-        "<p style='font-size:25px'>" +
-       jsPsych.timelineVariable('item') +
-       // '</div>' +
-        ' -- $' +
-       jsPsych.timelineVariable("test_price")+
-        "</p><br><br>" +
-       '</div>'+
-     '</div>';
-          return html;
-        },
-        choices: jsPsych.timelineVariable('buttons'),
-        post_trial_gap: function(){
-    return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
-  }
-      }
-    ],
     timeline_variables: [
       {
+        type: 'html-button-response',
         question_type: ["associative"] ,
-        buttons: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
+        choices: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
+        stimulus:  function(){
+          html =  '<div class="row">' +
+          jsPsych.timelineVariable('question_prompt') +
+            '</div>'+
+              '<div class = "row">' +
+                '<div class="column">' +
+                  "<p style='font-size:25px'>" +
+                    jsPsych.timelineVariable('item') +
+                      // '</div>' +
+                        ' -- $' +
+                        jsPsych.timelineVariable("test_price")+
+                        "</p><br><br>" +
+                        '</div>'+
+                        '</div>';
+              return html;
+        },
         data: {memory: "memory", exp_stage: "study"},
         question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br><br>"],
       },
       {
+        type: 'html-button-response',
         question_type: ["source"] ,
-        buttons: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
+        choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
         data: {memory: "memory", exp_stage: "study"},
         question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"],
         stimulus:  function(){
@@ -194,7 +221,7 @@ var test_function = {
       },
       {
         question_type: ["item"] ,
-        buttons: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
+        choices: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
         data: {memory: "memory", exp_stage: "study"},
         question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"],
         stimulus:  function(){
@@ -218,46 +245,45 @@ var test_function = {
 
   }
 
-var attn_check_words_init = [
-    { word: "wires", att_chk = true },
-    { word: "theme", att_chk = true },
-    { word: "lone", att_chk = true  },
-    { word: "morsel", att_chk = true }
-  ];
-var attn_check_words = jsPsych.randomization.shuffle(attn_check_words_init);
 
-var attn_check = {
-    type: 'survey-text',
-    questions: [
-      { prompt: function(){
-        html = "<p>Please type the word " +
-        jsPsych.timelineVariable("word") +
-        " into the text box below.</p>";
-        return html;
-      }
-    }],
-    data: {
-  		exp_stage: "attention_check"
-    },
-    timeline_variables: attn_check_words
-  };
-
-  var test_timeline = {
+  var test_timeline1 = {
       timeline: [test_function],
-      timeline_variables: test_shuffled,
+      timeline_variables: test_shuf_one,
       //randomize_order: true,
       on_finish: console.log(list)
     };
-
-var expanded_test = {
-  timeline: [test_timeline, attn_check],
-  sample:{
-    type: "with-replacement",
-    size: 84,
-    weights: [80, 4]
-  }
-
-};
+    var attention_check_one = {
+      timeline: attn_check,
+      timeline_variables: attn_check_words_shuf[0]
+    }
+  var test_timeline2 = {
+      timeline: [test_function],
+      timeline_variables: test_shuf_two
+    };
+    var attention_check_two = {
+      timeline: attn_check,
+      timeline_variables: attn_check_words_shuf[1]
+    }
+  var test_timeline3 = {
+      timeline: [test_function],
+      timeline_variables: test_shuf_three
+    };
+    var attention_check_three = {
+      timeline: attn_check,
+      timeline_variables: attn_check_words_shuf[2]
+    }
+  var test_timeline4 = {
+      timeline: [test_function],
+      timeline_variables: test_shuf_four
+    };
+    var attention_check_four = {
+      timeline: attn_check,
+      timeline_variables: attn_check_words_shuf[3]
+    }
+  var test_timeline5 = {
+      timeline: [test_function],
+      timeline_variables: test_shuf_five
+    };
 /*
 var foo = [];
 for (var i = 0; i <= 83; i++) {
@@ -1138,7 +1164,14 @@ timeline.push(study_timeline);
   timeline.push(test_trials_p2_trl2);
 */
 // now back to memory
-
-//  timeline.push(test_instructions);
-
-  timeline.push(expanded_test);
+// test_timeline1 attention_check_one
+  timeline.push(test_instructions);
+  timeline.push(test_timeline1);
+  timeline.push(attention_check_one);
+  timeline.push(test_timeline2);
+  timeline.push(attention_check_two);
+  timeline.push(test_timeline3);
+  timeline.push(attention_check_three);
+  timeline.push(test_timeline4);
+  timeline.push(attention_check_four);
+  timeline.push(test_timeline5);
