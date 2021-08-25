@@ -274,7 +274,7 @@ var test_function = {
       timeline_variables: attention_check_word_one
     }
   var test_timeline2 = {
-      timeline: test_function,
+      timeline: [test_function],
       timeline_variables: test_shuf_two,
       on_start: console.log(test_shuf_two.length)
     };
