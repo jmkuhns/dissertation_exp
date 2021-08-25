@@ -54,13 +54,10 @@ var attention_check_word_two = attn_check_words_shuf[1];
 var attention_check_word_three = attn_check_words_shuf[2];
 var attention_check_word_four = attn_check_words_shuf[3];
 
-  // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
-var range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
-
-var range1 = range(3, 18, 1);
-var range2 = range(23, 38, 1);
-var range3 = range(43, 58, 1);
-var range4 = range(63, 78, 1);
+var range1 = [3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16 , 17 , 18];
+var range2 = [23 , 24 , 25 , 26 , 27 , 28 , 29 , 30 , 31 , 32 , 33 , 34 , 35 , 36 , 37 , 38];
+var range3 = [43 , 44 , 45 , 46 , 47 , 48 , 49 , 50 , 51 , 52 , 53 , 54 , 55 , 56 , 57 , 58];
+var range4 = [63 , 64 , 65 , 66 , 67 , 68 , 69 , 70 , 71 , 72 , 73 , 74 , 75 , 76 , 77 , 78];
 
 
 // put num in first twenty; 0-19
