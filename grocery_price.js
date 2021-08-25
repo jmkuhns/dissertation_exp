@@ -251,23 +251,23 @@ var test_function = {
 
 
   var test_timeline1 = {
-      timeline: [test_function],
+      timeline: test_function,
       timeline_variables: test_shuf_one,
       on_start: console.log(test_shuf_one.length),
       //randomize_order: true,
       on_finish: console.log(list)
     };
   var attention_check_one = {
-      timeline: attn_check,
+      timeline: [attn_check],
       timeline_variables: [{word: attn_check_words_shuf[0]} ]
     }
   var test_timeline2 = {
-      timeline: [test_function],
+      timeline: test_function,
       timeline_variables: test_shuf_two,
       on_start: console.log(test_shuf_two.length)
     };
   var attention_check_two = {
-      timeline: attn_check,
+      timeline: [attn_check],
       timeline_variables: [{word: attn_check_words_shuf[1]} ]
     }
   var test_timeline3 = {
@@ -276,7 +276,7 @@ var test_function = {
       on_start: console.log(test_shuf_three.length)
     };
   var attention_check_three = {
-      timeline: attn_check,
+      timeline: [attn_check],
       timeline_variables: [{word: attn_check_words_shuf[2]} ]
     }
   var test_timeline4 = {
@@ -285,7 +285,7 @@ var test_function = {
       on_start: console.log(test_shuf_four.length)
     };
   var attention_check_four = {
-      timeline: attn_check,
+      timeline: [attn_check],
       timeline_variables: [{word: attn_check_words_shuf[3]} ]
     }
   var test_timeline5 = {
