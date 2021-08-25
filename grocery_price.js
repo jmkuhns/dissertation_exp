@@ -56,14 +56,21 @@ var attention_check_word_four = attn_check_words_shuf[3];
 
   // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
 var range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+
+var range1 = range(3, 18, 1);
+var range2 = range(23, 38, 1);
+var range3 = range(43, 58, 1);
+var range4 = range(63, 78, 1);
+
+
 // put num in first twenty; 0-19
-var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
+var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range1)[0];
 // next is 20-39
-var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range(23, 38, 1))[0];
+var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range2)[0];
 // 40-59
-var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range(43, 58, 1))[0];
+var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range3)[0];
 // 60-79
-var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range(63, 78, 1))[0];
+var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range4)[0];
 
 var study_shuffled = jsPsych.randomization.shuffle(study);
 var test_shuffled = jsPsych.randomization.shuffle(test);
@@ -96,10 +103,10 @@ var study_instructions_welcome = {
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
   data:{exp_stage: "instruction"},
   on_start: function(){
-    var rnage = range(0,9,1);
+    
     html = "1 "+atten_check_one + ", 2 " + atten_check_two +
     ", 3 " + atten_check_three + ", 4 " + atten_check_four +
-    rnage + attention_check_word_one
+    range1 + attention_check_word_one
 
     console.log(html)
   }
