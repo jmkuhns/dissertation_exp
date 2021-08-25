@@ -180,7 +180,7 @@ var test_function = {
         choices: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
         stimulus:  function(){
           html =  '<div class="row">' +
-          jsPsych.timelineVariable('question_prompt') +
+          "<p style='font-size:25px'>Were these items studied together?</p><br><br>" +
             '</div>'+
               '<div class = "row">' +
                 '<div class="column">' +
@@ -194,17 +194,18 @@ var test_function = {
                         '</div>';
               return html;
         },
-        data: {memory: "memory", exp_stage: "study"},
+        data: {memory: "memory", exp_stage: "test", question_type: "associative"
+      },
 
       },
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
-        data: {memory: "memory", exp_stage: "study"},
+        data: {memory: "memory", exp_stage: "test", question_type: "source"},
 
         stimulus:  function(){
             html =  '<div class="row">' +
-            jsPsych.timelineVariable('question_prompt') +
+            "<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>" +
             '</div>'+
             '<div class = "row">' +
             '<div class="column">' +
@@ -222,11 +223,10 @@ var test_function = {
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
-        data: {memory: "memory", exp_stage: "study"},
-
+        data: {memory: "memory", exp_stage: "test", question_type: "item"},
         stimulus:  function(){
             html =  '<div class="row">' +
-            jsPsych.timelineVariable('question_prompt') +
+            "<p style='font-size:25px'>Was this price originally studied?</p><br><br>" +
             '</div>'+
             '<div class = "row">' +
             '<div class="column">' +
@@ -241,20 +241,14 @@ var test_function = {
           return html;
         }
       }
-    ],
-    timeline_variables: [
-      {question_type: "associative" ,
-      question_prompt: "<p style='font-size:25px'>Were these items studied together?</p><br><br>" },
-    {        question_type: "source" ,
-    question_prompt: "<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"},
-    {question_type: "item" ,
-    question_prompt: "<p style='font-size:25px'>Was this price originally studied?</p><br><br>"}  ]
+    ]
   }
 
 
   var test_timeline1 = {
       timeline: [test_function],
       timeline_variables: test_shuf_one,
+      on_start: console.log(test_shuf_one),
       //randomize_order: true,
       on_finish: console.log(list)
     };
