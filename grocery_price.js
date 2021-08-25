@@ -90,7 +90,7 @@ var study_instructions_welcome = {
   type: 'html-keyboard-response',
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
   data:{exp_stage: "instruction"},
-  on_finish: function(){
+  on_start: function(){
     var rnage = range(0,9,1);
     html = "1 "+atten_check_one + ", 2 " + atten_check_two +
     ", 3 " + atten_check_three + ", 4 " + atten_check_four +
