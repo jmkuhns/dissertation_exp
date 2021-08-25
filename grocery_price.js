@@ -221,6 +221,7 @@ var test_function = {
         }
       },
       {
+        type: 'html-button-response',
         question_type: ["item"] ,
         choices: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
         data: {memory: "memory", exp_stage: "study"},
