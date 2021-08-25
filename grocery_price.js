@@ -373,13 +373,14 @@ var block = {
 // Loading files automatically based on the main timeline
   var preload = {
       type: 'preload',
-      auto_preload: true ,// automatically load all files based on the main timeline
-      on_success: function(file) {
+      auto_preload: true //, automatically load all files based on the main timeline
+    /*  on_success: function(file) {
           console.log('File loaded: ',file);
           },
       on_error: function(file) {
           console.log('Error loading file: ',file);
           }
+          */
   };
 
   // define other trials to add to the timeline...
