@@ -50,7 +50,7 @@ var attn_check_words = [
 var attn_check_words_shuf = jsPsych.randomization.shuffle(attn_check_words);
 
   // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
-  const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
+const range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
 // put num in first twenty; 0-19
 var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range(3, 18, 1))[0];
 // next is 20-39
