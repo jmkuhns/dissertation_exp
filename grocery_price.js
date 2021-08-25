@@ -103,7 +103,7 @@ var study_instructions_welcome = {
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
   data:{exp_stage: "instruction"},
   on_start: function(){
-    
+
     html = "1 "+atten_check_one + ", 2 " + atten_check_two +
     ", 3 " + atten_check_three + ", 4 " + atten_check_four +
     range1 + attention_check_word_one
@@ -273,7 +273,7 @@ var test_function = {
     };
   var attention_check_one = {
       timeline: [attn_check],
-      timeline_variables: [ {word: attn_check_words_shuf[0]} ]
+      timeline_variables: attention_check_word_one
     }
   var test_timeline2 = {
       timeline: test_function,
@@ -282,7 +282,7 @@ var test_function = {
     };
   var attention_check_two = {
       timeline: [attn_check],
-      timeline_variables: [{word: attn_check_words_shuf[1]} ]
+      timeline_variables: attention_check_word_two
     }
   var test_timeline3 = {
       timeline: [test_function],
@@ -291,7 +291,7 @@ var test_function = {
     };
   var attention_check_three = {
       timeline: [attn_check],
-      timeline_variables: [{word: attn_check_words_shuf[2]} ]
+      timeline_variables: attention_check_word_three
     }
   var test_timeline4 = {
       timeline: [test_function],
@@ -300,7 +300,7 @@ var test_function = {
     };
   var attention_check_four = {
       timeline: [attn_check],
-      timeline_variables: [{word: attn_check_words_shuf[3]} ]
+      timeline_variables: attention_check_word_four
     }
   var test_timeline5 = {
       timeline: [test_function],
