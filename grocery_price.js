@@ -259,7 +259,7 @@ var test_function = {
     };
   var attention_check_one = {
       timeline: attn_check,
-      timeline_variables: attn_check_words_shuf[0]
+      timeline_variables: [{word: attn_check_words_shuf[0]} ]
     }
   var test_timeline2 = {
       timeline: [test_function],
@@ -268,7 +268,7 @@ var test_function = {
     };
   var attention_check_two = {
       timeline: attn_check,
-      timeline_variables: attn_check_words_shuf[1]
+      timeline_variables: [{word: attn_check_words_shuf[1]} ]
     }
   var test_timeline3 = {
       timeline: [test_function],
@@ -277,7 +277,7 @@ var test_function = {
     };
   var attention_check_three = {
       timeline: attn_check,
-      timeline_variables: attn_check_words_shuf[2]
+      timeline_variables: [{word: attn_check_words_shuf[2]} ]
     }
   var test_timeline4 = {
       timeline: [test_function],
@@ -286,7 +286,7 @@ var test_function = {
     };
   var attention_check_four = {
       timeline: attn_check,
-      timeline_variables: attn_check_words_shuf[3]
+      timeline_variables: [{word: attn_check_words_shuf[3]} ]
     }
   var test_timeline5 = {
       timeline: [test_function],
