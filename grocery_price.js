@@ -176,7 +176,7 @@ var test_function = {
   timeline: [
       {
         type: 'html-button-response',
-        question_type: ["associative"] ,
+
         choices: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
         stimulus:  function(){
           html =  '<div class="row">' +
@@ -195,14 +195,13 @@ var test_function = {
               return html;
         },
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Were these items studied together?</p><br><br>"],
+
       },
       {
         type: 'html-button-response',
-        question_type: ["source"] ,
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"],
+
         stimulus:  function(){
             html =  '<div class="row">' +
             jsPsych.timelineVariable('question_prompt') +
@@ -222,10 +221,9 @@ var test_function = {
       },
       {
         type: 'html-button-response',
-        question_type: ["item"] ,
         choices: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
         data: {memory: "memory", exp_stage: "study"},
-        question_prompt: ["<p style='font-size:25px'>Was this price originally studied?</p><br><br>"],
+
         stimulus:  function(){
             html =  '<div class="row">' +
             jsPsych.timelineVariable('question_prompt') +
@@ -243,8 +241,14 @@ var test_function = {
           return html;
         }
       }
-    ]
-
+    ],
+    timeline_variables: [
+      {question_type: "associative" ,
+      question_prompt: "<p style='font-size:25px'>Were these items studied together?</p><br><br>" },
+    {        question_type: "source" ,
+    question_prompt: "<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>"},
+    {question_type: "item" ,
+    question_prompt: "<p style='font-size:25px'>Was this price originally studied?</p><br><br>"}  ]
   }
 
 
@@ -254,7 +258,7 @@ var test_function = {
       //randomize_order: true,
       on_finish: console.log(list)
     };
-    var attention_check_one = {
+  var attention_check_one = {
       timeline: attn_check,
       timeline_variables: attn_check_words_shuf[0]
     }
@@ -262,7 +266,7 @@ var test_function = {
       timeline: [test_function],
       timeline_variables: test_shuf_two
     };
-    var attention_check_two = {
+  var attention_check_two = {
       timeline: attn_check,
       timeline_variables: attn_check_words_shuf[1]
     }
@@ -270,7 +274,7 @@ var test_function = {
       timeline: [test_function],
       timeline_variables: test_shuf_three
     };
-    var attention_check_three = {
+  var attention_check_three = {
       timeline: attn_check,
       timeline_variables: attn_check_words_shuf[2]
     }
@@ -278,7 +282,7 @@ var test_function = {
       timeline: [test_function],
       timeline_variables: test_shuf_four
     };
-    var attention_check_four = {
+  var attention_check_four = {
       timeline: attn_check,
       timeline_variables: attn_check_words_shuf[3]
     }
@@ -389,7 +393,7 @@ var block = {
       on_error: function(file) {
           console.log('Error loading file: ',file);
           }
-          
+
 */
 
   // define other trials to add to the timeline...
