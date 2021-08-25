@@ -373,7 +373,15 @@ var block = {
 // Loading files automatically based on the main timeline
   var preload = {
       type: 'preload',
-      images: [p1_left, p1_right, p2_left, p2_right]
+      images: [p1_left, p1_right, p2_left, p2_right,
+      patterns_practice+"prac_1_1.png",
+      patterns_practice + "prac_1_2.png",
+      patterns_practice+"prac_2_1.png",
+      patterns_practice + "prac_2_2.png",
+      patterns_practice+"prac_3_1.png",
+      patterns_practice + "prac_3_2.png",
+    ]
+    };
       //auto_preload: true //, automatically load all files based on the main timeline
     /*  on_success: function(file) {
           console.log('File loaded: ',file);
@@ -382,7 +390,7 @@ var block = {
           console.log('Error loading file: ',file);
           }
           */
-  };
+
 
   // define other trials to add to the timeline...
 //
