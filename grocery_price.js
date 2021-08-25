@@ -49,6 +49,11 @@ var attn_check_words = [
 
 var attn_check_words_shuf = jsPsych.randomization.shuffle(attn_check_words);
 
+var attention_check_word_one = attn_check_words_shuf[0];
+var attention_check_word_two = attn_check_words_shuf[1];
+var attention_check_word_three = attn_check_words_shuf[2];
+var attention_check_word_four = attn_check_words_shuf[3];
+
   // Sequence generator function (commonly referred to as "range", e.g. Clojure, PHP etc)
 var range = (start, stop, step) => Array.from({ length: (stop - start) / step + 1}, (_, i) => start + (i * step));
 // put num in first twenty; 0-19
@@ -94,7 +99,8 @@ var study_instructions_welcome = {
     var rnage = range(0,9,1);
     html = "1 "+atten_check_one + ", 2 " + atten_check_two +
     ", 3 " + atten_check_three + ", 4 " + atten_check_four +
-    rnage
+    rnage + attention_check_word_one
+
     console.log(html)
   }
 };
@@ -252,7 +258,7 @@ var test_function = {
 
 
   var test_timeline1 = {
-      timeline: test_function,
+      timeline: [test_function],
       timeline_variables: test_shuf_one,
       on_start: console.log(test_shuf_one.length),
       //randomize_order: true,
@@ -260,7 +266,7 @@ var test_function = {
     };
   var attention_check_one = {
       timeline: [attn_check],
-      timeline_variables: [{word: attn_check_words_shuf[0]} ]
+      timeline_variables: [ {word: attn_check_words_shuf[0]} ]
     }
   var test_timeline2 = {
       timeline: test_function,
