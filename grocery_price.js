@@ -382,7 +382,8 @@ var block = {
       patterns_practice + "prac_2_2.png",
       patterns_practice+"prac_3_1.png",
       patterns_practice + "prac_3_2.png",
-    ]
+    ],
+    on_success: console.log("it worked I guess")
     };
       //auto_preload: true //, automatically load all files based on the main timeline
       /*
@@ -1160,7 +1161,7 @@ var block = {
   					}
   			}
   };
-  
+
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 /*
