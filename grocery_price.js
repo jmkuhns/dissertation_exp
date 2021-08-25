@@ -373,7 +373,8 @@ var block = {
 // Loading files automatically based on the main timeline
   var preload = {
       type: 'preload',
-      auto_preload: true //, automatically load all files based on the main timeline
+      images: [p1_left, p1_right, p2_left, p2_right]
+      //auto_preload: true //, automatically load all files based on the main timeline
     /*  on_success: function(file) {
           console.log('File loaded: ',file);
           },
