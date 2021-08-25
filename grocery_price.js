@@ -53,6 +53,7 @@ var attention_check_word_one = attn_check_words_shuf[0];
 var attention_check_word_two = attn_check_words_shuf[1];
 var attention_check_word_three = attn_check_words_shuf[2];
 var attention_check_word_four = attn_check_words_shuf[3];
+
 // copy pasted from R console output from call > cat(paste(3:18, ","))
 var range1 = [3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16 , 17 , 18];
 var range2 = [23 , 24 , 25 , 26 , 27 , 28 , 29 , 30 , 31 , 32 , 33 , 34 , 35 , 36 , 37 , 38];
