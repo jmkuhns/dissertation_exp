@@ -172,8 +172,8 @@ var test_instructions = {
 
 
 var test_function = {
-//  type: 'html-button-response',
-  timeline_variables: [
+  type: 'html-button-response',
+  timeline: [
       {
         type: 'html-button-response',
         question_type: ["associative"] ,
