@@ -5,8 +5,7 @@
 var timeline = [];
 
 // should be uniform across sample, but will create small differences in subjects per list
-//var list = jsPsych.randomization.sampleWithoutReplacement([0,1,2,3,4,5,6,7,8,9],1)[0];
-var list = 4;
+var list = jsPsych.randomization.sampleWithoutReplacement([0,1,2,3,4,5,6,7,8,9],1)[0];
 // going to load every list in qualtrics
 // part, which means that I can just pick the list randomly above, and then start referring to the chosen list
 
