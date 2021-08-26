@@ -86,7 +86,7 @@ var attn_check = {
     questions: [
       { prompt: function(){
         html = "<p>Please type the word " +
-        jsPsych.timelineVariable("word") +
+        jsPsych.timelineVariable("word", TRUE) +
         " into the text box below.</p>";
         return html;
       }
@@ -269,7 +269,7 @@ var test_function = {
     };
   var attention_check_one = {
       timeline: [attn_check],
-      timeline_variables: attention_check_word_one
+      timeline_variables: [attention_check_word_one]
     }
   var test_timeline2 = {
       timeline: [test_function],
