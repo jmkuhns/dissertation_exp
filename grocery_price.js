@@ -98,17 +98,11 @@ var attn_check = {
 var study_instructions_welcome = {
   type: 'html-keyboard-response',
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
-  data:{exp_stage: "instruction"},
-  on_start: function(){
-
-    html =  attention_check_word_one
-
-    console.log(html)
-  }
+  data:{exp_stage: "instruction"}
 };
 
 var study_instructions={
-  type: "instructions",
+  type: "instructions-min-viewing-time",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
   '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect the market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
@@ -116,6 +110,7 @@ var study_instructions={
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
   post_trial_gap: 300,
+  min_viewing_time: 3500,
   data:{
     memory: 'memory',
     exp_stage: "instructions"
@@ -158,7 +153,7 @@ var study_timeline = {
 }
 
 var test_instructions = {
-  type: "instructions",
+  type: "instructions-min-viewing-time",
   pages:[
     "<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>",
   '<p style:"font-size:30px">Memory Test</p>' +
@@ -179,6 +174,7 @@ var test_instructions = {
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
   post_trial_gap: 300,
+  min_viewing_time: 4000,
   data:{
     memory: 'memory',
     exp_stage: "instructions"
@@ -429,7 +425,7 @@ var test_function = {
   }
 
   	var instructions = {
-        type: "instructions",
+      type: "instructions-min-viewing-time",
   		pages:[
         "You have completed study of the grocery items. Before taking the memory test, you will complete a pattern comparison task. Press the right arrow key to see the instructions.",
   	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
@@ -441,6 +437,7 @@ var test_function = {
   //		key_forward: "ArrowRight",
   //		key_backward: "ArrowLeft",
   		post_trial_gap: 250,
+      min_viewing_time: 3500,
   		data:{pattern: 'pattern',
   	    exp_stage: "instructions"
   	  }
@@ -496,8 +493,8 @@ var test_function = {
   	var time_out = 0;
 
   	var interim_instructions = {
-  	  type: "html-keyboard-response",
-  	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+      type: "instructions-min-viewing-time",
+  		pages: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
   	  '<br><p>Press any key to begin.</p>',
   	  post_trial_gap: 250,
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
@@ -818,8 +815,8 @@ var test_function = {
 
 
   var interim_instructions_2 = {
-    type: "html-keyboard-response",
-    stimulus:[
+    type: "instructions-min-viewing-time",
+    pages:[
     '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
     '<br><p>Press the right arrow key to begin.</p>'
   ],
@@ -827,6 +824,7 @@ var test_function = {
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
   //  choices: "Enter" ,
+    min_viewing_time: 2500,
     data:{pattern: 'pattern',
       exp_stage: "instructions"
     },
