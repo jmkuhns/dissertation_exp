@@ -523,25 +523,13 @@ var block = {
         var html = '<table><tr>' +
         '<td><img src='+
           jsPsych.timelineVariable("stimulus_1") +
-             ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;";>' +
+             ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";>' +
              '</img></td>' +
         '<td><img src='+
         jsPsych.timelineVariable("stimulus_2") +
-        '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;";></img>'+
+        '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";></img>'+
                    '</td></table>';
                      return html;
-      /*  var html='<div class="row">' +
-                              '<div class="column"><img src=' +
-                                jsPsych.timelineVariable("stimulus_1") +
-                                   ' style="width:150px;height:150px";>' +
-                                   '</img>' +
-                              '</div>' +
-                              '<div class="column"><img src=' +
-                              jsPsych.timelineVariable("stimulus_2") +
-                              '  style="width:150px;height:150px";></img>'+
-                              '</div>'+
-                            '</div>';
-                            return html; */
 
   	  }
   		//,
@@ -598,11 +586,11 @@ var block = {
             var html = '<table><tr>' +
             '<td><img src='+
               jsPsych.timelineVariable("stimulus_1") +
-                 ' style="width:150px;height:150px;position:relative;left:30px";>' +
+                 ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";>' +
                  '</img></td>' +
             '<td><img src='+
             jsPsych.timelineVariable("stimulus_2") +
-            '  style="width:150px;height:150px;position:relative;left:30px";></img>'+
+            '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";></img>'+
                        '</td></table>';
                          return html;
         /*    var html='<div class="row">' +
