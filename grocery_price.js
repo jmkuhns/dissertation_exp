@@ -523,11 +523,11 @@ var block = {
         var html = '<table><tr>' +
         '<td><img src='+
           jsPsych.timelineVariable("stimulus_1") +
-             ' style="width:150px;height:150px";>' +
+             ' style="width:150px;height:150px;position:relative;left:30px";>' +
              '</img></td>' +
         '<td><img src='+
         jsPsych.timelineVariable("stimulus_2") +
-        '  style="width:150px;height:150px";></img>'+
+        '  style="width:150px;height:150px;position:relative;left:30px";></img>'+
                    '</td></table>';
                      return html;
       /*  var html='<div class="row">' +
@@ -598,11 +598,11 @@ var block = {
             var html = '<table><tr>' +
             '<td><img src='+
               jsPsych.timelineVariable("stimulus_1") +
-                 ' style="width:150px;height:150px";>' +
+                 ' style="width:150px;height:150px;position:relative;left:30px";>' +
                  '</img></td>' +
             '<td><img src='+
             jsPsych.timelineVariable("stimulus_2") +
-            '  style="width:150px;height:150px";></img>'+
+            '  style="width:150px;height:150px;position:relative;left:30px";></img>'+
                        '</td></table>';
                          return html;
         /*    var html='<div class="row">' +
