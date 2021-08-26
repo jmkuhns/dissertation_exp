@@ -527,7 +527,7 @@ var test_function = {
   					//	post_trial_gap: 250,
   						trial_duration: function(){
   							return limit;
-  						},
+  						}
 
   				}
 
