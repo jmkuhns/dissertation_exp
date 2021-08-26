@@ -523,11 +523,11 @@ var block = {
         var html = '<table><tr>' +
         '<td><img src='+
           jsPsych.timelineVariable("stimulus_1") +
-             ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";>' +
+             ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;padding: 50px 0px 50px 50px";>' +
              '</img></td>' +
         '<td><img src='+
         jsPsych.timelineVariable("stimulus_2") +
-        '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";></img>'+
+        '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;padding: 50px 50px 50px 0px";></img>'+
                    '</td></table>';
                      return html;
 
