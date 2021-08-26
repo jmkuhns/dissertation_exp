@@ -111,7 +111,7 @@ var study_instructions={
   type: "instructions",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
-  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect that market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect the market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
 ],
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
@@ -302,74 +302,6 @@ var test_function = {
       timeline_variables: test_shuf_five,
       on_start: console.log(test_shuf_five.length)
     };
-/*
-var foo = [];
-for (var i = 0; i <= 83; i++) {
-    foo.push(i);
-  }
-  var attention_check_sample = jsPsych.randomization.sampleWithoutReplacement(foo, 4);
-
-  // the console log below is so that you can see which trial indices were selected to be attention checks
-   // each time you run the experiment
-   console.log('attention check trials: ', attention_check_sample);
-
-   // create a new array based on trial info, but with the 'att_check' property changed to 'true'
-   // for the trials that were randomly sampled
-   var trial_info_att_checks = [];
-   trial_info.forEach(function(el, ind) {
-     if (attention_check_sample.includes(ind)) {
-       el.att_check = true;
-       trial_info_att_checks.push(el);
-     } else {
-       trial_info_att_checks.push(el);
-     }
-   });
-
-var attention_check_location = null;
-var trial_counter = 0;
-var pick_attention_check_location = {
-	type: 'call-function',
-	func: function(){
-		// creating possible location array for easier modification of where the trial can occur
-
-		attention_check_location = jsPsych.randomization.sampleWithoutReplacement(possible_locations, 1)[0];
-	}
-}
-
-
-var attention_check_conditional = {
-	timeline: [attn_check],
-	conditional_function: function(){
-		trial_counter++; // can increment the counter here because this code will run on every iteration of the timeline
-		if(trial_counter == attention_check_location){
-			return true;
-		} else {
-			return false;
-		}
-	}
-}
-
-var block = {
-	timeline: [attention_check_conditional, ready_scr, pic_scr, blank_scr],
-	timeline_variables: trial_stimuli,
-	sample: {
-		type: 'custom',
-		fn: function () {
-			var order = jsPsych.randomization.shuffle(groups); // shuffle 4 groups
-			var selected_items = [];
-			// iterate through 4 groups and get four image from each group
-			for (var i = 0; i < 4; i++) {
-                        	var new_items = jsPsych.randomization.sampleWithReplacement(order[i], 4); //select four items from each emotion group
-				selected_items = selected_items.concat(new_items);
-			}
-			var final_items = jsPsych.randomization.shuffle(selected_items);
-			return final_items;
-		}
-	},
-};
-
-*/
-
 
 // pattern comparison below here; timeline pushed at very end
 
