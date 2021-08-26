@@ -547,7 +547,7 @@ var block = {
   		//,
   	  //    post_trial_gap: 250
   	  }],
-  				prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+  				prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
   	  on_finish: function(data){
   	    if (data.key_press == data.corr_resp){
@@ -618,7 +618,7 @@ var block = {
             										'</div>';
             					return html;*/
   				},
-  						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+  						prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   					//	post_trial_gap: 250,
   						trial_duration: function(){
   							return limit;
@@ -899,14 +899,14 @@ var block = {
 
   var interim_instructions_2 = {
     type: "html-keyboard-response",
-    pages:[
+    stimulus:[
     '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
     '<br><p>Press the right arrow key to begin.</p>'
   ],
     post_trial_gap: 250,
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
-    choices: "Enter" ,
+  //  choices: "Enter" ,
     data:{pattern: 'pattern',
       exp_stage: "instructions"
     },
@@ -977,7 +977,7 @@ var block = {
   			console.log(limit);
   		}
   	},
-  			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+  			prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   		timeline_variables: [
   	{
   		stimulus_1: p2_left[1],
