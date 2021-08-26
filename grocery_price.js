@@ -91,7 +91,8 @@ var attn_check = {
       }
     }],
     data: {
-  		exp_stage: "attention_check"
+  		exp_stage: "attention_check",
+      resp: jsPsych.timelineVariable("word")
     }
   };
 
