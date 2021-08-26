@@ -457,7 +457,7 @@ var test_function = {
         '<td><img src='+
         jsPsych.timelineVariable("stimulus_2") +
         '  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
-                   '</td></table>';
+                   '</td></tr></table>';
                      return html;
 
   	  }
@@ -520,7 +520,7 @@ var test_function = {
             '<td><img src='+
             jsPsych.timelineVariable("stimulus_2") +
             '  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
-                       '</td></table>';
+                       '</td></tr></table>';
                          return html;
         /*    var html='<div class="row">' +
             											'<div class="column"><img src=' +
@@ -1114,8 +1114,8 @@ var test_function = {
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
-timeline.push(study_instructions);
-timeline.push(study_timeline);
+//timeline.push(study_instructions);
+//timeline.push(study_timeline);
 
 
 // quick foray in to a pattern comparison task
