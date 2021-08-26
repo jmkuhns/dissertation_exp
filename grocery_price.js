@@ -102,9 +102,7 @@ var study_instructions_welcome = {
   data:{exp_stage: "instruction"},
   on_start: function(){
 
-    html = "1 "+atten_check_one + ", 2 " + atten_check_two +
-    ", 3 " + atten_check_three + ", 4 " + atten_check_four +
-    range1 + attention_check_word_one
+    html =  attention_check_word_one
 
     console.log(html)
   }
