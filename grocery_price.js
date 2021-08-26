@@ -187,7 +187,6 @@ var test_function = {
   timeline: [
       {
         type: 'html-button-response',
-
         choices: ["<p style='font-size:25px'>Studied together</p>", "<p style='font-size:25px'>Not studied together</p>"],
         stimulus:  function(){
           html =  '<div class="row">' +
@@ -206,14 +205,33 @@ var test_function = {
               return html;
         },
         data: {
-          memory: "memory", exp_stage: "test", question_type: "associative"
-      }},
+          memory: "memory", exp_stage: "test", question_type: "associative",
+          list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+        item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')
+      },
+      on_finish: function(data){
+        if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
+            data.resp = "old";
+            } else {
+                data.resp = "new";
+            }
+          }
+        },
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
-        data: {memory: "memory", exp_stage: "test", question_type: "source"},
-
-        stimulus:  function(){
+        data: {memory: "memory", exp_stage: "test", question_type: "source", list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')},
+      on_finish: function(data){
+        if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
+            data.resp = "MP";
+          } else if(jsPsych.pluginAPI.compareKeys(data.response, 1)){
+                data.resp = "OP";
+            } else{
+              data.resp = "new";
+            }
+          },
+      stimulus:  function(){
             html =  '<div class="row">' +
             "<p style='font-size:25px'>Was the studied price for this grocery item...?</p><br><br>" +
             '</div>'+
@@ -233,8 +251,18 @@ var test_function = {
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>STUDIED</p>", "<p style='font-size:25px'>NOT STUDIED</p>"],
-        data: {memory: "memory", exp_stage: "test", question_type: "item"},
-        stimulus:  function(){
+        data:
+        { memory: "memory", exp_stage: "test", question_type: "item",list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')
+    },
+    on_finish: function(data){
+      if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
+          data.resp = "old";
+        } else {
+          data.resp = "new";
+          }
+        },
+      stimulus:  function(){
             html =  '<div class="row">' +
             "<p style='font-size:25px'>Was this price originally studied?</p><br><br>" +
             '</div>'+
@@ -250,6 +278,7 @@ var test_function = {
             '</div>';
           return html;
         }
+       }
       }
     ]
   }
@@ -1107,7 +1136,7 @@ var instr_p1 = {
 
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
-
+/*
 timeline.push(study_instructions);
 timeline.push(study_timeline);
 
@@ -1126,12 +1155,13 @@ timeline.push(study_timeline);
 // test_timeline1 attention_check_one
 
   timeline.push(test_instructions);
+  */
   timeline.push(test_timeline1);
   timeline.push(attention_check_one);
-  timeline.push(test_timeline2);
+/*  timeline.push(test_timeline2);
   timeline.push(attention_check_two);
   timeline.push(test_timeline3);
   timeline.push(attention_check_three);
   timeline.push(test_timeline4);
   timeline.push(attention_check_four);
-  timeline.push(test_timeline5);
+  timeline.push(test_timeline5);*/
