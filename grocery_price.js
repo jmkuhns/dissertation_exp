@@ -522,18 +522,6 @@ var test_function = {
             '  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
                        '</td></tr></table>';
                          return html;
-        /*    var html='<div class="row">' +
-            											'<div class="column"><img src=' +
-            												jsPsych.timelineVariable("stimulus_1") +
-            													 ' style="width:150px;height:150px";>' +
-            													 '</img>' +
-            											'</div>' +
-            											'<div class="column"><img src=' +
-            											jsPsych.timelineVariable("stimulus_2") +
-            											'  style="width:150px;height:150px";></img>'+
-            											'</div>'+
-            										'</div>';
-            					return html;*/
   				},
   						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   					//	post_trial_gap: 250,
