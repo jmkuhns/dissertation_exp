@@ -535,7 +535,7 @@ var block = {
   		//,
   	  //    post_trial_gap: 250
   	  }],
-  				prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
+  				prompt: '<br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
   	  on_finish: function(data){
   	    if (data.key_press == data.corr_resp){
