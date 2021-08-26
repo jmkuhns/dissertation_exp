@@ -806,8 +806,7 @@ var test_function = {
   var interim_instructions_2 = {
     type: "instructions-min-viewing-time",
     pages:[
-    '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
-    '<br><p>Press the right arrow key to begin.</p>'
+    '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the right arrow key to begin.</p>'
   ],
     post_trial_gap: 250,
   //	key_forward: "ArrowRight",
