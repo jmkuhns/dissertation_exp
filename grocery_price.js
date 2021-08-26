@@ -1137,10 +1137,9 @@ var instr_p1 = {
 
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
-/*
+
 timeline.push(study_instructions);
 timeline.push(study_timeline);
-
 
 // quick foray in to a pattern comparison task
   timeline.push(instructions);
@@ -1153,16 +1152,15 @@ timeline.push(study_timeline);
   timeline.push(test_trials_p2_trl2);
 
 // now back to memory
-// test_timeline1 attention_check_one
 
   timeline.push(test_instructions);
-  */
+  
   timeline.push(test_timeline1);
   timeline.push(attention_check_one);
-/*  timeline.push(test_timeline2);
+  timeline.push(test_timeline2);
   timeline.push(attention_check_two);
   timeline.push(test_timeline3);
   timeline.push(attention_check_three);
   timeline.push(test_timeline4);
   timeline.push(attention_check_four);
-  timeline.push(test_timeline5);*/
+  timeline.push(test_timeline5);
