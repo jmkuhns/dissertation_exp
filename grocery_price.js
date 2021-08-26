@@ -86,7 +86,7 @@ var attn_check = {
     questions: [
       { prompt: function(){
         html = "<p>Please type the word " +
-        jsPsych.timelineVariable("word", TRUE) +
+        jsPsych.timelineVariable("word") +
         " into the text box below.</p>";
         return html;
       }
