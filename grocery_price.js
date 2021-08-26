@@ -435,7 +435,6 @@ var instr_p1 = {
   	var instructions = {
       type: "instructions-min-viewing-time",
   		pages:[
-
   	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
   	  '<br><br><p>In this task you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to respond as accurately and rapidly as you can.</p>' +
   	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.<br><br><br>p. 1/2</p>',
@@ -1109,8 +1108,8 @@ var instr_p1 = {
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
-//timeline.push(study_instructions);
-//timeline.push(study_timeline);
+timeline.push(study_instructions);
+timeline.push(study_timeline);
 
 
 // quick foray in to a pattern comparison task
