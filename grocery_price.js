@@ -586,11 +586,11 @@ var block = {
             var html = '<table><tr>' +
             '<td><img src='+
               jsPsych.timelineVariable("stimulus_1") +
-                 ' style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";>' +
+                 ' style="width:150px;height:150px;display: block;margin: 50px 25px 50px 125px";>' +
                  '</img></td>' +
             '<td><img src='+
             jsPsych.timelineVariable("stimulus_2") +
-            '  style="width:150px;height:150px;display: block;margin-left: auto;margin-right: auto;left:180px";></img>'+
+            '  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
                        '</td></table>';
                          return html;
         /*    var html='<div class="row">' +
@@ -606,7 +606,7 @@ var block = {
             										'</div>';
             					return html;*/
   				},
-  						prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
+  						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   					//	post_trial_gap: 250,
   						trial_duration: function(){
   							return limit;
@@ -965,7 +965,6 @@ var block = {
   			console.log(limit);
   		}
   	},
-  			prompt: '<br><br><br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   		timeline_variables: [
   	{
   		stimulus_1: p2_left[1],
