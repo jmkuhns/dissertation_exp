@@ -105,7 +105,7 @@ var study_instructions={
   type: "instructions-min-viewing-time",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
-  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time. All prices will end in 9. Prices that reflect the market value for an item will be priced under $6, whereas the overpriced items will be higher than $10. Half of the pairs will be under $6, and the other half will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time.<br>Half of the pairs will be under $6, and the other half will be higher than $10. All prices will end in 9. Prices that reflect the market value for an item will be priced under $6, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
 ],
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
