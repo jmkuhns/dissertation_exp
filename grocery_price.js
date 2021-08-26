@@ -523,11 +523,11 @@ var block = {
         var html = '<table><tr>' +
         '<td><img src='+
           jsPsych.timelineVariable("stimulus_1") +
-             ' style="width:150px;height:150px;display: block;margin: 125px 0px 125px 125px";>' +
+             ' style="width:150px;height:150px;display: block;margin: 125px 0px 75px 125px";>' +
              '</img></td>' +
         '<td><img src='+
         jsPsych.timelineVariable("stimulus_2") +
-        '  style="width:150px;height:150px;display: block;margin: 125px 125px 125px 0px";></img>'+
+        '  style="width:150px;height:150px;display: block;margin: 125px 125px 75px 0px";></img>'+
                    '</td></table>';
                      return html;
 
@@ -535,7 +535,7 @@ var block = {
   		//,
   	  //    post_trial_gap: 250
   	  }],
-  				prompt: '<br><p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
+  				prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
   	  on_finish: function(data){
   	    if (data.key_press == data.corr_resp){
