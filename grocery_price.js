@@ -494,9 +494,13 @@ var test_function = {
 
   	var interim_instructions = {
       type: "instructions-min-viewing-time",
-  		pages: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
-  	  '<br><p>Press any key to begin.</p>',
+  		pages: function(){
+    html = '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+  	  '<br><p>Press any key to begin.</p>';
+      return html;
+    },
   	  post_trial_gap: 250,
+      min_viewing_time: 1000,
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
   		on_finish: function(){
   			console.log(limit);
@@ -812,7 +816,7 @@ var test_function = {
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
   //  choices: "Enter" ,
-    min_viewing_time: 2500,
+    min_viewing_time: 1500,
     data:{pattern: 'pattern',
       exp_stage: "instructions"
     },
