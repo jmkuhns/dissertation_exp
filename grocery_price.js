@@ -1199,7 +1199,7 @@ timeline.push(study_timeline);
 // now back to memory
 // test_timeline1 attention_check_one
 //  timeline.push(test_instructions);
-  timeline.push(test_timeline1);
+//  timeline.push(test_timeline1);
   timeline.push(attention_check_one);
   timeline.push(test_timeline2);
   timeline.push(attention_check_two);
