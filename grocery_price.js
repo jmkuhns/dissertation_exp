@@ -279,7 +279,7 @@ var test_function = {
           return html;
         }
        }
-      }
+
     ]
   }
 
