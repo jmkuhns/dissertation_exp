@@ -263,7 +263,7 @@ var test_function = {
   var test_timeline1 = {
       timeline: [test_function],
       timeline_variables: test_shuf_one,
-      on_start: console.log(test_shuf_one.length),
+      //on_start: console.log(test_shuf_one.length),
       //randomize_order: true,
       on_finish: console.log(list)
     };
@@ -278,7 +278,7 @@ var test_function = {
     };
   var attention_check_two = {
       timeline: [attn_check],
-      timeline_variables: attention_check_word_two
+      timeline_variables: [attention_check_word_two]
     }
   var test_timeline3 = {
       timeline: [test_function],
@@ -287,7 +287,7 @@ var test_function = {
     };
   var attention_check_three = {
       timeline: [attn_check],
-      timeline_variables: attention_check_word_three
+      timeline_variables: [attention_check_word_three]
     }
   var test_timeline4 = {
       timeline: [test_function],
@@ -296,7 +296,7 @@ var test_function = {
     };
   var attention_check_four = {
       timeline: [attn_check],
-      timeline_variables: attention_check_word_four
+      timeline_variables: [attention_check_word_four]
     }
   var test_timeline5 = {
       timeline: [test_function],
