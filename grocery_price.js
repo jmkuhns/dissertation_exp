@@ -85,9 +85,9 @@ var attn_check = {
     type: 'survey-text',
     questions: [
       { prompt: function(){
-        html = "<p>Please type the word " +
+        html = "<p>Please type the word '" +
         jsPsych.timelineVariable("word") +
-        " into the text box below.</p>";
+        "' into the text box below.</p>";
         return html;
       }
     }],
@@ -1199,10 +1199,10 @@ timeline.push(study_timeline);
 //  timeline.push(test_instructions);
 //  timeline.push(test_timeline1);
   timeline.push(attention_check_one);
-  timeline.push(test_timeline2);
+//  timeline.push(test_timeline2);
   timeline.push(attention_check_two);
-  timeline.push(test_timeline3);
+//  timeline.push(test_timeline3);
   timeline.push(attention_check_three);
-  timeline.push(test_timeline4);
+//  timeline.push(test_timeline4);
   timeline.push(attention_check_four);
-  timeline.push(test_timeline5);
+//  timeline.push(test_timeline5);
