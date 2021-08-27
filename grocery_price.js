@@ -154,12 +154,20 @@ var study_timeline = {
   on_finish: console.log(list)
 }
 
+var test_intro_instructions = {
+  type: "instructions",
+  pages: ["<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>"],
+  data:{
+    memory: 'memory',
+    exp_stage: "instructions"
+  }
+}
+
 var test_instructions = {
   type: "instructions-min-viewing-time",
   pages:[
-    "<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>",
   '<p style:"font-size:30px">Memory Test</p>' +
-  '<br><p>In the upcoming memory test, you will be presented with grocery-items and prices in a random order. Some of the test pairs will be composed of grocery-items and prices that were studied, as well as grocery-items and  prices that were not on the study list. There will be four kinds of test pairs: <br>(a) a test pair that is the same as the study pair, that is, the grocery-item and price were studied together (intact pair)<br>(b) a test pair that consists of a grocery-item and price that were studied in different pairs (rearranged pair)<br>(c) a test pair that consists of a studied grocery-item and a price that was not on the study list (old-new pair)<br>(d) a test pair where both the grocery-item and price were not on the study list (new-new pair).</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p. 1/6</p>',
+  '<br><p>In the upcoming memory test, you will be presented with grocery-items and prices in a random order. Some of the test pairs will be composed of grocery-items and prices that were studied, as well as grocery-items and  prices that were not on the study list. There will be four kinds of test pairs: <br>(a) a test pair that is the same as the study pair, that is, the grocery-item and price were studied together (intact pair)<br>(b) a test pair that consists of a grocery-item and price that were studied in different pairs (rearranged pair)<br>(c) a test pair that consists of a studied grocery-item and a price that was not on the study list (old-new pair)<br>(d) a test pair where both the grocery-item and price were not on the study list (new-new pair).</p><br><p>You may press the Right arrow key to continue with the instructions.<br><br><br>p. 1/6</p>',
   '<p style:"font-size:30px">Memory Test</p>' +
   '<br><p>You will answer three multiple choice questions for each test pair. The response options for each question are written in capital letters. For each test pair, you will be asked:<br>(1) to judge whether the grocery-item and price were originally STUDIED together or were NOT STUDIED TOGETHER<br>(2) to judge whether the grocery-item was originally paired with a price LESS THAN $6, MORE THAN $10, or to indicate that the the grocery-item in the test pair was NOT STUDIED<br>(3) to judge whether the price in each test pair was on the study list, responding STUDIED if the price was on the study list, and responding NOT STUDIED if the price was not on the study list.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p. 2/6</p>',
   '<p style:"font-size:30px">Memory Test</p>' +
@@ -1156,7 +1164,7 @@ timeline.push(study_timeline);
   timeline.push(test_trials_p2_trl2);
 
 // now back to memory
-
+  timeline.push(test_intro_instructions);
   timeline.push(test_instructions);
 
   timeline.push(test_timeline1);
