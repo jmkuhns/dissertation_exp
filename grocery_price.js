@@ -137,7 +137,7 @@ var study_function = {
          return html;
       },
     //  choices: jsPsych.NO_KEYS,
-      trial_duration: 6000,
+      //trial_duration: 6000,
       post_trial_gap: function(){
   return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
       },
@@ -1154,7 +1154,7 @@ timeline.push(study_timeline);
 // now back to memory
 
   timeline.push(test_instructions);
-  
+
   timeline.push(test_timeline1);
   timeline.push(attention_check_one);
   timeline.push(test_timeline2);
