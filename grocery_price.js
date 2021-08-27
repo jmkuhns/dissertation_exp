@@ -136,13 +136,14 @@ var study_function = {
          '</div>';
          return html;
       },
-    //  choices: jsPsych.NO_KEYS,
-      //trial_duration: 6000,
+      choices: jsPsych.NO_KEYS,
+      trial_duration: 6000,
       post_trial_gap: function(){
   return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
       },
       data: {memory: "memory",
-      exp_stage: "study"}
+      exp_stage: "study", item:jsPsych.timelineVariable('item'),
+    price: jsPsych.timelineVariable("price") }
     }
   ]
 }
@@ -208,7 +209,8 @@ var test_function = {
         data: {
           memory: "memory", exp_stage: "test", question_type: "associative",
           list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
-        item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')
+        item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
+        item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
       },
       on_finish: function(data){
         if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
@@ -222,7 +224,8 @@ var test_function = {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
         data: {memory: "memory", exp_stage: "test", question_type: "source", list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
-      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')},
+      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
+      item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")},
       on_finish: function(data){
         if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
             data.resp = "MP";
@@ -254,7 +257,8 @@ var test_function = {
         choices: ["<p style='font-size:25px'>Studied</p>", "<p style='font-size:25px'>Not Studied</p>"],
         data:
         { memory: "memory", exp_stage: "test", question_type: "item",list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
-      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition')
+      item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
+      item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
     },
     on_finish: function(data){
       if(jsPsych.pluginAPI.compareKeys(data.response, 0)){
