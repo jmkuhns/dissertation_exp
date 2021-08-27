@@ -126,7 +126,7 @@ var study_function = {
       stimulus: function(){
         html =  '<div class = "row">' +
            '<div class="column">' +
-            "<p style='font-size:25px'>" +
+            "<p style='font-size:40px'>" +
            jsPsych.timelineVariable('item') +
            // '</div>' +
             ' -- $' +
