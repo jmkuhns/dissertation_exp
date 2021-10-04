@@ -139,7 +139,7 @@ var study_function = {
       choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
       post_trial_gap: function(){
-  return jsPsych.randomization.sampleWithoutReplacement([250, 300, 350], 1)[0];
+  return jsPsych.randomization.sampleWithoutReplacement([500,550,600], 1)[0];
       },
       data: {memory: "memory",
       exp_stage: "study", item:jsPsych.timelineVariable('item'),
