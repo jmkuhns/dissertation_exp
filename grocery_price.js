@@ -4,9 +4,14 @@
 
 var timeline = [];
 
-// should be uniform across sample, but will create small differences in subjects per list
+// used to jitter the intertrial intervals
+function getRandomInt(min, max) {
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+// should be uniform across sample, but will create small differences in number of subjects per list
 var list = jsPsych.randomization.sampleWithoutReplacement([0,1,2,3,4,5,6,7,8,9],1)[0];
-// going to load every list in qualtrics
+// going to load every list in the qualtrics
 // part, which means that I can just pick the list randomly above, and then start referring to the chosen list
 
 
@@ -35,9 +40,15 @@ var l_test_names = ["test_list_1",
 var study = eval(l_web_names[list]);
 var test = eval(l_test_names[list]);
 
-for(var i = 0; i < 80; i++) {
+for(var i = 0; i < 96; i++) {
     test[i].att_chk = false;
 }
+
+study_list_1 =  study.slice(0,47);
+study_list_2 = study.slice(48);
+test_list_1 = test.slice(0, 47);
+test_list_2 = test.slice(48);
+
 
 var attn_check_words = [
     { word: "wires", att_chk: true },
@@ -56,28 +67,35 @@ var attention_check_word_four = attn_check_words_shuf[3];
 // copy pasted from R console output from call > cat(paste(3:18, ","))
 var range1 = [3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12 , 13 , 14 , 15 , 16 , 17 , 18];
 var range2 = [23 , 24 , 25 , 26 , 27 , 28 , 29 , 30 , 31 , 32 , 33 , 34 , 35 , 36 , 37 , 38];
-var range3 = [43 , 44 , 45 , 46 , 47 , 48 , 49 , 50 , 51 , 52 , 53 , 54 , 55 , 56 , 57 , 58];
-var range4 = [63 , 64 , 65 , 66 , 67 , 68 , 69 , 70 , 71 , 72 , 73 , 74 , 75 , 76 , 77 , 78];
+/*var range3 = [43 , 44 , 45 , 46 , 47 , 48 , 49 , 50 , 51 , 52 , 53 , 54 , 55 , 56 , 57 , 58];
+var range4 = [63 , 64 , 65 , 66 , 67 , 68 , 69 , 70 , 71 , 72 , 73 , 74 , 75 , 76 , 77 , 78];*/
 
 
 // put num in first twenty; 0-19
 var atten_check_one = jsPsych.randomization.sampleWithoutReplacement(range1)[0];
 // next is 20-39
 var atten_check_two = jsPsych.randomization.sampleWithoutReplacement(range2)[0];
-// 40-59
-var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range3)[0];
-// 60-79
-var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range4)[0];
+// for test list 2
+var atten_check_three = jsPsych.randomization.sampleWithoutReplacement(range1)[0];
+// for test list 2
+var atten_check_four = jsPsych.randomization.sampleWithoutReplacement(range2)[0];
 
-var study_shuffled = jsPsych.randomization.shuffle(study);
-var test_shuffled = jsPsych.randomization.shuffle(test);
+var study_list_1_shuffled = jsPsych.randomization.shuffle(study_list_1);
+var study_list_2_shuffled = jsPsych.randomization.shuffle(study_list_2);
+var test_list_1_shuffled = jsPsych.randomization.shuffle(test_list_1);
+var test_list2_shuffled = jsPsych.randomization.shuffle(test_list_2);
+
 
 // slice selects obj at first index and includes objs up to but not including second index
-var test_shuf_one = test_shuffled.slice(0,atten_check_one);
-var test_shuf_two = test_shuffled.slice(atten_check_one, atten_check_two);
-var test_shuf_three = test_shuffled.slice(atten_check_two, atten_check_three);
-var test_shuf_four = test_shuffled.slice(atten_check_three, atten_check_four);
-var test_shuf_five = test_shuffled.slice(atten_check_four);
+// test list 1
+var test_shuf_one = test_list_1_shuffled.slice(0,atten_check_one);
+var test_shuf_two = test_list_1_shuffled.slice(atten_check_one, atten_check_two);
+var test_shuf_three = test_list_1_shuffled.slice(atten_check_two);
+
+// test list 2
+var test_shuf_four = test_list2_shuffled.slice(0,atten_check_three);
+var test_shuf_five = test_list2_shuffled.slice(atten_check_three, atten_check_four);
+var test_shuf_six = test_list2_shuffled.slice(atten_check_four);
 
 
 var attn_check = {
@@ -99,22 +117,44 @@ var attn_check = {
 var study_instructions_welcome = {
   type: 'html-keyboard-response',
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
-  data:{exp_stage: "instruction"}
+  data:{exp_stage: "instructions list 1"}
 };
 
 var study_instructions={
   type: "instructions-min-viewing-time",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
-  '<br><p>In this task you will study a list of grocery items and prices for an upcoming memory test. </p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
-  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>You will study 60 pairs of grocery-items and prices in a random order. Each pair will be presented for 6 seconds at a time.<br>Half of the pairs will be under $6, and the other half will be higher than $10. All prices will end in 9. Prices that reflect the market value for an item will be priced under $6, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin.<br><br><br>p. 2/2</p>'
+  '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 2/2</p>'
 ],
 //  key_forward: "ArrowRight",
 //  key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 3500,
+  show_clickable_nav: true,
   data:{
     memory: 'memory',
-    exp_stage: "instructions"
+    exp_stage: "instructions list 1"
+  }
+};
+
+var study_instructions_list_two ={
+  type: "instructions-min-viewing-time",
+  pages: ['<p style:"font-size:30px">Memory Task</p>' +
+  '<br><p>You are going to be shown new pairs of grocery items and prices for an upcoming memory test. Both the grocery items and prices will be new.</p>' +
+  '<p>The upcoming memory test will be in the same format as the previous memory test.</p><br><p>Press the right arrow key to continue the instructions.<br><br><br>p. 1/3</p'
+    ,
+  '<p style:"font-size:30px">Memory Task</p>' +
+  '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>You may press the Left arrow key to go back. Press the right arrow key to continue the instructions.<br><br><br>p. 2/3</p>',
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 2/3</p>'
+],
+//  key_forward: "ArrowRight",
+//  key_backward: "ArrowLeft",
+  post_trial_gap: 300,
+  min_viewing_time: 3500,
+  show_clickable_nav: true,
+  data:{
+    memory: 'memory',
+    exp_stage: "instructions list 2"
   }
 };
 
@@ -136,10 +176,12 @@ var study_function = {
          '</div>';
          return html;
       },
-      choices: jsPsych.NO_KEYS,
+      // undo the comment when ready to ship // // // // //
+//      choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
       post_trial_gap: function(){
-  return jsPsych.randomization.sampleWithoutReplacement([500,550,600], 1)[0];
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
       },
       data: {memory: "memory",
       exp_stage: "study", item:jsPsych.timelineVariable('item'),
@@ -149,7 +191,14 @@ var study_function = {
 }
 var study_timeline = {
   timeline: [study_function],
-  timeline_variables: study_shuffled,
+  timeline_variables: study_list_1_shuffled,
+  randomize_order: true,
+  on_finish: console.log(list)
+}
+
+var study_timeline_list_two = {
+  timeline: [study_function],
+  timeline_variables: study_list_2_shuffled,
   randomize_order: true,
   on_finish: console.log(list)
 }
@@ -159,9 +208,19 @@ var test_intro_instructions = {
   pages: ["<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>"],
   data:{
     memory: 'memory',
-    exp_stage: "instructions"
+    exp_stage: "instructions list 1"
   }
 }
+
+var test_intro_instructions_2 = {
+  type: "instructions",
+  pages: ["<p>You have now completed the Letter Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>"],
+  data:{
+    memory: 'memory',
+    exp_stage: "instructions list 2"
+  }
+}
+
 
 var test_instructions = {
   type: "instructions-min-viewing-time",
@@ -200,9 +259,10 @@ var test_instructions = {
 //  key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 4000,
+  show_clickable_nav: true,
   data:{
     memory: 'memory',
-    exp_stage: "instructions"
+    exp_stage: "test instructions"
   }
 }
 
@@ -231,7 +291,7 @@ var test_function = {
         },
         data: {
           memory: "memory", exp_stage: "test", question_type: "associative",
-          list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+          list: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
         item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
         item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
       },
@@ -246,7 +306,7 @@ var test_function = {
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
-        data: {memory: "memory", exp_stage: "test", question_type: "source", list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+        data: {memory: "memory", exp_stage: "test", question_type: "source", list: list, test_type: jsPsych.timelineVariable('test_type'),
       item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
       item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")},
       on_finish: function(data){
@@ -279,7 +339,7 @@ var test_function = {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Studied</p>", "<p style='font-size:25px'>Not Studied</p>"],
         data:
-        { memory: "memory", exp_stage: "test", question_type: "item",list: list, test_type: jsPsych.timelineVariable('test_type'), dollar: jsPsych.timelineVariable('dollar'),
+        { memory: "memory", exp_stage: "test", question_type: "item",list: list, test_type: jsPsych.timelineVariable('test_type'),
       item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
       item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
     },
@@ -315,46 +375,95 @@ var test_function = {
   var test_timeline1 = {
       timeline: [test_function],
       timeline_variables: test_shuf_one,
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+},
       //on_start: console.log(test_shuf_one.length),
       //randomize_order: true,
       on_finish: console.log(list)
     };
   var attention_check_one = {
       timeline: [attn_check],
-      timeline_variables: [attention_check_word_one]
+      timeline_variables: [attention_check_word_one],
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      }
     }
   var test_timeline2 = {
       timeline: [test_function],
       timeline_variables: test_shuf_two,
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      },
       on_start: console.log(test_shuf_two.length)
     };
   var attention_check_two = {
       timeline: [attn_check],
-      timeline_variables: [attention_check_word_two]
+      timeline_variables: [attention_check_word_two],
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      }
     }
   var test_timeline3 = {
       timeline: [test_function],
       timeline_variables: test_shuf_three,
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      },
       on_start: console.log(test_shuf_three.length)
     };
-  var attention_check_three = {
-      timeline: [attn_check],
-      timeline_variables: [attention_check_word_three]
-    }
+
+// list 2
   var test_timeline4 = {
       timeline: [test_function],
       timeline_variables: test_shuf_four,
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      },
       on_start: console.log(test_shuf_four.length)
     };
-  var attention_check_four = {
+  var attention_check_three = {
       timeline: [attn_check],
-      timeline_variables: [attention_check_word_four]
-    }
+      timeline_variables: [attention_check_word_four],
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      }
+    };
   var test_timeline5 = {
       timeline: [test_function],
       timeline_variables: test_shuf_five,
-      on_start: console.log(test_shuf_five.length)
+      on_start: console.log(test_shuf_five.length),
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+  return getRandomInt(250, 751);
+      }
     };
+    var attention_check_four = {
+        timeline: [attn_check],
+        timeline_variables: [attention_check_word_four],
+        post_trial_gap: function(){
+          // sample from range (250, 751]
+    return getRandomInt(250, 751);
+        }
+      };
+      var test_timeline6 = {
+          timeline: [test_function],
+          timeline_variables: test_shuf_six,
+          on_start: console.log(test_shuf_six.length),
+          post_trial_gap: function(){
+            // sample from range (250, 751]
+      return getRandomInt(250, 751);
+          }
+        };
+
+
 
 // pattern comparison below here; timeline pushed at very end
 
@@ -528,6 +637,10 @@ var instr_p1 = {
   		//,
   	  //    post_trial_gap: 250
   	  }],
+      post_trial_gap: function(){
+        // sample from range (250, 751]
+              return getRandomInt(100,200);
+          },
   				prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
   	  on_finish: function(data){
@@ -600,6 +713,10 @@ var instr_p1 = {
 
   var trial_1 = {
   	timeline: [generic_trial],
+    post_trial_gap: function(){
+      // sample from range (250, 751]
+            return getRandomInt(100,200);
+        },
   	data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
@@ -634,6 +751,10 @@ var instr_p1 = {
 
   var test_trials_p1_trl2 = {
   	timeline: [generic_trial],
+    post_trial_gap: function(){
+      // sample from range (250, 751]
+            return getRandomInt(100,200);
+        },
     data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		console.log("limit");
@@ -871,7 +992,10 @@ var instr_p1 = {
     pages:[
     '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the right arrow key to begin.</p>'
   ],
-    post_trial_gap: 250,
+  post_trial_gap: function(){
+    // sample from range (250, 751]
+          return getRandomInt(100,200);
+      },
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
   //  choices: "Enter" ,
@@ -898,6 +1022,10 @@ var instr_p1 = {
 
   var trial_2 = {
   	timeline: [generic_trial],
+    post_trial_gap: function(){
+      // sample from range (250, 751]
+            return getRandomInt(100,200);
+        },
   	data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
@@ -1162,6 +1290,12 @@ var instr_p1 = {
   			}
   };
 
+//
+//    LETTER
+//
+//            COMPARISON
+
+
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
@@ -1178,7 +1312,7 @@ timeline.push(study_timeline);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
 
-// now back to memory
+// test list 1
   timeline.push(test_intro_instructions);
   timeline.push(test_instructions);
 
@@ -1187,7 +1321,16 @@ timeline.push(study_timeline);
   timeline.push(test_timeline2);
   timeline.push(attention_check_two);
   timeline.push(test_timeline3);
-  timeline.push(attention_check_three);
+
+// study list 2
+
+// letter comparison task
+
+// test list 2
+// timeline.push(test_intro_instructions);
+// timeline.push(test_instructions);
   timeline.push(test_timeline4);
-  timeline.push(attention_check_four);
+  timeline.push(attention_check_three);
   timeline.push(test_timeline5);
+  timeline.push(attention_check_four);
+  timeline.push(test_timeline6);
