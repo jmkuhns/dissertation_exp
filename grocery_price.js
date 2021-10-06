@@ -704,7 +704,10 @@ var instr_p1 = {
                          return html;
   				},
   						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
-  					//	post_trial_gap: 250,
+              post_trial_gap: function(){
+                // sample from range (250, 751]
+                      return getRandomInt(100,200);
+                  },
   						trial_duration: function(){
   							return limit;
   						}
@@ -716,10 +719,6 @@ var instr_p1 = {
 
   var trial_1 = {
   	timeline: [generic_trial],
-    post_trial_gap: function(){
-      // sample from range (250, 751]
-            return getRandomInt(100,200);
-        },
   	data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
