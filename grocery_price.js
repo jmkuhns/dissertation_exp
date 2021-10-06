@@ -1060,6 +1060,10 @@ var instr_p1 = {
   var test_trials_p2_trl2 = {
   	timeline: [generic_trial],
     data: jsPsych.timelineVariable('data'),
+    post_trial_gap: function(){
+  // sample from range (250, 751]
+        return getRandomInt(100,200);
+    },
   	on_finish: function(){
   		console.log("limit");
   		console.log(limit);
