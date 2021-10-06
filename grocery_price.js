@@ -117,7 +117,7 @@ var attn_check = {
 var study_instructions_welcome = {
   type: 'html-keyboard-response',
   stimulus: "<p> Welcome to the Experiment. Press any key to begin.</p>",
-  data:{exp_stage: "instructions list 1"}
+  data:{exp_stage: "instructions"}
 };
 
 var study_instructions={
@@ -133,7 +133,7 @@ var study_instructions={
   show_clickable_nav: true,
   data:{
     memory: 'memory',
-    exp_stage: "instructions list 1"
+    exp_stage: "instructions"
   }
 };
 
@@ -154,7 +154,7 @@ var study_instructions_list_two ={
   show_clickable_nav: true,
   data:{
     memory: 'memory',
-    exp_stage: "instructions list 2"
+    exp_stage: "instructions"
   }
 };
 
@@ -208,7 +208,7 @@ var test_intro_instructions = {
   pages: ["<p>You have now completed the Pattern Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>"],
   data:{
     memory: 'memory',
-    exp_stage: "instructions list 1"
+    exp_stage: "instructions"
   }
 }
 
@@ -217,7 +217,7 @@ var test_intro_instructions_2 = {
   pages: ["<p>You have now completed the Letter Comparison task. You will now take the memory test.</p><br><br><p>Press the Right arrow key to view the instructions.</p>"],
   data:{
     memory: 'memory',
-    exp_stage: "instructions list 2"
+    exp_stage: "instructions"
   }
 }
 
@@ -262,7 +262,7 @@ var test_instructions = {
   show_clickable_nav: true,
   data:{
     memory: 'memory',
-    exp_stage: "test instructions"
+    exp_stage: "instructions"
   }
 }
 
@@ -463,6 +463,9 @@ var test_function = {
           }
         };
 
+
+//////// PATTERN                    ////////          ///////       //////
+///////           COMPARISON  /////         /////////        //////
 
 
 // pattern comparison below here; timeline pushed at very end
@@ -1294,12 +1297,663 @@ var instr_p1 = {
   			}
   };
 
-//
-//    LETTER
-//
-//            COMPARISON
+//////////////////////////////////////////////////////////////////
+////                     ///////////                           //
+///       LETTER         ///////////      COMPARISON         ///
+//                       ///////////                       ////
+//////////////////////////////////////////////////////////////
 
 
+
+	var prac_cresp_letter = ["ArrowLeft", "ArrowRight", "ArrowRight"];
+	var p1_correct_letter = [ ['ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowRight'
+];
+	var p2_correct_letter = [ 'ArrowRight','ArrowLeft','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft','ArrowRight','ArrowRight','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowLeft','ArrowLeft','ArrowRight','ArrowRight','ArrowLeft'
+];
+
+var prac_left_letter = ["RTQ", "LTNRVG", "ZYTCJKBFP"];
+var prac_right_letter = ["RTQ", "LTNRKG", "ZYTCJKWFP"];
+
+var p1_left_letter = ["NLZTJWQXC",'RSXMVK','XNV','JRLWVD','JKFLSMCWN','YVJ','ZJT','HVBNQCWRT','FWVSPJ','GCLZJQ','NLGJYWQBM','QBM','PRVWSTLYK','VFZ','CVQZJB','TRK','KLCDQZ','SRKFMPHXQ','MTGLBY','CXK','SGCYZBWHX','SRBNWT','WHGZKRLPM','YCT','MRXCNJ','ZSH','LSVMNRQDY','LVXHJBDMP','ZQRWYM','DNK','JBMWZR','PGTKXBZNF','KFQ','CQGNSLMWX','QZD','JBZMRP','CZVWPK','ZXQBNFHGP','LPY','FJMSBDTZN','MHJWLK','GYT','GYP','JZKDHY','GDCYXZQPT','CHJXRNLMQ','SNP','RJGPNB','PHLDMZ','SFH','RHBCMNGYL','LXQ','LNRBFXKHW','TJPMZQ','YRSLDK','WTKGRDSZX','PBM','DGVLSK','YFV',"WHZJPXMVN"
+]
+
+var p1_right_letter = ['NLZTJWQXC','RSXMVK','XNG','MRLWVD','RKFLSMCWN','YVJ','VJT','HVBNQCWRT','FWVSPJ','GWLZJQ','NLGJYWQBF','QBP','PRVWSTLYN','VFZ','CKQZJB','TRF','KLCDQZ','SRKFMPHXQ','MTGLBZ','CXK','SGCYZBWHX','SRBNWT','WHGZKRLPM','YCT','MRXCNJ','TSH','LSVMNRQDY','CVXHJBDMP','ZQRLYM','DNK','JBMWZR','PGTKXDZNF','XFQ','CQGNSLMWX','QZD','JBZMRP','CZVWPK','ZSQBNFHGP','LPY','FJMSBDTZN','MXJWLK','GYT','GNP','RZKDHY','GDCYXZQPT','CHJTRNLMQ','SXP','RJGPNB','PHLDMZ','SCH','RHBCTNGYL','LXQ','LNRSFXKHW','HJPMZQ','PRSLDK','WTKGRDSZX','PFM','DWVLSK','YFV','SHZJPXMVN'
+];
+
+var p2_left_letter = ['ZDV','SHQWYJ','JTZHVKMSR','BVD','HPNXYKMWS','QFSKDH','LWSZBV','ZSN','DLXYMQJPN','CPYWZR','TRPDBQHNZ','SNV','DNL','SBDZXQRJH','GKLXHW','SLFBKH','FGD','BKQYDLZHJ','NKF','GZVHBPCJW','RPFTKH','QKRXZP','BPMRTXFYD','TYM','NRKTCSHWG','ZYCRLH','RDG','RGBTVQMKH','JTP','HDMQLB','WNDTXB','WKZQFLSNP','CYV','QDR','RFGJKXYPC','BFZGPY','FXVHSWQGL','GSJDMY','KVM','RXDHGWNTK','NLB','MVWYBX','CPQBFZ','XVP','FTWNKBXDY','DLHTPVWBM','FZNWMS','FYM','ZPW','LXDMSWJCB','KSBQPJ','QBGLVRYCF','WGYZJC','CNW','MYWQBZ','CFTGDJLZV','YGR','LFG','BPVFYMKCT','GLJDZH'
+];
+
+var p2_right_letter = ['ZDX','SHQWYJ','JTZHVKMSR','BVD','HPLXYKMWS','QFSVDH','NWSZBV','ZXN','GLXYMQJPN','CPYWZR','TRPDBQHNZ','SNL','DNL','SBDZXQRJH','GKTXHW','SLFBKH','FGD','BKQYDLZHJ','NCF','GZVHBPCJD','RYFTKH','QKRXZP','BPMRTXFYD','TYM','NRKTCSHWG','ZYCRLH','RDX','RGBTVQMKH','JTP','HDMWLB','YNDTXB','WKZQFLSNP','CYV','ZDR','TFGJKXYPC','BFZSPY','FXVKSWQGL','GSQDMY','KVM','RXDHQWNTK','NQB','MVWYBX','CNQBFZ','XVD','FTWNKJXDY','DLHTPVWBM','FZNWMS','FYW','ZPW','LXDMSWJPB','KSBQPJ','QBHLVRYCF','WGYZJC','CNW','MYWJBZ','CFTGDJLZV','YGR','LFW','BPVFYMXCT','GLJDZH'
+];
+
+
+
+// removed the calculation of scores because they were not helpful in data analysis. See pattern_comparison_grant.js for original code here.
+
+var instr_p1 = {
+  type: "instructions",
+  pages: ["You have completed study of the grocery items. Before taking the memory test, you will complete a letter comparison task. Press the right arrow key to see the instructions."],
+  data:{pattern: 'letter',
+    exp_stage: "instructions"
+  }
+}
+	var instructions_letter = {
+	  type: "instructions-min-viewing-time",
+	  pages:[
+		"Welcome to the Letter Comparison task. Press the right arrow key to begin.",
+	  '<p style:"font-size:30px">LETTER COMPARISON</p>' +
+	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.</p>',
+		'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
+	  '<br><p>Press the right arrow key to begin the practice trials.</p>'],
+		/*key_forward: "ArrowRight",
+		key_backward: "ArrowLeft",*/
+	  data:{pattern: 'letter',
+	    exp_stage: "instructions"
+	  },
+    post_trial_gap: 250,
+    min_viewing_time: 3500
+	};
+
+	var alt_practice_letter = {
+	  timeline: [
+	  {
+	  type: "html-keyboard-response",
+		choices: ["ArrowLeft", "ArrowRight"],
+		stimulus: function(){
+			var html = '<table><tr>' +
+			'<td><img src='+
+				jsPsych.timelineVariable("stimulus_1") +
+					 ' style="width:150px;height:150px;display: block;margin: 50px 25px 50px 125px";>' +
+					 '</img></td>' +
+			'<td><img src='+
+			jsPsych.timelineVariable("stimulus_2") +
+			'  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
+								 '</td></tr></table>';
+									 return html;
+
+								 }
+	  }],
+		post_trial_gap: function(){
+			// sample from range (250, 751]
+						return getRandomInt(100,200);
+				},
+		prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+	  data: jsPsych.timelineVariable('data'),
+	  timeline_variables:
+		[
+	    {stimulus_1: prac_left_letter[0],
+	     stimulus_2: prac_right_letter[0],
+	     	data: {corr_resp: prac_cresp_letter[0], exp_stage: "practice"}},
+	    {stimulus_1: prac_left_letter[1],
+	     stimulus_2: prac_right_letter[1],
+	        data: {corr_resp: prac_cresp_letter[1], exp_stage: "practice"}},
+	    {stimulus_1: prac_left_letter[2],
+	     stimulus_2: prac_right_letter[2],
+	        data: {corr_resp: prac_cresp_letter[2], exp_stage: "practice"}}
+	  ]
+	};
+
+	var limit = 30000;
+	var trl = null;
+	var time = null;
+	var time_out = 0;
+
+	var interim_instructions_letter = {
+	  type: "html-keyboard-response",
+	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+	  '<br><p>Press any key to begin.</p>',
+	  post_trial_gap: 250,
+	  data:{exp_stage: "instructions"},
+		on_finish: function(){
+			console.log(limit);
+			console.log(time);
+			console.log(time_out);
+			console.log('what else???');
+		}
+	};
+
+	var generic_trial_letter = {
+		timeline:[
+			{
+				type: "html-keyboard-response",
+				choices: ["ArrowLeft", "ArrowRight"],
+				stimulus: function(){
+					var html = '<table><tr>' +
+					'<td><img src='+
+						jsPsych.timelineVariable("stimulus_1") +
+							 ' style="width:150px;height:150px;display: block;margin: 50px 25px 50px 125px";>' +
+							 '</img></td>' +
+					'<td><img src='+
+					jsPsych.timelineVariable("stimulus_2") +
+					'  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
+										 '</td></tr></table>';
+											 return html;
+				},
+						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+					//	post_trial_gap: 250,
+						trial_duration: function(){
+							return limit;
+						},
+
+				}
+
+		]
+	};
+
+var trial_1_letter = {
+	timeline: [generic_trial_letter],
+	post_trial_gap: function(){
+		// sample from range (250, 751]
+					return getRandomInt(100,200);
+			},
+	data: jsPsych.timelineVariable('data'),
+	on_finish: function(){
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		console.log(trl);
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		console.log(time);
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time;
+		time_out = 0;
+		console.log(time_out);
+		setTimeout(
+			function(){
+			time_out = 1;
+			limit = 0;
+			console.log('timeout');
+			console.log(time_out);
+			jsPsych.data.get().addToLast({timeout: time_out});
+		}, limit);
+	},
+	timeline_variables:[
+			{
+			stimulus_1: p2_left_letter[0],
+			stimulus_2: p1_right_letter[0],
+				data: {corr_resp: p1_correct_letter[0] , exp_stage: 'letter_comp_p1'}
+			}
+	]
+};
+
+
+var test_trials_p1_trl2_letter = {
+	timeline: [generic_trial_letter],
+	post_trial_gap: function(){
+		// sample from range (250, 751]
+					return getRandomInt(100,200);
+			},
+  data: jsPsych.timelineVariable('data'),
+	on_finish: function(){
+		console.log("limit");
+		console.log(limit);
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time;
+		if (limit < 0){
+			limit = 0;
+			time_out = 1;
+			console.log(limit);
+		}
+	},
+	timeline_variables: [
+						{
+		stimulus_1: p1_left_letter[1],
+
+		stimulus_2:  p1_right_letter[1],
+
+		data: {corr_resp:  p1_correct_letter[1], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[2],
+
+		stimulus_2:  p1_right_letter[2],
+
+		data: {corr_resp:  p1_correct_letter[2], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[3],
+
+		stimulus_2:  p1_right_letter[3],
+
+		data: {corr_resp:  p1_correct_letter[3], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[4],
+
+		stimulus_2:  p1_right_letter[4],
+
+		data: {corr_resp:  p1_correct_letter[4], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[5],
+
+		stimulus_2:  p1_right_letter[5],
+
+		data: {corr_resp:  p1_correct_letter[5], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[6],
+
+		stimulus_2:  p1_right_letter[6],
+
+		data: {corr_resp:  p1_correct_letter[6], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[7],
+
+		stimulus_2:  p1_right_letter[7],
+
+		data: {corr_resp:  p1_correct_letter[7], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[8],
+
+		stimulus_2:  p1_right_letter[8],
+
+		data: {corr_resp:  p1_correct_letter[8], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[9],
+
+		stimulus_2:  p1_right_letter[9],
+
+		data: {corr_resp:  p1_correct_letter[9], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[10],
+
+		stimulus_2:  p1_right_letter[10],
+
+		data: {corr_resp:  p1_correct_letter[10], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[11],
+
+		stimulus_2:  p1_right_letter[11],
+
+		data: {corr_resp:  p1_correct_letter[11], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[12],
+
+		stimulus_2:  p1_right_letter[12],
+
+		data: {corr_resp:  p1_correct_letter[12], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[13],
+
+		stimulus_2:  p1_right_letter[13],
+
+		data: {corr_resp:  p1_correct_letter[13], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[14],
+
+		stimulus_2:  p1_right_letter[14],
+
+		data: {corr_resp:  p1_correct_letter[14], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[15],
+
+		stimulus_2:  p1_right_letter[15],
+
+		data: {corr_resp:  p1_correct_letter[15], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[16],
+
+		stimulus_2:  p1_right_letter[16],
+
+		data: {corr_resp:  p1_correct_letter[16], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[17],
+
+		stimulus_2:  p1_right_letter[17],
+
+		data: {corr_resp:  p1_correct_letter[17], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[18],
+
+		stimulus_2:  p1_right_letter[18],
+
+		data: {corr_resp:  p1_correct_letter[18], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[19],
+
+		stimulus_2:  p1_right_letter[19],
+
+		data: {corr_resp:  p1_correct_letter[19], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[20],
+
+		stimulus_2:  p1_right_letter[20],
+
+		data: {corr_resp:  p1_correct_letter[20], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[21],
+
+		stimulus_2:  p1_right_letter[21],
+
+		data: {corr_resp:  p1_correct_letter[21], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[22],
+
+		stimulus_2:  p1_right_letter[22],
+
+		data: {corr_resp:  p1_correct_letter[22], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[23],
+
+		stimulus_2:  p1_right_letter[23],
+
+		data: {corr_resp:  p1_correct_letter[23], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[24],
+
+		stimulus_2:  p1_right_letter[24],
+
+		data: {corr_resp:  p1_correct_letter[24], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[25],
+
+		stimulus_2:  p1_right_letter[25],
+
+		data: {corr_resp:  p1_correct_letter[25], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[26],
+
+		stimulus_2:  p1_right_letter[26],
+
+		data: {corr_resp:  p1_correct_letter[26], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[27],
+
+		stimulus_2:  p1_right_letter[27],
+
+		data: {corr_resp:  p1_correct_letter[27], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[28],
+
+		stimulus_2:  p1_right_letter[28],
+
+		data: {corr_resp:  p1_correct_letter[28], exp_stage: 'letter_comp_p1'}
+		},
+		{
+		stimulus_1: p1_left_letter[29],
+
+		stimulus_2:  p1_right_letter[29],
+
+		data: {corr_resp:  p1_correct_letter[29], exp_stage: 'letter_comp_p1'}
+	},
+		{
+		stimulus_1: p1_left_letter[30],stimulus_1: p1_right_letter[30],
+		data: {corr_resp:  p1_correct_letter[30], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[31],stimulus_1: p1_right_letter[31],
+		data: {corr_resp:  p1_correct_letter[31], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[32],stimulus_1: p1_right_letter[32],
+		data: {corr_resp:  p1_correct_letter[32], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[33],stimulus_1: p1_right_letter[33],
+		data: {corr_resp:  p1_correct_letter[33], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[34],stimulus_1: p1_right_letter[34],
+		data: {corr_resp:  p1_correct_letter[34], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[35],stimulus_1: p1_right_letter[35],
+		data: {corr_resp:  p1_correct_letter[35], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[36],stimulus_1: p1_right_letter[36],
+		data: {corr_resp:  p1_correct_letter[36], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[37],stimulus_1: p1_right_letter[37],
+		data: {corr_resp:  p1_correct_letter[37], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[38],stimulus_1: p1_right_letter[38],
+		data: {corr_resp:  p1_correct_letter[38], exp_stage: 'letter_comp_p1'}},
+		{
+		stimulus_1: p1_left_letter[39],stimulus_1: p1_right[39],
+		data: {corr_resp:  p1_correct_letter[39], exp_stage: 'letter_comp_p1'}}
+	],
+	conditional_function: function(){
+        // get the data from the previous trial,
+        // and check which key was pressed
+        if(time_out != 0){
+            return false;
+        } else {
+            return true;
+        }
+    }
+};
+
+
+var interim_instructions_2_letter = {
+  type: "instructions-min-viewing-time",
+  pages:['<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+  '<br><p>Press the right arrow key to begin.</p>'],
+	min_viewing_time: 2500,
+  post_trial_gap: 250,
+  data:{
+    exp_stage: "instructions"
+  },
+  on_finish: function(){
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		console.log("time between last trial and end");
+		console.log(time);
+		jsPsych.data.get().addToLast({dur: limit});
+
+		limit = 30000;
+		trl = null;
+		time = null;
+		time_out = 0;
+  },
+};
+
+
+
+var trial_2_letter = {
+	timeline: [generic_trial_letter],
+	data: jsPsych.timelineVariable('data'),
+	on_finish: function(){
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		console.log(trl);
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		console.log(time);
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time;
+		console.log(limit);
+		setTimeout(
+			function(){
+			time_out = 1;
+			limit = 0;
+			console.log('timeout');
+			console.log(time_out);
+			jsPsych.data.get().addToLast({timeout: time_out});
+		}, limit);
+	},
+	timeline_variables: [
+		{
+			stimulus_1: p2_left_letter[0],
+			stimulus_2:  p2_right_letter[0],
+				data: {corr_resp:  p2_correct[0], exp_stage: 'letter_comp_p2'}
+			}
+	]
+}
+
+var test_trials_p2_trl2_letter = {
+	timeline: [generic_trial_letter],
+  data: jsPsych.timelineVariable('data'),
+	on_finish: function(){
+		console.log("limit");
+		console.log(limit);
+		jsPsych.data.get().addToLast({dur: limit});
+		trl = jsPsych.data.get().select('time_elapsed');
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		jsPsych.data.get().addToLast({time_between: time});
+		limit = limit - time;
+		if (limit < 0){
+			limit = 0;
+			time_out = 1;
+			console.log(limit);
+		}
+	},
+			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
+			timeline_variables: [
+			          {
+						stimulus_1: p2_left_letter[1],stimulus_1: p2_right_letter[1],
+						data: {corr_resp:  p2_correct[1], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[2],stimulus_1: p2_right_letter[2],
+						data: {corr_resp:  p2_correct[2], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[3],stimulus_1: p2_right_letter[3],
+						data: {corr_resp:  p2_correct[3], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[4],stimulus_1: p2_right_letter[4],
+						data: {corr_resp:  p2_correct[4], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[5],stimulus_1: p2_right_letter[5],
+						data: {corr_resp:  p2_correct[5], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[6],stimulus_1: p2_right_letter[6],
+						data: {corr_resp:  p2_correct[6], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[7],stimulus_1: p2_right_letter[7],
+						data: {corr_resp:  p2_correct[7], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[8],stimulus_1: p2_right_letter[8],
+						data: {corr_resp:  p2_correct[8], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[9],stimulus_1: p2_right_letter[9],
+						data: {corr_resp:  p2_correct[9], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[10],stimulus_1: p2_right_letter[10],
+						data: {corr_resp:  p2_correct[10], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[11],stimulus_1: p2_right_letter[11],
+						data: {corr_resp:  p2_correct[11], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[12],stimulus_1: p2_right_letter[12],
+						data: {corr_resp:  p2_correct[12], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[13],stimulus_1: p2_right_letter[13],
+						data: {corr_resp:  p2_correct[13], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[14],stimulus_1: p2_right_letter[14],
+						data: {corr_resp:  p2_correct[14], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[15],stimulus_1: p2_right_letter[15],
+						data: {corr_resp:  p2_correct[15], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[16],stimulus_1: p2_right_letter[16],
+						data: {corr_resp:  p2_correct[16], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[17],stimulus_1: p2_right_letter[17],
+						data: {corr_resp:  p2_correct[17], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[18],stimulus_1: p2_right_letter[18],
+						data: {corr_resp:  p2_correct[18], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[19],stimulus_1: p2_right_letter[19],
+						data: {corr_resp:  p2_correct[19], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[20],stimulus_1: p2_right_letter[20],
+						data: {corr_resp:  p2_correct[20], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[21],stimulus_1: p2_right_letter[21],
+						data: {corr_resp:  p2_correct[21], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[22],stimulus_1: p2_right_letter[22],
+						data: {corr_resp:  p2_correct[22], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[23],stimulus_1: p2_right_letter[23],
+						data: {corr_resp:  p2_correct[23], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[24],stimulus_1: p2_right_letter[24],
+						data: {corr_resp:  p2_correct[24], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[25],stimulus_1: p2_right_letter[25],
+						data: {corr_resp:  p2_correct[25], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[26],stimulus_1: p2_right_letter[26],
+						data: {corr_resp:  p2_correct[26], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[27],stimulus_1: p2_right_letter[27],
+						data: {corr_resp:  p2_correct[27], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[28],stimulus_1: p2_right_letter[28],
+						data: {corr_resp:  p2_correct[28], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[29],stimulus_1: p2_right_letter[29],
+						data: {corr_resp:  p2_correct[29], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[30],stimulus_1: p2_right_letter[30],
+						data: {corr_resp:  p2_correct[30], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[31],stimulus_1: p2_right_letter[31],
+						data: {corr_resp:  p2_correct[31], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[32],stimulus_1: p2_right_letter[32],
+						data: {corr_resp:  p2_correct[32], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[33],stimulus_1: p2_right_letter[33],
+						data: {corr_resp:  p2_correct[33], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[34],stimulus_1: p2_right_letter[34],
+						data: {corr_resp:  p2_correct[34], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[35],stimulus_1: p2_right_letter[35],
+						data: {corr_resp:  p2_correct[35], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[36],stimulus_1: p2_right_letter[36],
+						data: {corr_resp:  p2_correct[36], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[37],stimulus_1: p2_right_letter[37],
+						data: {corr_resp:  p2_correct[37], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[38],stimulus_1: p2_right_letter[38],
+						data: {corr_resp:  p2_correct[38], exp_stage: 'letter_comp_p2'}},
+						{
+						stimulus_1: p2_left_letter[39],stimulus_1: p2_right_letter[39],
+						data: {corr_resp:  p2_correct[39], exp_stage: 'letter_comp_p2'}}
+			],
+		conditional_function: function(){
+					// get the data from the previous trial,
+					// and check which key was pressed
+					if(time_out != 0){
+							return false;
+					} else {
+							return true;
+					}
+			}
+};
+
+
+///////////////////////////////////////////////////////////////////
+//    PUSH             ///////////
+//        THE                     ///////////          ///////////
+//           TIMELINE                       ///////////
+///////////////////////////////////////////////////////////////////
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
@@ -1329,10 +1983,18 @@ timeline.push(study_timeline);
 // study list 2
 
 // letter comparison task
+timeline.push(instructions_letter);
+timeline.push(alt_practice_letter);
+timeline.push(interim_instructions_letter);
+timeline.push(trial_1_letter);
+timeline.push(test_trials_p1_trl2_letter);
+timeline.push(interim_instructions_2_letter);
+timeline.push(trial_2_letter);
+timeline.push(test_trials_p2_trl2_letter);
 
 // test list 2
-// timeline.push(test_intro_instructions);
-// timeline.push(test_instructions);
+
+  timeline.push(test_intro_instructions_2);
   timeline.push(test_timeline4);
   timeline.push(attention_check_three);
   timeline.push(test_timeline5);
