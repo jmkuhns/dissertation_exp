@@ -792,7 +792,7 @@ var alt_practice = {
   			limit = 0;
   			time_out = 1;
   			console.log(limit);
-  		},
+  		}
       iti = comparison_jitter();
   	},
   	timeline_variables: [
