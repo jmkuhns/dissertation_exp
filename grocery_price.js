@@ -738,9 +738,6 @@ var alt_practice = {
   var trial_1 = {
   	timeline: [generic_trial],
   	data: jsPsych.timelineVariable('data'),
-    post_trial_gap: function(){
-      return iti;
-    },
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
@@ -751,15 +748,17 @@ var alt_practice = {
   		limit = limit - time - iti;
   		time_out = 0;
   		console.log(time_out);
-  		setTimeout(
+        iti = comparison_jitter();
+    	setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
+        iti = null;
   			console.log('timeout');
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
   		}, limit);
-      iti = comparison_jitter();
+
   	},
   	timeline_variables:[
   		{
@@ -775,10 +774,6 @@ var alt_practice = {
 
   var test_trials_p1_trl2 = {
   	timeline: [generic_trial],
-    post_trial_gap: function(){
-      // sample from range (250, 751]
-            return iti;
-        },
     data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		console.log("limit");
@@ -788,12 +783,14 @@ var alt_practice = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2] - iti;
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
+        iti = comparison_jitter();
   		if (limit < 0){
   			limit = 0;
   			time_out = 1;
+        iti = null;
   			console.log(limit);
   		}
-      iti = comparison_jitter();
+
   	},
   	timeline_variables: [
   						{
@@ -1044,10 +1041,6 @@ var alt_practice = {
 
   var trial_2 = {
   	timeline: [generic_trial],
-    post_trial_gap: function(){
-      // sample from range (250, 751]
-            return iti;
-        },
   	data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
@@ -1058,15 +1051,17 @@ var alt_practice = {
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time - iti;
   		console.log(limit);
+      iti = comparison_jitter();
   		setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
+        iti = null;
   			console.log('timeout');
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
   		}, limit);
-      iti = comparison_jitter();
+
   	},
   	timeline_variables:
   	[
@@ -1083,10 +1078,6 @@ var alt_practice = {
   var test_trials_p2_trl2 = {
   	timeline: [generic_trial],
     data: jsPsych.timelineVariable('data'),
-    post_trial_gap: function(){
-  // sample from range (250, 751]
-        return iti;
-    },
   	on_finish: function(){
   		console.log("limit");
   		console.log(limit);
@@ -1095,12 +1086,14 @@ var alt_practice = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
+        iti = comparison_jitter();
   		if (limit < 0){
   			limit = 0;
   			time_out = 1;
+        iti = null;
   			console.log(limit);
   		}
-      iti = comparison_jitter();
+
   	},
   		timeline_variables: [
   	{
@@ -1465,10 +1458,6 @@ var instr_p1_letter = {
 
 var trial_1_letter = {
 	timeline: [generic_trial_letter],
-	post_trial_gap: function(){
-		// sample from range (250, 751]
-					return iti;
-			},
 	data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
 		jsPsych.data.get().addToLast({dur: limit});
@@ -1480,15 +1469,16 @@ var trial_1_letter = {
 		limit = limit - time - iti;
 		time_out = 0;
 		console.log(time_out);
+    iti = comparison_jitter();
 		setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
+      iti = null;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
 		}, limit);
-    iti = comparison_jitter();
 	},
 	timeline_variables:[
 			{
@@ -1502,10 +1492,6 @@ var trial_1_letter = {
 
 var test_trials_p1_trl2_letter = {
 	timeline: [generic_trial_letter],
-	post_trial_gap: function(){
-		// sample from range (250, 751]
-					return iti;
-			},
   data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
 		console.log("limit");
@@ -1515,12 +1501,13 @@ var test_trials_p1_trl2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
+    iti = comparison_jitter();
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
+      iti = null;
 			console.log(limit);
 		}
-    iti = comparison_jitter();
 	},
 	timeline_variables: [
 						{
@@ -1806,16 +1793,18 @@ var trial_2_letter = {
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time-iti;
+    iti = comparison_jitter();
 		console.log(limit);
 		setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
+      iti = null;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
 		}, limit);
-    iti = comparison_jitter();
+
 	},
 	timeline_variables: [
 		{
@@ -1837,12 +1826,13 @@ var test_trials_p2_trl2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
+    iti = comparison_jitter();
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
+      iti = null;
 			console.log(limit);
 		}
-    iti = comparison_jitter();
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 			timeline_variables: [
