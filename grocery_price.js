@@ -44,8 +44,9 @@ for(var i = 0; i < 96; i++) {
     test[i].att_chk = false;
 }
 
-study_list_1 =  study.slice(0,47);
+study_list_1 =  study.slice(0,48);
 study_list_2 = study.slice(48);
+
 test_list_1 = test.slice(0, 47);
 test_list_2 = test.slice(48);
 
@@ -613,6 +614,7 @@ var instr_p1 = {
   //		key_forward: "ArrowRight",
   //		key_backward: "ArrowLeft",
   		post_trial_gap: 250,
+      show_clickable_nav: true,
       min_viewing_time: 3500,
   		data:{pattern: 'pattern',
   	    exp_stage: "instructions"
