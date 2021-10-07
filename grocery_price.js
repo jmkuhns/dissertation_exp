@@ -43,11 +43,11 @@ var test = eval(l_test_names[list]);
 for(var i = 0; i < 96; i++) {
     test[i].att_chk = false;
 }
-
+// the second number in slice is not-inclusive, but the first is!
 study_list_1 =  study.slice(0,48);
 study_list_2 = study.slice(48);
 
-test_list_1 = test.slice(0, 47);
+test_list_1 = test.slice(0, 48);
 test_list_2 = test.slice(48);
 
 
@@ -186,15 +186,20 @@ var study_function = {
       },
       data: {memory: "memory",
       exp_stage: "study", item:jsPsych.timelineVariable('item'),
-    price: jsPsych.timelineVariable("price") }
+    price: jsPsych.timelineVariable("price"), list_order: jsPsych.timelineVariable("list_order") }
     }
-  ]
+  ],
+  on_finish: function(){
+    console.log(jsPsych.timelineVariable("list_order"))
+  }
 }
 var study_timeline = {
   timeline: [study_function],
   timeline_variables: study_list_1_shuffled,
   randomize_order: true,
-  on_finish: console.log(list)
+  on_finish: function(){
+    console.log(list);
+  }
 }
 
 var study_timeline_list_two = {
@@ -292,7 +297,7 @@ var test_function = {
         },
         data: {
           memory: "memory", exp_stage: "test", question_type: "associative",
-          list: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
+          list_order: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
         item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
         item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
       },
@@ -307,7 +312,7 @@ var test_function = {
       {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
-        data: {memory: "memory", exp_stage: "test", question_type: "source", list: list, test_type: jsPsych.timelineVariable('test_type'),
+        data: {memory: "memory", exp_stage: "test", question_type: "source", list_order: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
       item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
       item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")},
       on_finish: function(data){
@@ -340,7 +345,7 @@ var test_function = {
         type: 'html-button-response',
         choices: ["<p style='font-size:25px'>Studied</p>", "<p style='font-size:25px'>Not Studied</p>"],
         data:
-        { memory: "memory", exp_stage: "test", question_type: "item",list: list, test_type: jsPsych.timelineVariable('test_type'),
+        { memory: "memory", exp_stage: "test", question_type: "item",lislist_order: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
       item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
       item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")
     },
@@ -1949,12 +1954,15 @@ var test_trials_p2_trl2_letter = {
 //        THE                     ///////////          ///////////
 //           TIMELINE                       ///////////
 ///////////////////////////////////////////////////////////////////
+
+// testing out pattern comparison
+/*
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
 timeline.push(study_instructions);
 timeline.push(study_timeline);
-
+*/
 // quick foray in to a pattern comparison task
   timeline.push(instructions);
   timeline.push(alt_practice);
