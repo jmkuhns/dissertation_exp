@@ -9,6 +9,12 @@ function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+function comparison_jitter(){
+   return getRandomInt(200, 250);
+ }
+// iti used in comparison tasks
+var iti = comparison_jitter();
+
 // should be uniform across sample, but will create small differences in number of subjects per list
 var list = jsPsych.randomization.sampleWithoutReplacement([0,1,2,3,4,5,6,7,8,9],1)[0];
 // going to load every list in the qualtrics
@@ -607,7 +613,7 @@ var instr_p1 = {
   }
 }
 
-  	var instructions = {
+var instructions = {
       type: "instructions-min-viewing-time",
   		pages:[
   	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
@@ -619,14 +625,17 @@ var instr_p1 = {
   //		key_forward: "ArrowRight",
   //		key_backward: "ArrowLeft",
   		post_trial_gap: 250,
-      show_clickable_nav: true,
+  //    show_clickable_nav: true,
       min_viewing_time: 3500,
   		data:{pattern: 'pattern',
   	    exp_stage: "instructions"
-  	  }
+  	  },
+      on_finish: function(){
+        iti = comparison_jitter();
+      }
   	};
 
-  	var alt_practice = {
+var alt_practice = {
   	  timeline: [
   	  {
   	  type: "html-keyboard-response",
@@ -649,7 +658,7 @@ var instr_p1 = {
   	  }],
       post_trial_gap: function(){
         // sample from range (250, 751]
-              return getRandomInt(100,200);
+              return iti;
           },
   				prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
@@ -687,9 +696,11 @@ var instr_p1 = {
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
   		on_finish: function(){
   			console.log(limit);
+        console.log(iti);
   			console.log(time);
   			console.log(time_out);
   			console.log('what else???');
+        iti = comparison_jitter();
   		}
   	};
 
@@ -713,10 +724,10 @@ var instr_p1 = {
   						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
               post_trial_gap: function(){
                 // sample from range (250, 751]
-                      return getRandomInt(100,200);
+                      return iti;
                   },
   						trial_duration: function(){
-  							return limit;
+  							return limit ;
   						}
 
   				}
@@ -727,6 +738,9 @@ var instr_p1 = {
   var trial_1 = {
   	timeline: [generic_trial],
   	data: jsPsych.timelineVariable('data'),
+    post_trial_gap: function(){
+      return iti;
+    },
   	on_finish: function(){
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
@@ -734,7 +748,7 @@ var instr_p1 = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		console.log(time);
   		jsPsych.data.get().addToLast({time_between: time});
-  		limit = limit - time;
+  		limit = limit - time - iti;
   		time_out = 0;
   		console.log(time_out);
   		setTimeout(
@@ -745,6 +759,7 @@ var instr_p1 = {
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
   		}, limit);
+      iti = comparison_jitter();
   	},
   	timeline_variables:[
   		{
@@ -762,7 +777,7 @@ var instr_p1 = {
   	timeline: [generic_trial],
     post_trial_gap: function(){
       // sample from range (250, 751]
-            return getRandomInt(100,200);
+            return iti;
         },
     data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
@@ -770,14 +785,15 @@ var instr_p1 = {
   		console.log(limit);
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
-  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2] - iti;
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
   		if (limit < 0){
   			limit = 0;
   			time_out = 1;
   			console.log(limit);
-  		}
+  		},
+      iti = comparison_jitter();
   	},
   	timeline_variables: [
   						{
@@ -1001,10 +1017,6 @@ var instr_p1 = {
     pages:[
     '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the right arrow key to begin.</p>'
   ],
-  post_trial_gap: function(){
-    // sample from range (250, 751]
-          return getRandomInt(100,200);
-      },
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
   //  choices: "Enter" ,
@@ -1024,6 +1036,7 @@ var instr_p1 = {
   		trl = null;
   		time = null;
   		time_out = 0;
+      iti = comparison_jitter();
     },
   };
 
@@ -1033,7 +1046,7 @@ var instr_p1 = {
   	timeline: [generic_trial],
     post_trial_gap: function(){
       // sample from range (250, 751]
-            return getRandomInt(100,200);
+            return iti;
         },
   	data: jsPsych.timelineVariable('data'),
   	on_finish: function(){
@@ -1043,7 +1056,7 @@ var instr_p1 = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		console.log(time);
   		jsPsych.data.get().addToLast({time_between: time});
-  		limit = limit - time;
+  		limit = limit - time - iti;
   		console.log(limit);
   		setTimeout(
   			function(){
@@ -1053,6 +1066,7 @@ var instr_p1 = {
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
   		}, limit);
+      iti = comparison_jitter();
   	},
   	timeline_variables:
   	[
@@ -1071,14 +1085,14 @@ var instr_p1 = {
     data: jsPsych.timelineVariable('data'),
     post_trial_gap: function(){
   // sample from range (250, 751]
-        return getRandomInt(100,200);
+        return iti;
     },
   	on_finish: function(){
   		console.log("limit");
   		console.log(limit);
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
-  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
   		if (limit < 0){
@@ -1086,6 +1100,7 @@ var instr_p1 = {
   			time_out = 1;
   			console.log(limit);
   		}
+      iti = comparison_jitter();
   	},
   		timeline_variables: [
   	{
@@ -1330,7 +1345,7 @@ var p2_right_letter = ['ZDX','SHQWYJ','JTZHVKMSR','BVD','HPLXYKMWS','QFSVDH','NW
 
 // removed the calculation of scores because they were not helpful in data analysis. See pattern_comparison_grant.js for original code here.
 
-var instr_p1 = {
+var instr_p1_letter = {
   type: "instructions",
   pages: ["You have completed study of the grocery items. Before taking the memory test, you will complete a letter comparison task. Press the right arrow key to see the instructions."],
   data:{pattern: 'letter',
@@ -1352,7 +1367,10 @@ var instr_p1 = {
 	    exp_stage: "instructions"
 	  },
     post_trial_gap: 250,
-    min_viewing_time: 3500
+    min_viewing_time: 3500,
+    on_finish: function(){
+      iti = comparison_jitter();
+    }
 	};
 
 	var alt_practice_letter = {
@@ -1376,7 +1394,7 @@ var instr_p1 = {
 	  }],
 		post_trial_gap: function(){
 			// sample from range (250, 751]
-						return getRandomInt(100,200);
+						return iti;
 				},
 		prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 	  data: jsPsych.timelineVariable('data'),
@@ -1410,6 +1428,7 @@ var instr_p1 = {
 			console.log(time);
 			console.log(time_out);
 			console.log('what else???');
+      iti = comparison_jitter();
 		}
 	};
 
@@ -1431,7 +1450,10 @@ var instr_p1 = {
 											 return html;
 				},
 						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
-					//	post_trial_gap: 250,
+            post_trial_gap: function(){
+              // sample from range (250, 751]
+                    return iti;
+                },
 						trial_duration: function(){
 							return limit;
 						},
@@ -1445,7 +1467,7 @@ var trial_1_letter = {
 	timeline: [generic_trial_letter],
 	post_trial_gap: function(){
 		// sample from range (250, 751]
-					return getRandomInt(100,200);
+					return iti;
 			},
 	data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
@@ -1455,7 +1477,7 @@ var trial_1_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time;
+		limit = limit - time - iti;
 		time_out = 0;
 		console.log(time_out);
 		setTimeout(
@@ -1466,6 +1488,7 @@ var trial_1_letter = {
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
 		}, limit);
+    iti = comparison_jitter();
 	},
 	timeline_variables:[
 			{
@@ -1481,7 +1504,7 @@ var test_trials_p1_trl2_letter = {
 	timeline: [generic_trial_letter],
 	post_trial_gap: function(){
 		// sample from range (250, 751]
-					return getRandomInt(100,200);
+					return iti;
 			},
   data: jsPsych.timelineVariable('data'),
 	on_finish: function(){
@@ -1489,7 +1512,7 @@ var test_trials_p1_trl2_letter = {
 		console.log(limit);
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
 		if (limit < 0){
@@ -1497,6 +1520,7 @@ var test_trials_p1_trl2_letter = {
 			time_out = 1;
 			console.log(limit);
 		}
+    iti = comparison_jitter();
 	},
 	timeline_variables: [
 						{
@@ -1765,6 +1789,7 @@ var interim_instructions_2_letter = {
 		trl = null;
 		time = null;
 		time_out = 0;
+    iti = comparison_jitter();
   },
 };
 
@@ -1780,7 +1805,7 @@ var trial_2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time;
+		limit = limit - time-iti;
 		console.log(limit);
 		setTimeout(
 			function(){
@@ -1790,6 +1815,7 @@ var trial_2_letter = {
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
 		}, limit);
+    iti = comparison_jitter();
 	},
 	timeline_variables: [
 		{
@@ -1808,7 +1834,7 @@ var test_trials_p2_trl2_letter = {
 		console.log(limit);
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
 		if (limit < 0){
@@ -1816,6 +1842,7 @@ var test_trials_p2_trl2_letter = {
 			time_out = 1;
 			console.log(limit);
 		}
+    iti = comparison_jitter();
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 			timeline_variables: [
@@ -1964,6 +1991,7 @@ timeline.push(study_instructions);
 timeline.push(study_timeline);
 */
 // quick foray in to a pattern comparison task
+/*  timeline.push(instr_p1);
   timeline.push(instructions);
   timeline.push(alt_practice);
   timeline.push(interim_instructions);
@@ -1971,8 +1999,8 @@ timeline.push(study_timeline);
   timeline.push(test_trials_p1_trl2);
   timeline.push(interim_instructions_2);
   timeline.push(trial_2);
-  timeline.push(test_trials_p2_trl2);
-
+  timeline.push(test_trials_p2_trl2);*/
+/*
 // test list 1
   timeline.push(test_intro_instructions);
   timeline.push(test_instructions);
@@ -1984,8 +2012,11 @@ timeline.push(study_timeline);
   timeline.push(test_timeline3);
 
 // study list 2
-
+    timeline.push(study_instructions_list_two);
+    timeline.push(study_timeline_list_two);
+*/
 // letter comparison task
+timeline.push(instr_p1_letter);
 timeline.push(instructions_letter);
 timeline.push(alt_practice_letter);
 timeline.push(interim_instructions_letter);
