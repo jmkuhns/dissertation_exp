@@ -741,11 +741,15 @@ var alt_practice = {
                   // this function is all you need to end the current timeline
                   time_out = 1;
                   console.log(time_out);
-                  jsPsych.endCurrentTimeline();
+                  console.log(trial_count);
                   // this function ends the current trial
-                //jsPsych.finishTrial({status: "ended early"});
+                  jsPsych.finishTrial({status: "ended early"});
+                  jsPsych.endCurrentTimeline();
               }, limit);
                 }
+          if( time_out == 1) {
+              jsPsych.endCurrentTimeline();
+            }
       },
       on_finish: function(data){
         // we also need to cancel the setTimeout timer if the person gets all the way through the timeline before
@@ -976,8 +980,7 @@ var alt_practice = {
           // and check which key was pressed
           if(time_out != 0){
               jsPsych.endCurrentTimeline();
-          } else {
-              return true;
+              console.log("called from trial_pattern")
           }
       }
   }
