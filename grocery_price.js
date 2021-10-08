@@ -728,6 +728,11 @@ var alt_practice = {
   				}
 
   		],
+      on_start:function(){
+        if (time_out == 1){
+          jsPsych.endCurrentTimeline();
+        }
+      },
       on_load: function(){
         trial_count++;
         console.log(trial_count);
@@ -764,6 +769,11 @@ var alt_practice = {
   var trial_pattern = {
       timeline: [generic_trial],
       data: jsPsych.timelineVariable('data'),
+      on_start:function(){
+        if(time_out == 1){
+          jsPsych.endCurrentTimeline();
+        }
+      },
     timeline_variables:[
     		{
     	stimulus_1: p1_left[0],
