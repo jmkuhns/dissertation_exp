@@ -740,6 +740,7 @@ var alt_practice = {
                   console.log("elapsed time: ", elapsed_time);
                   // this function is all you need to end the current timeline
                   time_out = 1;
+                  console.log(time_out);
                   jsPsych.endCurrentTimeline();
                   // this function ends the current trial
                 //jsPsych.finishTrial({status: "ended early"});
