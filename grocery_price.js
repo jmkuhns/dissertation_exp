@@ -727,7 +727,12 @@ var alt_practice = {
 
   				}
 
-  		],
+  		]
+  	};
+
+  var trial_pattern = {
+      timeline: [generic_trial],
+      data: jsPsych.timelineVariable('data'),
       on_load: function(){
         trial_count++;
                 // we need to set up the timer to end the current timeline after a certain duration, but only on the first trial
@@ -757,12 +762,7 @@ var alt_practice = {
         if (trial_count == n_trials){
           clearTimeout(end_test_timer);
         }
-      }
-  	};
-
-  var trial_pattern = {
-      timeline: [generic_trial],
-      data: jsPsych.timelineVariable('data'),
+      },
     timeline_variables:[
     		{
     	stimulus_1: p1_left[0],
@@ -974,15 +974,7 @@ var alt_practice = {
 
   		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
   		}
-  	],
-  	conditional_function: function(){
-          // get the data from the previous trial,
-          // and check which key was pressed
-          if(time_out != 0){
-              jsPsych.endCurrentTimeline();
-              console.log("called from trial_pattern")
-          }
-      }
+  	]
   }
 
 /*
