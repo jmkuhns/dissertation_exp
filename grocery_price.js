@@ -643,9 +643,7 @@ var alt_practice = {
                    '</td></tr></table>';
                      return html;
 
-  	  }
-  		//,
-  	  //    post_trial_gap: 250
+  	                }
   	  }],
       post_trial_gap: function(){
         // sample from range (250, 751]
@@ -693,6 +691,8 @@ var alt_practice = {
   		on_finish: function(){
   			console.log(limit);
         console.log(iti);
+        console.log("n_trials");
+        console.log(n_trials);
   			console.log(time);
   			console.log(time_out);
   			console.log('what else???');
@@ -742,7 +742,7 @@ var alt_practice = {
                   // this function is all you need to end the current timeline
                   jsPsych.endCurrentTimeline();
                   // this function ends the current trial
-                jsPsych.finishTrial({status: "ended early"});
+                //jsPsych.finishTrial({status: "ended early"});
               }, limit);
                 }
       },
