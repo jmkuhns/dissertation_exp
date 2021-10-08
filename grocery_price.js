@@ -509,61 +509,11 @@ var test_function = {
     on_success: console.log("it worked I guess")
     };
 
-    var time_limit = 2500;
     var start_time;
     var end_test_timer;
     var trial_count = 0;
 
     var n_trials = p1_left.length;
-
-    var test = {
-        type: "html-button-response",
-        stimulus: jsPsych.timelineVariable('stimulus'),
-        choices: ['Yes', 'No'],
-        on_load: function() {
-            trial_count++;
-            // we need to set up the timer to end the current timeline after a certain duration, but only on the first trial
-            if (trial_count == 1) {
-                start_time = performance.now();
-                var end_test_timer = setTimeout(function() {
-                    // this stuff is just for testing
-                    var end_time = performance.now();
-                    var elapsed_time = end_time - start_time;
-                    console.log("elapsed time: ", elapsed_time);
-                    // this function is all you need to end the current timeline
-                    jsPsych.endCurrentTimeline();
-                    // this function ends the current trial
-                    jsPsych.finishTrial({status: "ended early"});
-                }, limit);
-            }
-        },
-        on_finish: function(data) {
-            // we also need to cancel the setTimeout timer if the person gets all the way through the timeline before
-            // time_limit is reached, otherwise endCurrentTimeline will fire during the next timeline - not good!!
-            if (trial_count == n_trials) {
-                clearTimeout(end_test_timer);
-            }
-        }
-    }
-
-    var test_procedure = {
-        timeline: [test],
-        timeline_variables: test_stimuli
-    }
-
-    timeline.push(test_procedure);
-    timeline.push({
-        type: 'html-keyboard-response',
-        stimulus: "Time's up!",
-        choices: jsPsych.ALL_KEYS
-    });
-
-    jsPsych.init({
-        timeline: timeline,
-        on_finish: function () {
-            jsPsych.data.displayData();
-        }
-    });
 
 
   function filter_data(stage){
