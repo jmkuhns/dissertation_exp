@@ -719,7 +719,6 @@ var alt_practice = {
   				},
   						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
               post_trial_gap: function(){
-                // sample from range (250, 751]
                       return iti;
                   },
   						trial_duration: function(){
@@ -740,6 +739,7 @@ var alt_practice = {
                   var elapsed_time = end_time - start_time;
                   console.log("elapsed time: ", elapsed_time);
                   // this function is all you need to end the current timeline
+                  time_out = 1;
                   jsPsych.endCurrentTimeline();
                   // this function ends the current trial
                 //jsPsych.finishTrial({status: "ended early"});
@@ -974,7 +974,7 @@ var alt_practice = {
           // get the data from the previous trial,
           // and check which key was pressed
           if(time_out != 0){
-              return false;
+              jsPsych.endCurrentTimeline();
           } else {
               return true;
           }
