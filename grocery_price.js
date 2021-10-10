@@ -1051,8 +1051,13 @@ var alt_practice = {
   			time_out = 1;
         iti = null;
   			console.log(limit);
+<<<<<<< HEAD
   		}
 
+=======
+  		},
+      iti = comparison_jitter();
+>>>>>>> parent of a7c42c4... rogue comma
   	},
   	timeline_variables: [
   						{
