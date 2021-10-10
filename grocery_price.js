@@ -1328,11 +1328,11 @@ var instr_p1_letter = {
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
 			var html = '<table><tr>' +
-			'<td><p style="font-size:25px">                              '+
+			'<td padding:"75px"><p style="font-size:25px">                              '+
 				jsPsych.timelineVariable("stimulus_1") +
 
 					 '</p></td>' +
-			'<td><p style="font-size:25px">          '+
+			'<td padding:"75px"><p style="font-size:25px">          '+
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td></tr></table>';
 									 return html;
@@ -1383,10 +1383,11 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
 					var html = '<table><tr>' +
-					'<td><p style="font-size:25px">                              '+
+					'<td padding:"75px">'+
+          '<p style="font-size:25px">'+
 						jsPsych.timelineVariable("stimulus_1") +
 							 '</p></td>' +
-					'<td><p style="font-size:25px">          '+
+					'<td padding:"75px"><p style="font-size:25px">          '+
 					jsPsych.timelineVariable("stimulus_2") +
 										 '</p></td></tr></table>';
 											 return html;
@@ -1425,7 +1426,7 @@ var trial_1_letter = {
 	},
 	timeline_variables:[
 			{
-			stimulus_1: p2_left_letter[0],
+			stimulus_1: p1_left_letter[0],
 			stimulus_2: p1_right_letter[0],
 				data: {corr_resp: p1_correct_letter[0] , exp_stage: 'letter_comp_p1'}
 			}
