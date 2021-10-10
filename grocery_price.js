@@ -972,7 +972,6 @@ var alt_practice = {
           }
       }
   };
-*/
 
   var interim_instructions_2 = {
     type: "instructions-min-viewing-time",
