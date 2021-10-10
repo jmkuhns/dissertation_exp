@@ -509,13 +509,6 @@ var test_function = {
     on_success: console.log("it worked I guess")
     };
 
-    var start_time;
-    var end_test_timer;
-    var trial_count = 0;
-
-    var n_trials = p1_left.length;
-
-
   function filter_data(stage){
   			var selected_data = jsPsych.data.get().filter({exp_stage: stage}).select("key_press");
   	    var d = selected_data.values;// get the data values
@@ -620,10 +613,7 @@ var instructions = {
       min_viewing_time: 3500,
   		data:{pattern: 'pattern',
   	    exp_stage: "instructions"
-  	  },
-      on_finish: function(){
-        iti = comparison_jitter();
-      }
+  	  }
   	};
 
 var alt_practice = {
@@ -645,10 +635,6 @@ var alt_practice = {
 
   	                }
   	  }],
-      post_trial_gap: function(){
-        // sample from range (250, 751]
-              return iti;
-          },
   				prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
   	  data: jsPsych.timelineVariable('data'),
   	  on_finish: function(data){
@@ -676,11 +662,6 @@ var alt_practice = {
   	var trl = null;
   	var time = null;
   	var time_out = 0;
-    var start_time;
-    var end_test_timer;
-    var trial_count = 0;
-    // 30 for pattern comparison
-    var n_trials = p1_left.length;
 
   	var interim_instructions = {
       type: "instructions-min-viewing-time",
@@ -690,9 +671,6 @@ var alt_practice = {
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
   		on_finish: function(){
   			console.log(limit);
-        console.log(iti);
-        console.log("n_trials");
-        console.log(n_trials);
   			console.log(time);
   			console.log(time_out);
   			console.log('what else???');
@@ -718,285 +696,15 @@ var alt_practice = {
                          return html;
   				},
   						prompt: '<p style="font-size:25px;margin:auto">Press ‹— for Same. Press —› for Different.</p>',
-              post_trial_gap: function(){
-                      return iti;
-                  },
   						trial_duration: function(){
   							return limit ;
   						}
 
   				}
 
-  		],
-      on_start:function(){
-        if (time_out == 1){
-          jsPsych.endCurrentTimeline();
-        }
-      },
-      on_load: function(){
-        trial_count++;
-        console.log(trial_count);
-                // we need to set up the timer to end the current timeline after a certain duration, but only on the first trial
-          if (trial_count == 1) {
-              start_time = performance.now();
-              var end_test_timer = setTimeout(function() {
-                  // this stuff is just for testing
-                  var end_time = performance.now();
-                  var elapsed_time = end_time - start_time;
-                  console.log("elapsed time: ", elapsed_time);
-                  // this function is all you need to end the current timeline
-                  time_out = 1;
-                  console.log(time_out);
-                  console.log(trial_count);
-                  // this function ends the current trial
-                  jsPsych.finishTrial({status: "ended early"});
-                  jsPsych.endCurrentTimeline();
-              }, limit);
-                }
-          if( time_out == 1) {
-              jsPsych.endCurrentTimeline();
-            }
-      },
-      on_finish: function(data){
-        // we also need to cancel the setTimeout timer if the person gets all the way through the timeline before
-        // time_limit is reached, otherwise endCurrentTimeline will fire during the next timeline - not good!!
-        if (trial_count == n_trials){
-          clearTimeout(end_test_timer);
-        }
-      }
+  		]
   	};
 
-  var trial_pattern = {
-      timeline: [generic_trial],
-      data: jsPsych.timelineVariable('data'),
-      on_start:function(){
-        if(time_out == 1){
-          jsPsych.endCurrentTimeline();
-        }
-      },
-    timeline_variables:[
-    		{
-    	stimulus_1: p1_left[0],
-
-    	stimulus_2:  p1_right[0],
-
-    	data: {pattern: 'pattern', corr_resp: "ArrowLeft" , exp_stage: 'pattern_comp_p1'}
-    },
-    {
-  		stimulus_1: p1_left[1],
-
-  		stimulus_2:  p1_right[1],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[2],
-
-  		stimulus_2:  p1_right[2],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[3],
-
-  		stimulus_2:  p1_right[3],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[4],
-
-  		stimulus_2:  p1_right[4],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[5],
-
-  		stimulus_2:  p1_right[5],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[6],
-
-  		stimulus_2:  p1_right[6],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[7],
-
-  		stimulus_2:  p1_right[7],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[8],
-
-  		stimulus_2:  p1_right[8],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[9],
-
-  		stimulus_2:  p1_right[9],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[10],
-
-  		stimulus_2:  p1_right[10],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[11],
-
-  		stimulus_2:  p1_right[11],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[12],
-
-  		stimulus_2:  p1_right[12],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[13],
-
-  		stimulus_2:  p1_right[13],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[14],
-
-  		stimulus_2:  p1_right[14],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[15],
-
-  		stimulus_2:  p1_right[15],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[16],
-
-  		stimulus_2:  p1_right[16],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[17],
-
-  		stimulus_2:  p1_right[17],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[18],
-
-  		stimulus_2:  p1_right[18],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[19],
-
-  		stimulus_2:  p1_right[19],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[20],
-
-  		stimulus_2:  p1_right[20],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[21],
-
-  		stimulus_2:  p1_right[21],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[22],
-
-  		stimulus_2:  p1_right[22],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[23],
-
-  		stimulus_2:  p1_right[23],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[24],
-
-  		stimulus_2:  p1_right[24],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[25],
-
-  		stimulus_2:  p1_right[25],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[26],
-
-  		stimulus_2:  p1_right[26],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[27],
-
-  		stimulus_2:  p1_right[27],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[28],
-
-  		stimulus_2:  p1_right[28],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowRight", exp_stage: 'pattern_comp_p1'}
-  		},
-  		{
-  		stimulus_1: p1_left[29],
-
-  		stimulus_2:  p1_right[29],
-
-  		data: {pattern: 'pattern',corr_resp:  "ArrowLeft", exp_stage: 'pattern_comp_p1'}
-  		}
-  	],
-  	conditional_function: function(){
-          // get the data from the previous trial,
-          // and check which key was pressed
-          if(time_out != 0){
-              jsPsych.endCurrentTimeline();
-              console.log("called from trial_pattern")
-          }
-      }
-  }
-
-/*
   var trial_1 = {
   	timeline: [generic_trial],
   	data: jsPsych.timelineVariable('data'),
@@ -1007,15 +715,13 @@ var alt_practice = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		console.log(time);
   		jsPsych.data.get().addToLast({time_between: time});
-  		limit = limit - time - iti;
+  		limit = limit - time;
   		time_out = 0;
   		console.log(time_out);
-        iti = comparison_jitter();
     	setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
-        iti = null;
   			console.log('timeout');
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
@@ -1042,23 +748,15 @@ var alt_practice = {
   		console.log(limit);
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
-  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2] - iti;
+  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
-        iti = comparison_jitter();
   		if (limit < 0){
   			limit = 0;
   			time_out = 1;
-        iti = null;
   			console.log(limit);
-<<<<<<< HEAD
-  		}
-
-=======
-  		},
-      iti = comparison_jitter();
->>>>>>> parent of a7c42c4... rogue comma
-  	},
+  	}
+  },
   	timeline_variables: [
   						{
   		stimulus_1: p1_left[1],
@@ -1300,7 +998,6 @@ var alt_practice = {
   		trl = null;
   		time = null;
   		time_out = 0;
-      iti = comparison_jitter();
     },
   };
 
@@ -1316,14 +1013,12 @@ var alt_practice = {
   		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		console.log(time);
   		jsPsych.data.get().addToLast({time_between: time});
-  		limit = limit - time - iti;
+  		limit = limit - time ;
   		console.log(limit);
-      iti = comparison_jitter();
   		setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
-        iti = null;
   			console.log('timeout');
   			console.log(time_out);
   			jsPsych.data.get().addToLast({timeout: time_out});
@@ -1350,14 +1045,12 @@ var alt_practice = {
   		console.log(limit);
   		jsPsych.data.get().addToLast({dur: limit});
   		trl = jsPsych.data.get().select('time_elapsed');
-  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
+  		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time;
-        iti = comparison_jitter();
   		if (limit < 0){
   			limit = 0;
   			time_out = 1;
-        iti = null;
   			console.log(limit);
   		}
 
