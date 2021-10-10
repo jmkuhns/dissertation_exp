@@ -665,7 +665,7 @@ var alt_practice = {
 
   	var interim_instructions = {
       type: "instructions-min-viewing-time",
-  		pages: ['<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the RIGHT ARROW KEY to begin.</p>'],
+  		pages: ['<p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the RIGHT ARROW KEY to begin.</p>'],
   	  post_trial_gap: 250,
       min_viewing_time: 1000,
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
@@ -1363,7 +1363,7 @@ var instr_p1_letter = {
 
 	var interim_instructions_letter = {
 	  type: "html-keyboard-response",
-	  stimulus: '<p>You have now completed the practice trials. For the experiment, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
+	  stimulus: '<p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
 	  '<br><p>Press any key to begin.</p>',
 	  post_trial_gap: 250,
 	  data:{exp_stage: "instructions"},
