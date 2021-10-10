@@ -1320,10 +1320,7 @@ var instr_p1_letter = {
 	    exp_stage: "instructions"
 	  },
     post_trial_gap: 250,
-    min_viewing_time: 3500,
-    on_finish: function(){
-      iti = comparison_jitter();
-    }
+    min_viewing_time: 3500
 	};
 
 	var alt_practice_letter = {
@@ -1345,10 +1342,6 @@ var instr_p1_letter = {
 
 								 }
 	  }],
-		post_trial_gap: function(){
-			// sample from range (250, 751]
-						return iti;
-				},
 		prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 	  data: jsPsych.timelineVariable('data'),
 	  timeline_variables:
@@ -1381,7 +1374,6 @@ var instr_p1_letter = {
 			console.log(time);
 			console.log(time_out);
 			console.log('what else???');
-      iti = comparison_jitter();
 		}
 	};
 
@@ -1403,10 +1395,6 @@ var instr_p1_letter = {
 											 return html;
 				},
 						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
-            post_trial_gap: function(){
-              // sample from range (250, 751]
-                    return iti;
-                },
 						trial_duration: function(){
 							return limit;
 						},
@@ -1426,15 +1414,13 @@ var trial_1_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time - iti;
+		limit = limit - time;
 		time_out = 0;
 		console.log(time_out);
-    iti = comparison_jitter();
 		setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
-      iti = null;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
@@ -1458,14 +1444,12 @@ var test_trials_p1_trl2_letter = {
 		console.log(limit);
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
-    iti = comparison_jitter();
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
-      iti = null;
 			console.log(limit);
 		}
 	},
@@ -1736,8 +1720,7 @@ var interim_instructions_2_letter = {
 		trl = null;
 		time = null;
 		time_out = 0;
-    iti = comparison_jitter();
-  },
+  }
 };
 
 
@@ -1752,14 +1735,12 @@ var trial_2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		console.log(time);
 		jsPsych.data.get().addToLast({time_between: time});
-		limit = limit - time-iti;
-    iti = comparison_jitter();
+		limit = limit - time;
 		console.log(limit);
 		setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
-      iti = null;
 			console.log('timeout');
 			console.log(time_out);
 			jsPsych.data.get().addToLast({timeout: time_out});
@@ -1783,14 +1764,12 @@ var test_trials_p2_trl2_letter = {
 		console.log(limit);
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
-		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2]-iti;
+		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
-    iti = comparison_jitter();
 		if (limit < 0){
 			limit = 0;
 			time_out = 1;
-      iti = null;
 			console.log(limit);
 		}
 	},
