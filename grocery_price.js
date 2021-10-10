@@ -1330,14 +1330,13 @@ var instr_p1_letter = {
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
 			var html = '<table><tr>' +
-			'<td><img src='+
+			'<td><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
-					 ' style="width:150px;height:150px;display: block;margin: 50px 25px 50px 125px";>' +
-					 '</img></td>' +
-			'<td><img src='+
+
+					 '</p></td>' +
+			'<td><p style="font-size:25px">'+
 			jsPsych.timelineVariable("stimulus_2") +
-			'  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
-								 '</td></tr></table>';
+								 '</p></td></tr></table>';
 									 return html;
 
 								 }
@@ -1384,14 +1383,12 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
 					var html = '<table><tr>' +
-					'<td><img src='+
+					'<td><p style="font-size:25px">'+
 						jsPsych.timelineVariable("stimulus_1") +
-							 ' style="width:150px;height:150px;display: block;margin: 50px 25px 50px 125px";>' +
-							 '</img></td>' +
-					'<td><img src='+
+							 '</p></td>' +
+					'<td><p style="font-size:25px">'+
 					jsPsych.timelineVariable("stimulus_2") +
-					'  style="width:150px;height:150px;display: block;margin: 50px 125px 50px 25px";></img>'+
-										 '</td></tr></table>';
+										 '</p></td></tr></table>';
 											 return html;
 				},
 						prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
