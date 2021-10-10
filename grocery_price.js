@@ -1370,7 +1370,7 @@ var instr_p1_letter = {
 			console.log(limit);
 			console.log(time);
 			console.log(time_out);
-			console.log('what else???');,
+			console.log('what else???');
       limit = 30000;
 
 		}
@@ -2039,7 +2039,7 @@ timeline.push(study_timeline);
 // quick foray in to a pattern comparison task
 
 
-
+/*
   timeline.push(instr_p1);
   timeline.push(instructions);
   timeline.push(alt_practice);
@@ -2049,6 +2049,7 @@ timeline.push(study_timeline);
   timeline.push(interim_instructions_2);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
+  */
 /*
 // test list 1
   timeline.push(test_intro_instructions);
