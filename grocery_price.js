@@ -1923,14 +1923,11 @@ timeline.push(study_timeline);
   timeline.push(instructions);
   timeline.push(alt_practice);
   timeline.push(interim_instructions);
-  // trying new method
-  timeline.push(trial_pattern);
+  timeline.push(trial_1);
+  timeline.push(test_trials_p1_trl2);
   timeline.push(interim_instructions_2);
-//  timeline.push(trial_1);
-//  timeline.push(test_trials_p1_trl2);
-//
-//  timeline.push(trial_2);
-//  timeline.push(test_trials_p2_trl2);
+  timeline.push(trial_2);
+  timeline.push(test_trials_p2_trl2);
 /*
 // test list 1
   timeline.push(test_intro_instructions);
@@ -1946,7 +1943,7 @@ timeline.push(study_timeline);
     timeline.push(study_instructions_list_two);
     timeline.push(study_timeline_list_two);
 */
-/*
+
 // letter comparison task
 timeline.push(instr_p1_letter);
 timeline.push(instructions_letter);
@@ -1957,7 +1954,7 @@ timeline.push(test_trials_p1_trl2_letter);
 timeline.push(interim_instructions_2_letter);
 timeline.push(trial_2_letter);
 timeline.push(test_trials_p2_trl2_letter);
-
+/*
 // test list 2
 
   timeline.push(test_intro_instructions_2);
