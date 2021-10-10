@@ -1328,11 +1328,11 @@ var instr_p1_letter = {
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
 			var html = '<table><tr>' +
-			'<td><p style="font-size:25px">'+
+			'<td><p style="font-size:25px">                              '+
 				jsPsych.timelineVariable("stimulus_1") +
 
 					 '</p></td>' +
-			'<td><p style="font-size:25px">'+
+			'<td><p style="font-size:25px">          '+
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td></tr></table>';
 									 return html;
@@ -1370,7 +1370,9 @@ var instr_p1_letter = {
 			console.log(limit);
 			console.log(time);
 			console.log(time_out);
-			console.log('what else???');
+			console.log('what else???');,
+      limit = 30000;
+
 		}
 	};
 
@@ -1381,10 +1383,10 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
 					var html = '<table><tr>' +
-					'<td><p style="font-size:25px">'+
+					'<td><p style="font-size:25px">                              '+
 						jsPsych.timelineVariable("stimulus_1") +
 							 '</p></td>' +
-					'<td><p style="font-size:25px">'+
+					'<td><p style="font-size:25px">          '+
 					jsPsych.timelineVariable("stimulus_2") +
 										 '</p></td></tr></table>';
 											 return html;
@@ -1677,11 +1679,71 @@ var test_trials_p1_trl2_letter = {
 		stimulus_1: p1_left_letter[37],stimulus_1: p1_right_letter[37],
 		data: {corr_resp:  p1_correct_letter[37], exp_stage: 'letter_comp_p1'}},
 		{
-		stimulus_1: p1_left_letter[38],stimulus_1: p1_right_letter[38],
-		data: {corr_resp:  p1_correct_letter[38], exp_stage: 'letter_comp_p1'}},
-		{
-		stimulus_1: p1_left_letter[39],stimulus_1: p1_right[39],
-		data: {corr_resp:  p1_correct_letter[39], exp_stage: 'letter_comp_p1'}}
+    stimulus_1: p1_left_letter[38],stimulus_1: p1_right_letter[38],
+    data: {corr_resp:  p1_correct_letter[38], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[39],stimulus_1: p1_right_letter[39],
+    data: {corr_resp:  p1_correct_letter[39], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[40],stimulus_1: p1_right_letter[40],
+    data: {corr_resp:  p1_correct_letter[40], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[41],stimulus_1: p1_right_letter[41],
+    data: {corr_resp:  p1_correct_letter[41], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[42],stimulus_1: p1_right_letter[42],
+    data: {corr_resp:  p1_correct_letter[42], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[43],stimulus_1: p1_right_letter[43],
+    data: {corr_resp:  p1_correct_letter[43], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[44],stimulus_1: p1_right_letter[44],
+    data: {corr_resp:  p1_correct_letter[44], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[45],stimulus_1: p1_right_letter[45],
+    data: {corr_resp:  p1_correct_letter[45], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[46],stimulus_1: p1_right_letter[46],
+    data: {corr_resp:  p1_correct_letter[46], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[47],stimulus_1: p1_right_letter[47],
+    data: {corr_resp:  p1_correct_letter[47], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[48],stimulus_1: p1_right_letter[48],
+    data: {corr_resp:  p1_correct_letter[48], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[49],stimulus_1: p1_right_letter[49],
+    data: {corr_resp:  p1_correct_letter[49], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[50],stimulus_1: p1_right_letter[50],
+    data: {corr_resp:  p1_correct_letter[50], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[51],stimulus_1: p1_right_letter[51],
+    data: {corr_resp:  p1_correct_letter[51], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[52],stimulus_1: p1_right_letter[52],
+    data: {corr_resp:  p1_correct_letter[52], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[53],stimulus_1: p1_right_letter[53],
+      data: {corr_resp:  p1_correct_letter[53], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[54],stimulus_1: p1_right_letter[54],
+      data: {corr_resp:  p1_correct_letter[54], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[55],stimulus_1: p1_right_letter[55],
+    data: {corr_resp:  p1_correct_letter[55], exp_stage: 'letter_comp_p1'}},
+    {
+        stimulus_1: p1_left_letter[56],stimulus_1: p1_right_letter[56],
+      data: {corr_resp:  p1_correct_letter[56], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[57],stimulus_1: p1_right_letter[57],
+    data: {corr_resp:  p1_correct_letter[57], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[58],stimulus_1: p1_right_letter[58],
+    data: {corr_resp:  p1_correct_letter[58], exp_stage: 'letter_comp_p1'}},
+    {
+    stimulus_1: p1_left_letter[59],stimulus_1: p1_right_letter[59],
+    data: {corr_resp:  p1_correct_letter[59], exp_stage: 'letter_comp_p1'}}
 	],
 	conditional_function: function(){
         // get the data from the previous trial,
@@ -1770,124 +1832,184 @@ var test_trials_p2_trl2_letter = {
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
 			timeline_variables: [
-			          {
-						stimulus_1: p2_left_letter[1],stimulus_1: p2_right_letter[1],
-						data: {corr_resp:  p2_correct[1], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[2],stimulus_1: p2_right_letter[2],
-						data: {corr_resp:  p2_correct[2], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[3],stimulus_1: p2_right_letter[3],
-						data: {corr_resp:  p2_correct[3], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[4],stimulus_1: p2_right_letter[4],
-						data: {corr_resp:  p2_correct[4], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[5],stimulus_1: p2_right_letter[5],
-						data: {corr_resp:  p2_correct[5], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[6],stimulus_1: p2_right_letter[6],
-						data: {corr_resp:  p2_correct[6], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[7],stimulus_1: p2_right_letter[7],
-						data: {corr_resp:  p2_correct[7], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[8],stimulus_1: p2_right_letter[8],
-						data: {corr_resp:  p2_correct[8], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[9],stimulus_1: p2_right_letter[9],
-						data: {corr_resp:  p2_correct[9], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[10],stimulus_1: p2_right_letter[10],
-						data: {corr_resp:  p2_correct[10], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[11],stimulus_1: p2_right_letter[11],
-						data: {corr_resp:  p2_correct[11], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[12],stimulus_1: p2_right_letter[12],
-						data: {corr_resp:  p2_correct[12], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[13],stimulus_1: p2_right_letter[13],
-						data: {corr_resp:  p2_correct[13], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[14],stimulus_1: p2_right_letter[14],
-						data: {corr_resp:  p2_correct[14], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[15],stimulus_1: p2_right_letter[15],
-						data: {corr_resp:  p2_correct[15], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[16],stimulus_1: p2_right_letter[16],
-						data: {corr_resp:  p2_correct[16], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[17],stimulus_1: p2_right_letter[17],
-						data: {corr_resp:  p2_correct[17], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[18],stimulus_1: p2_right_letter[18],
-						data: {corr_resp:  p2_correct[18], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[19],stimulus_1: p2_right_letter[19],
-						data: {corr_resp:  p2_correct[19], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[20],stimulus_1: p2_right_letter[20],
-						data: {corr_resp:  p2_correct[20], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[21],stimulus_1: p2_right_letter[21],
-						data: {corr_resp:  p2_correct[21], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[22],stimulus_1: p2_right_letter[22],
-						data: {corr_resp:  p2_correct[22], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[23],stimulus_1: p2_right_letter[23],
-						data: {corr_resp:  p2_correct[23], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[24],stimulus_1: p2_right_letter[24],
-						data: {corr_resp:  p2_correct[24], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[25],stimulus_1: p2_right_letter[25],
-						data: {corr_resp:  p2_correct[25], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[26],stimulus_1: p2_right_letter[26],
-						data: {corr_resp:  p2_correct[26], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[27],stimulus_1: p2_right_letter[27],
-						data: {corr_resp:  p2_correct[27], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[28],stimulus_1: p2_right_letter[28],
-						data: {corr_resp:  p2_correct[28], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[29],stimulus_1: p2_right_letter[29],
-						data: {corr_resp:  p2_correct[29], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[30],stimulus_1: p2_right_letter[30],
-						data: {corr_resp:  p2_correct[30], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[31],stimulus_1: p2_right_letter[31],
-						data: {corr_resp:  p2_correct[31], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[32],stimulus_1: p2_right_letter[32],
-						data: {corr_resp:  p2_correct[32], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[33],stimulus_1: p2_right_letter[33],
-						data: {corr_resp:  p2_correct[33], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[34],stimulus_1: p2_right_letter[34],
-						data: {corr_resp:  p2_correct[34], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[35],stimulus_1: p2_right_letter[35],
-						data: {corr_resp:  p2_correct[35], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[36],stimulus_1: p2_right_letter[36],
-						data: {corr_resp:  p2_correct[36], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[37],stimulus_1: p2_right_letter[37],
-						data: {corr_resp:  p2_correct[37], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[38],stimulus_1: p2_right_letter[38],
-						data: {corr_resp:  p2_correct[38], exp_stage: 'letter_comp_p2'}},
-						{
-						stimulus_1: p2_left_letter[39],stimulus_1: p2_right_letter[39],
-						data: {corr_resp:  p2_correct[39], exp_stage: 'letter_comp_p2'}}
-			],
+          {
+          stimulus_1: p2_left_letter[1],stimulus_1: p2_right_letter[1],
+          data: {corr_resp:  p2_correct_letter[1], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[2],stimulus_1: p2_right_letter[2],
+          data: {corr_resp:  p2_correct_letter[2], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[3],stimulus_1: p2_right_letter[3],
+          data: {corr_resp:  p2_correct_letter[3], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[4],stimulus_1: p2_right_letter[4],
+          data: {corr_resp:  p2_correct_letter[4], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[5],stimulus_1: p2_right_letter[5],
+          data: {corr_resp:  p2_correct_letter[5], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[6],stimulus_1: p2_right_letter[6],
+          data: {corr_resp:  p2_correct_letter[6], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[7],stimulus_1: p2_right_letter[7],
+          data: {corr_resp:  p2_correct_letter[7], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[8],stimulus_1: p2_right_letter[8],
+          data: {corr_resp:  p2_correct_letter[8], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[9],stimulus_1: p2_right_letter[9],
+          data: {corr_resp:  p2_correct_letter[9], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[10],stimulus_1: p2_right_letter[10],
+          data: {corr_resp:  p2_correct_letter[10], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[11],stimulus_1: p2_right_letter[11],
+          data: {corr_resp:  p2_correct_letter[11], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[12],stimulus_1: p2_right_letter[12],
+          data: {corr_resp:  p2_correct_letter[12], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[13],stimulus_1: p2_right_letter[13],
+          data: {corr_resp:  p2_correct_letter[13], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[14],stimulus_1: p2_right_letter[14],
+          data: {corr_resp:  p2_correct_letter[14], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[15],stimulus_1: p2_right_letter[15],
+          data: {corr_resp:  p2_correct_letter[15], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[16],stimulus_1: p2_right_letter[16],
+          data: {corr_resp:  p2_correct_letter[16], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[17],stimulus_1: p2_right_letter[17],
+          data: {corr_resp:  p2_correct_letter[17], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[18],stimulus_1: p2_right_letter[18],
+          data: {corr_resp:  p2_correct_letter[18], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[19],stimulus_1: p2_right_letter[19],
+          data: {corr_resp:  p2_correct_letter[19], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[20],stimulus_1: p2_right_letter[20],
+          data: {corr_resp:  p2_correct_letter[20], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[21],stimulus_1: p2_right_letter[21],
+          data: {corr_resp:  p2_correct_letter[21], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[22],stimulus_1: p2_right_letter[22],
+          data: {corr_resp:  p2_correct_letter[22], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[23],stimulus_1: p2_right_letter[23],
+          data: {corr_resp:  p2_correct_letter[23], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[24],stimulus_1: p2_right_letter[24],
+          data: {corr_resp:  p2_correct_letter[24], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[25],stimulus_1: p2_right_letter[25],
+          data: {corr_resp:  p2_correct_letter[25], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[26],stimulus_1: p2_right_letter[26],
+          data: {corr_resp:  p2_correct_letter[26], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[27],stimulus_1: p2_right_letter[27],
+          data: {corr_resp:  p2_correct_letter[27], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[28],stimulus_1: p2_right_letter[28],
+          data: {corr_resp:  p2_correct_letter[28], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[29],stimulus_1: p2_right_letter[29],
+          data: {corr_resp:  p2_correct_letter[29], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[30],stimulus_1: p2_right_letter[30],
+          data: {corr_resp:  p2_correct_letter[30], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[31],stimulus_1: p2_right_letter[31],
+          data: {corr_resp:  p2_correct_letter[31], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[32],stimulus_1: p2_right_letter[32],
+          data: {corr_resp:  p2_correct_letter[32], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[33],stimulus_1: p2_right_letter[33],
+          data: {corr_resp:  p2_correct_letter[33], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[34],stimulus_1: p2_right_letter[34],
+          data: {corr_resp:  p2_correct_letter[34], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[35],stimulus_1: p2_right_letter[35],
+          data: {corr_resp:  p2_correct_letter[35], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[36],stimulus_1: p2_right_letter[36],
+          data: {corr_resp:  p2_correct_letter[36], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[37],stimulus_1: p2_right_letter[37],
+          data: {corr_resp:  p2_correct_letter[37], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[38],stimulus_1: p2_right_letter[38],
+          data: {corr_resp:  p2_correct_letter[38], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[39],stimulus_1: p2_right_letter[39],
+          data: {corr_resp:  p2_correct_letter[39], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[40],stimulus_1: p2_right_letter[40],
+          data: {corr_resp:  p2_correct_letter[40], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[41],stimulus_1: p2_right_letter[41],
+          data: {corr_resp:  p2_correct_letter[41], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[42],stimulus_1: p2_right_letter[42],
+          data: {corr_resp:  p2_correct_letter[42], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[43],stimulus_1: p2_right_letter[43],
+          data: {corr_resp:  p2_correct_letter[43], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[44],stimulus_1: p2_right_letter[44],
+          data: {corr_resp:  p2_correct_letter[44], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[45],stimulus_1: p2_right_letter[45],
+          data: {corr_resp:  p2_correct_letter[45], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[46],stimulus_1: p2_right_letter[46],
+          data: {corr_resp:  p2_correct_letter[46], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[47],stimulus_1: p2_right_letter[47],
+          data: {corr_resp:  p2_correct_letter[47], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[48],stimulus_1: p2_right_letter[48],
+          data: {corr_resp:  p2_correct_letter[48], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[49],stimulus_1: p2_right_letter[49],
+          data: {corr_resp:  p2_correct_letter[49], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[50],stimulus_1: p2_right_letter[50],
+          data: {corr_resp:  p2_correct_letter[50], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[51],stimulus_1: p2_right_letter[51],
+          data: {corr_resp:  p2_correct_letter[51], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[52],stimulus_1: p2_right_letter[52],
+          data: {corr_resp:  p2_correct_letter[52], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[53],stimulus_1: p2_right_letter[53],
+          data: {corr_resp:  p2_correct_letter[53], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[54],stimulus_1: p2_right_letter[54],
+          data: {corr_resp:  p2_correct_letter[54], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[55],stimulus_1: p2_right_letter[55],
+          data: {corr_resp:  p2_correct_letter[55], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[56],stimulus_1: p2_right_letter[56],
+          data: {corr_resp:  p2_correct_letter[56], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[57],stimulus_1: p2_right_letter[57],
+          data: {corr_resp:  p2_correct_letter[57], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[58],stimulus_1: p2_right_letter[58],
+          data: {corr_resp:  p2_correct_letter[58], exp_stage: 'letter_comp_p2'}},
+          {
+          stimulus_1: p2_left_letter[59],stimulus_1: p2_right_letter[59],
+          data: {corr_resp:  p2_correct_letter[59], exp_stage: 'letter_comp_p2'}}
+        ],
 		conditional_function: function(){
 					// get the data from the previous trial,
 					// and check which key was pressed
