@@ -1328,9 +1328,9 @@ var instr_p1_letter = {
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
 			var html = '<table><tr>' +
-			'<td style="padding:75px;"><p>" "</p></td><td padding:style="padding:75px;"><p style="font-size:25px">'+
+			'<td style="padding:75px;"></td><td padding:style="padding:75px;"><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
-					 '</p></td><td style="padding:75px;"><p>" "</p></td><td style="padding:75px;"><p>" "</p></td>' +
+					 '</p></td><td style="padding:75px;"></td><td style="padding:75px;"></td>' +
 			'<td style="padding:75px;"><p style="font-size:25px">'+
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td></tr></table>';
@@ -1382,10 +1382,10 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
 					var html = '<table><tr>' +
-					'<td style="padding:75px;"><p>" "</p></td><td style="padding:75px;">'+
+					'<td style="padding:75px;"></td><td style="padding:75px;">'+
           '<p style="font-size:25px">'+
 						jsPsych.timelineVariable("stimulus_1") +
-							 '</p></td><td style="padding:75px;"><p>" "</p></td><td style="padding:75px;"><p>" "</p></td>' +
+							 '</p></td><td style="padding:75px;"></td><td style="padding:75px;"></td>' +
 					'<td style="padding:75px;"><p style="font-size:25px">'+
 					jsPsych.timelineVariable("stimulus_2") +
 										 '</p></td></tr></table>';
