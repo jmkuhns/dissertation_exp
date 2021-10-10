@@ -1332,7 +1332,11 @@ var instr_p1_letter = {
 				jsPsych.timelineVariable("stimulus_1") +
 
 					 '</p></td><td padding:"900px"></td><td padding:"900px"></td>' +
+<<<<<<< HEAD
 			'<td padding:"900px"><p style="font-size:25px">          '+
+=======
+			'<td padding:"75px"><p style="font-size:25px">          '+
+>>>>>>> 903aaff633a083d530e96a3d1f525affa9a2eee5
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td></tr></table>';
 									 return html;
