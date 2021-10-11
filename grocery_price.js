@@ -259,7 +259,7 @@ var test_instructions = {
   '<li>a test pair that consists of a studied grocery-item and a price that was not on the study list (old-new pair)</li>'+
   '<li>a test pair where both the grocery-item and price were not on the study list (new-new pair)</li></ul>'+
   '<br><p>You may press the Right arrow key to continue with the instructions.<br><br><br>p. 1/6</p></div>',
-
+//
   '<p style:"font-size:30px;text-align:center">Memory Test</p>' +
   '<div "font-size:25px>'+
   '<br><p>You will answer three multiple choice questions for each test pair. The response options for each question are written in capital letters below. For each test pair, you will be asked:</p>'+
