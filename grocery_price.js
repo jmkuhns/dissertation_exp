@@ -57,6 +57,19 @@ test_list_1 = test.slice(0, 48);
 test_list_2 = test.slice(48);
 
 
+study_list_1 =  study_list_1.filter(function( obj ) {
+    return obj.test_type !== 'nnu';
+});
+study_list_1 =  study_list_1.filter(function( obj ) {
+    return obj.test_type !== 'nnr';
+});
+study_list_2 =  study_list_2.filter(function( obj ) {
+    return obj.test_type !== 'nnu';
+});
+study_list_2 =  study_list_2.filter(function( obj ) {
+    return obj.test_type !== 'nnr';
+});
+
 var attn_check_words = [
     { word: "wires", att_chk: true },
     { word: "theme", att_chk: true },
@@ -133,8 +146,8 @@ var study_instructions={
   '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
   '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 2/2</p>'
 ],
-//  key_forward: "ArrowRight",
-//  key_backward: "ArrowLeft",
+  key_forward: "ArrowRight",
+  key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 3500,
   show_clickable_nav: true,
@@ -154,8 +167,8 @@ var study_instructions_list_two ={
   '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>You may press the Left arrow key to go back. Press the right arrow key to continue the instructions.<br><br><br>p. 2/3</p>',
   '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 2/3</p>'
 ],
-//  key_forward: "ArrowRight",
-//  key_backward: "ArrowLeft",
+  key_forward: "ArrowRight",
+  key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 3500,
   show_clickable_nav: true,
