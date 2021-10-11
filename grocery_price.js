@@ -1328,7 +1328,7 @@ var instr_p1_letter = {
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
 			var html = '<table><tr>' +
-			'<td style="padding:50px;"></td><td style ="width:150px"><p style="font-size:25px">'+
+			'<td style ="width:150px"><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
 					 '</p></td><td style = "padding:50px"></td>'+
 			'<td style ="width:150px"><p style="font-size:25px">'+
@@ -1382,7 +1382,7 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
           var html = '<table><tr>' +
-    			'<td style="padding:50px;"></td><td style ="width:150px"><p style="font-size:25px">'+
+    			'<td style ="width:150px"><p style="font-size:25px">'+
     				jsPsych.timelineVariable("stimulus_1") +
     					 '</p></td><td style = "padding:50px"></td>'+
     			'<td style ="width:150px"><p style="font-size:25px">'+
