@@ -1382,10 +1382,10 @@ var instr_p1_letter = {
 				choices: ["ArrowLeft", "ArrowRight"],
 				stimulus: function(){
           var html = '<table><tr>' +
-    			'<td style="padding:50px;"></td><td><p style="font-size:25px">'+
+    			'<td style="padding:50px;border-spacing: 30px;"></td><td><p style="font-size:25px">'+
     				jsPsych.timelineVariable("stimulus_1") +
-    					 '</p></td><td style="padding:50px;"></td>'+
-    			'<td><p style="font-size:25px">'+
+    					 '</p></td><td style="padding:50px;border-spacing: 30px;"></td>'+
+    			'<td "border-spacing: 30px;"><p style="font-size:25px">'+
     			jsPsych.timelineVariable("stimulus_2") +
     								 '</p></td></tr></table>';
     									 return html;
