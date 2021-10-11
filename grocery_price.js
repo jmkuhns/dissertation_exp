@@ -1974,6 +1974,8 @@ timeline.push(test_trials_p2_trl2_letter);
 // test list 2
 
   timeline.push(test_intro_instructions_2);
+  timeline.push(test_instructions);
+
   timeline.push(test_timeline4);
   timeline.push(attention_check_three);
   timeline.push(test_timeline5);
