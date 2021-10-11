@@ -1912,16 +1912,14 @@ var test_trials_p2_trl2_letter = {
 ///////////////////////////////////////////////////////////////////
 
 // testing out pattern comparison
-/*
+
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
 timeline.push(study_instructions);
 timeline.push(study_timeline);
-*/
+
 // quick foray in to a pattern comparison task
-
-
 
   timeline.push(instr_p1);
   timeline.push(instructions);
@@ -1933,7 +1931,7 @@ timeline.push(study_timeline);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
 
-/*
+
 // test list 1
   timeline.push(test_intro_instructions);
   timeline.push(test_instructions);
@@ -1947,7 +1945,7 @@ timeline.push(study_timeline);
 // study list 2
     timeline.push(study_instructions_list_two);
     timeline.push(study_timeline_list_two);
-*/
+
 
 // letter comparison task
 timeline.push(instr_p1_letter);
@@ -1959,7 +1957,7 @@ timeline.push(test_trials_p1_trl2_letter);
 timeline.push(interim_instructions_2_letter);
 timeline.push(trial_2_letter);
 timeline.push(test_trials_p2_trl2_letter);
-/*
+
 // test list 2
 
   timeline.push(test_intro_instructions_2);
@@ -1968,4 +1966,3 @@ timeline.push(test_trials_p2_trl2_letter);
   timeline.push(test_timeline5);
   timeline.push(attention_check_four);
   timeline.push(test_timeline6);
-*/
