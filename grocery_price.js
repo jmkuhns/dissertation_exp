@@ -1925,7 +1925,7 @@ var test_trials_p2_trl2_letter = {
 ///////////////////////////////////////////////////////////////////
 
 // testing out pattern comparison
-
+/*
 timeline.push(preload);
 timeline.push(study_instructions_welcome);
 
@@ -1944,7 +1944,7 @@ timeline.push(study_timeline);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
 
-
+*/
 // test list 1
   timeline.push(test_intro_instructions);
   timeline.push(test_instructions);
