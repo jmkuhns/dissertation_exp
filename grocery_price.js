@@ -197,7 +197,7 @@ var study_function = {
          return html;
       },
       // undo the comment when ready to ship // // // // //
-  //    choices: jsPsych.NO_KEYS,
+    choices: jsPsych.NO_KEYS,
       trial_duration: 6000,
       post_trial_gap: function(){
         // sample from range (250, 751]
