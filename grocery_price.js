@@ -1330,7 +1330,7 @@ var instr_p1_letter = {
 			var html = '<table><tr>' +
 			'<td style ="width:150px"><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
-					 '</p></td><td style = "padding:50px"></td>'+
+					 '</p></td><td style = "padding:25px"></td>'+
 			'<td style ="width:150px"><p style="font-size:25px">'+
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td><td "padding:75px;"></td></tr></table>';
@@ -1384,7 +1384,7 @@ var instr_p1_letter = {
           var html = '<table><tr>' +
     			'<td style ="width:150px"><p style="font-size:25px">'+
     				jsPsych.timelineVariable("stimulus_1") +
-    					 '</p></td><td style = "padding:50px"></td>'+
+    					 '</p></td><td style = "padding:25px"></td>'+
     			'<td style ="width:150px"><p style="font-size:25px">'+
     			jsPsych.timelineVariable("stimulus_2") +
     								 '</p></td><td "padding:75px;"></td></tr></table>';
@@ -1922,7 +1922,7 @@ timeline.push(study_timeline);
 // quick foray in to a pattern comparison task
 
 
-/*
+
   timeline.push(instr_p1);
   timeline.push(instructions);
   timeline.push(alt_practice);
@@ -1932,7 +1932,7 @@ timeline.push(study_timeline);
   timeline.push(interim_instructions_2);
   timeline.push(trial_2);
   timeline.push(test_trials_p2_trl2);
-  */
+
 /*
 // test list 1
   timeline.push(test_intro_instructions);
@@ -1950,8 +1950,8 @@ timeline.push(study_timeline);
 */
 
 // letter comparison task
-//timeline.push(instr_p1_letter);
-//timeline.push(instructions_letter);
+timeline.push(instr_p1_letter);
+timeline.push(instructions_letter);
 timeline.push(alt_practice_letter);
 timeline.push(interim_instructions_letter);
 timeline.push(trial_1_letter);
