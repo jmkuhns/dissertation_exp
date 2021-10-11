@@ -285,7 +285,7 @@ var test_instructions = {
   key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 4000,
-  show_clickable_nav: true,
+//  show_clickable_nav: true,
   data:{
     memory: 'memory',
     exp_stage: "instructions"
