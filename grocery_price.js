@@ -1320,7 +1320,7 @@ var instr_p1_letter = {
     post_trial_gap: 250,
     min_viewing_time: 3500
 	};
-
+//
 	var alt_practice_letter = {
 	  timeline: [
 	  {
