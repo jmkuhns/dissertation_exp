@@ -718,7 +718,7 @@ var alt_practice = {
   		limit = limit - time;
   		time_out = 0;
   		console.log(time_out);
-    	setTimeout(
+    	jsPsych.pluginAPI.setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
@@ -1014,7 +1014,7 @@ var alt_practice = {
   		jsPsych.data.get().addToLast({time_between: time});
   		limit = limit - time ;
   		console.log(limit);
-  		setTimeout(
+  		jsPsych.pluginAPI.setTimeout(
   			function(){
   			time_out = 1;
   			limit = 0;
@@ -1413,7 +1413,7 @@ var trial_1_letter = {
 		limit = limit - time;
 		time_out = 0;
 		console.log(time_out);
-		setTimeout(
+		jsPsych.pluginAPI.setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
@@ -1677,7 +1677,7 @@ var trial_2_letter = {
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
 		console.log(limit);
-		setTimeout(
+		jsPsych.pluginAPI.setTimeout(
 			function(){
 			time_out = 1;
 			limit = 0;
