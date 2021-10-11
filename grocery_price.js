@@ -1309,9 +1309,9 @@ var instr_p1_letter = {
 	  pages:[
 	  '<p style:"font-size:30px">LETTER COMPARISON</p>' +
 	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
-	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.</p>',
+	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.<br><br><br>p. 1/2</p>',
 		'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
-	  '<br><p>Press the right arrow key to begin the practice trials.</p>'],
+	  '<br><p>Press the right arrow key to begin the practice trials.<br><br><br>p. 2/2</p>'],
 		/*key_forward: "ArrowRight",
 		key_backward: "ArrowLeft",*/
 	  data:{pattern: 'letter',
