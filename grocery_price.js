@@ -1327,6 +1327,7 @@ var instr_p1_letter = {
 	  type: "html-keyboard-response",
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
+<<<<<<< HEAD
 			var html = '<table><tr>' +
 			'<td style="padding:50px;"></td><td><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
@@ -1335,6 +1336,16 @@ var instr_p1_letter = {
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td></tr></table>';
 									 return html;
+=======
+      var html='<div class="row">' +
+                  '<div class="column">' +
+                      jsPsych.timelineVariable("stimulus_1", true) +
+                  '</div>' +
+                    '<div class="column">'+
+                        jsPsych.timelineVariable("stimulus_2", true) +
+                  '</div>'+
+                '</div>';
+>>>>>>> 1167deacc0f99849a9aa9a270ef26fa95c316eeb
 
 								 }
 	  }],
