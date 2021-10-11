@@ -265,7 +265,7 @@ var test_instructions = {
   '<br><p>You will answer three multiple choice questions for each test pair. The response options for each question are written in capital letters below. For each test pair, you will be asked:</p>'+
   '<ul style="text-align:center;">'+
   '<li>to judge whether the grocery-item and price were originally STUDIED together or were NOT STUDIED TOGETHER</li>'+
-  '<li>to judge whether the grocery-item was originally paired with a price LESS THAN $7, MORE THAN $10, or to indicate that the the grocery-item in the test pair was NOT STUDIED</li>'+
+  '<li>to judge whether the grocery-item was originally paired with a price LESS THAN $7, MORE THAN $10, or to indicate that the grocery-item in the test pair was NOT STUDIED</li>'+
   '<li>to judge whether the price in each test pair was on the study list, responding STUDIED if the price was on the study list, and responding NOT STUDIED if the price was not on the study list.</li></ul><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to continue with the instructions.<br><br><br>p. 2/6</p></div>',
 
   '<p style:"font-size:30px">Memory Test</p>' +
