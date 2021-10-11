@@ -161,7 +161,7 @@ var study_instructions_list_two ={
   type: "instructions-min-viewing-time",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>You are going to be shown new pairs of grocery items and prices for an upcoming memory test. Both the grocery items and prices will be new.</p>' +
-  '<p>The upcoming memory test will be in the same format as the previous memory test.</p><br><p>Press the right arrow key to continue the instructions.<br><br><br>p. 1/3</p'
+  '<p>The upcoming memory test will be in the same format as the previous memory test.</p><br><p>Press the right arrow key to continue the instructions.<br><br><br>p. 1/3</p>'
     ,
   '<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>You may press the Left arrow key to go back. Press the right arrow key to continue the instructions.<br><br><br>p. 2/3</p>',
@@ -331,7 +331,7 @@ var test_function = {
         },
       {
         type: 'html-button-response',
-        choices: ["<p style='font-size:25px'>Less than $6</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
+        choices: ["<p style='font-size:25px'>Less than $7</p>", "<p style='font-size:25px'>More than $10</p>", "<p style='font-size:25px'>Not studied</p>"],
         data: {memory: "memory", exp_stage: "test", question_type: "source", list_order: jsPsych.timelineVariable('list_order'), cb: list, test_type: jsPsych.timelineVariable('test_type'),
       item_recognition:jsPsych.timelineVariable('item_recognition'),assoc_recognition:jsPsych.timelineVariable('assoc_recognition'),source_recognition: jsPsych.timelineVariable('source_recognition'),
       item: jsPsych.timelineVariable('item'), price: jsPsych.timelineVariable("test_price")},
