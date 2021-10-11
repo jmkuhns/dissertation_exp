@@ -1327,14 +1327,14 @@ var instr_p1_letter = {
 	  type: "html-keyboard-response",
 		choices: ["ArrowLeft", "ArrowRight"],
 		stimulus: function(){
-			var html = '<table><tr>' +
-			'<td style="padding:50px;"></td><td padding:style="padding:75px;"><p style="font-size:25px">'+
-				jsPsych.timelineVariable("stimulus_1") +
-					 '</p></td>'+
-			'<td style="padding:75px;"><p style="font-size:25px">'+
-			jsPsych.timelineVariable("stimulus_2") +
-								 '</p></td></tr></table>';
-									 return html;
+      var html='<div class="row">' +
+                  '<div class="column">' +
+                      jsPsych.timelineVariable("stimulus_1", true) +
+                  '</div>' +
+                    '<div class="column">'+
+                        jsPsych.timelineVariable("stimulus_2", true) +
+                  '</div>'+
+                '</div>';
 
 								 }
 	  }],
