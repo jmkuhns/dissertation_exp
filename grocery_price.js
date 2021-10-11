@@ -281,8 +281,8 @@ var test_instructions = {
   '<br><br><p>Test pairs will be presented in a random order. The memory test is self-paced. However, once you click an option, the test will advance to the next question. Please be careful before selecting an option, because you will not be able to go back and change your answers.</p><br><p>You may press the Left arrow key to review any previous instructions. Otherwise, you may press the Right arrow key to begin the memory test.<br><br><br>p. 6/6</p></div>'
 
   ],
-//  key_forward: "ArrowRight",
-//  key_backward: "ArrowLeft",
+  key_forward: "ArrowRight",
+  key_backward: "ArrowLeft",
   post_trial_gap: 300,
   min_viewing_time: 4000,
   show_clickable_nav: true,
