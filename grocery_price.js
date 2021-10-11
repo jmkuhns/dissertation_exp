@@ -1330,7 +1330,7 @@ var instr_p1_letter = {
 			var html = '<table><tr>' +
 			'<td style="padding:50px;"></td><td style ="width:150px"><p style="font-size:25px">'+
 				jsPsych.timelineVariable("stimulus_1") +
-					 '</p></td>'+
+					 '</p></td><td style = "padding:50px"></td>'+
 			'<td style ="width:150px"><p style="font-size:25px">'+
 			jsPsych.timelineVariable("stimulus_2") +
 								 '</p></td><td "padding:75px;"></td></tr></table>';
@@ -1384,7 +1384,7 @@ var instr_p1_letter = {
           var html = '<table><tr>' +
     			'<td style="padding:50px;"></td><td style ="width:150px"><p style="font-size:25px">'+
     				jsPsych.timelineVariable("stimulus_1") +
-    					 '</p></td>'+
+    					 '</p></td><td style = "padding:50px"></td>'+
     			'<td style ="width:150px"><p style="font-size:25px">'+
     			jsPsych.timelineVariable("stimulus_2") +
     								 '</p></td><td "padding:75px;"></td></tr></table>';
