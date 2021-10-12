@@ -403,7 +403,7 @@ var test_function = {
       timeline_variables: test_shuf_one,
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
 },
       //on_start: console.log(test_shuf_one.length),
       //randomize_order: true,
@@ -414,7 +414,7 @@ var test_function = {
       timeline_variables: [attention_check_word_one],
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       }
     }
   var test_timeline2 = {
@@ -422,7 +422,7 @@ var test_function = {
       timeline_variables: test_shuf_two,
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       },
       on_start: console.log(test_shuf_two.length)
     };
@@ -431,7 +431,7 @@ var test_function = {
       timeline_variables: [attention_check_word_two],
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       }
     }
   var test_timeline3 = {
@@ -439,7 +439,7 @@ var test_function = {
       timeline_variables: test_shuf_three,
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       },
       on_start: console.log(test_shuf_three.length)
     };
@@ -450,7 +450,7 @@ var test_function = {
       timeline_variables: test_shuf_four,
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       },
       on_start: console.log(test_shuf_four.length)
     };
@@ -459,7 +459,7 @@ var test_function = {
       timeline_variables: [attention_check_word_four],
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       }
     };
   var test_timeline5 = {
@@ -468,7 +468,7 @@ var test_function = {
       on_start: console.log(test_shuf_five.length),
       post_trial_gap: function(){
         // sample from range (250, 751]
-  return getRandomInt(250, 751);
+  return getRandomInt(300, 751);
       }
     };
     var attention_check_four = {
@@ -476,7 +476,7 @@ var test_function = {
         timeline_variables: [attention_check_word_four],
         post_trial_gap: function(){
           // sample from range (250, 751]
-    return getRandomInt(250, 751);
+    return getRandomInt(300, 751);
         }
       };
       var test_timeline6 = {
@@ -485,7 +485,7 @@ var test_function = {
           on_start: console.log(test_shuf_six.length),
           post_trial_gap: function(){
             // sample from range (250, 751]
-      return getRandomInt(250, 751);
+      return getRandomInt(300, 751);
           }
         };
 
