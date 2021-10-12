@@ -1457,6 +1457,11 @@ var trial_1_letter = {
 var test_trials_p1_trl2_letter = {
 	timeline: [generic_trial_letter],
   data: jsPsych.timelineVariable('data'),
+  on_start: function(){
+    if(time_out == 1){
+      jsPsych.endCurrentTimeline();
+    }
+  },
 	on_finish: function(){
 		console.log("limit");
 		console.log(limit);
