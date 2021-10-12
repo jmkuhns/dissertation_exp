@@ -144,7 +144,7 @@ var study_instructions={
   type: "instructions-min-viewing-time",
   pages: ['<p style:"font-size:30px">Memory Task</p>' +
   '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>Press the right arrow key to continue the instructions.<br><br><br>p. 1/2</p>',
-  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 2/2</p>'
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the left arrow key to go back. You may press the right arrow key to begin the task.<br><br><br>p. 2/2</p>'
 ],
   key_forward: "ArrowRight",
   key_backward: "ArrowLeft",
@@ -164,8 +164,8 @@ var study_instructions_list_two ={
   '<br><p>The upcoming memory test will be in the same format as the previous memory test.</p><br><p>Press the right arrow key to continue the instructions.<br><br><br>p. 1/3</p>'
     ,
   '<p style:"font-size:30px">Memory Task</p>' +
-  '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>You may press the Left arrow key to go back. Press the right arrow key to continue the instructions.<br><br><br>p. 2/3</p>',
-  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the Left arrow key to go back. You may press the Right arrow key to begin the task.<br><br><br>p. 3/3</p>'
+  '<br><p>In this task you are going to be shown pairs of grocery items and prices for an upcoming memory test. Grocery items will be paired with unique prices, and <b>you should try to remember which items and prices are paired together.</b></p><br><p>Some of the prices will reflect the approximate market value for that kind of grocery-item, and some of the prices will be much higher than what you might expect to pay for that kind of grocery-item.</p><br>You may press the left arrow key to go back. Press the right arrow key to continue the instructions.<br><br><br>p. 2/3</p>',
+  '<p style:"font-size:30px">Memory Task</p>' + '<br><p>We are going to show you 36 pairs of grocery-items and prices in a random order. Each pair will be shown for 6 seconds at a time.<br>Half of the pairs will be under $7 and the other half will be higher than $10, and all prices will end in 9. Prices that reflect the market value for an item will be priced under $7, whereas the overpriced items will be higher than $10.</p><br><p>You may press the left arrow key to go back. You may press the right arrow key to begin the task.<br><br><br>p. 3/3</p>'
 ],
   key_forward: "ArrowRight",
   key_backward: "ArrowLeft",
@@ -617,7 +617,8 @@ var instructions = {
   	  '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
   	  '<br><br><p>In this task you will be asked to determine whether two patterns of lines are the same or different. If the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to respond as accurately and rapidly as you can.</p>' +
   	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.<br><br><br>p. 1/2</p>',
-  		'<p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
+      '<p style:"font-size:30px">PATTERN COMPARISON</p>' +
+  		'<br><br><p>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
   	  '<br><p>Press the right arrow key to begin the practice trials.<br><br><br>p. 2/2</p>'
   	],
   //		key_forward: "ArrowRight",
@@ -679,7 +680,7 @@ var alt_practice = {
 
   	var interim_instructions = {
       type: "instructions-min-viewing-time",
-  		pages: ['<p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the RIGHT ARROW KEY to begin.</p>'],
+  		pages: ['<p style:"font-size:30px">PATTERN COMPARISON</p>' +'<br><br><p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the RIGHT ARROW KEY to begin.</p>'],
   	  post_trial_gap: 250,
       min_viewing_time: 1000,
   	  data:{pattern: 'pattern',exp_stage: "instructions"},
@@ -989,8 +990,8 @@ var alt_practice = {
 
   var interim_instructions_2 = {
     type: "instructions-min-viewing-time",
-    pages:[
-    '<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the right arrow key to begin.</p>'
+    pages:['<p style:"font-size:30px">PATTERN COMPARISON</p>' +
+    '<br><br><p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two patterns are the SAME, press the LEFT ARROW KEY. If the two patterns are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p><br><p>Press the right arrow key to begin.</p>'
   ],
   //	key_forward: "ArrowRight",
   //	key_backward: "ArrowLeft",
@@ -1324,7 +1325,8 @@ var instr_p1_letter = {
 	  '<p style:"font-size:30px">LETTER COMPARISON</p>' +
 	  '<br><br><p>In this task you will be asked to determine whether two strings of letters are the same or different. If the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.</p>' +
 	  '<br><p>You will complete a few practice trials before starting.</p><br><p>Press the right arrow key to continue.<br><br><br>p. 1/2</p>',
-		'<p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
+    '<p style:"font-size:30px">LETTER COMPARISON</p>' +
+		'<br><br><p>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY.</p>' +
 	  '<br><p>Press the right arrow key to begin the practice trials.<br><br><br>p. 2/2</p>'],
 		/*key_forward: "ArrowRight",
 		key_backward: "ArrowLeft",*/
@@ -1375,7 +1377,8 @@ var instr_p1_letter = {
 
 	var interim_instructions_letter = {
 	  type: "html-keyboard-response",
-	  stimulus: '<p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.<br><br>Please note that when the 30 seconds are up, the remaining strings to be compared will be quickly shown before a new instructions screen is shown.</p>' +
+	  stimulus: '<p style:"font-size:30px">LETTER COMPARISON</p>' +
+    '<br><br><p>You have now completed the practice trials. In the task, you will have 30 seconds to complete as many problems as you can. You will complete this process two times in total.<br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.<br><br>Please note that when the 30 seconds are up, the remaining strings to be compared will be quickly shown before a new instructions screen is shown.</p>' +
 	  '<br><p>Press any key to begin.</p>',
 	  post_trial_gap: 250,
 	  data:{exp_stage: "instructions"},
@@ -1656,7 +1659,7 @@ var test_trials_p1_trl2_letter = {
 
 var interim_instructions_2_letter = {
   type: "instructions-min-viewing-time",
-  pages:['<p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.<br><br>Please note that when the 30 seconds are up, the remaining strings to be compared will be quickly shown before a new instructions screen is shown.</p>' +
+  pages:['<p style:"font-size:30px">LETTER COMPARISON</p>' +'<br><br><p>You will now complete the same process again. You will have 30 seconds to complete as many problems as you can. <br><br>As a reminder, if the two strings are the SAME, press the LEFT ARROW KEY. If the two strings are DIFFERENT, press the RIGHT ARROW KEY. Please try to work as accurately and rapidly as you can.<br><br>Please note that when the 30 seconds are up, the remaining strings to be compared will be quickly shown before a new instructions screen is shown.</p>' +
   '<br><p>Press the right arrow key to begin.</p>'],
 	min_viewing_time: 2500,
   post_trial_gap: 250,
