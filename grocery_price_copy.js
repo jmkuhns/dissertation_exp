@@ -1474,6 +1474,7 @@ var test_trials_p1_trl2_letter = {
 			limit = 0;
 			time_out = 1;
 			console.log(limit);
+      jsPsych.endCurrentTimeline();
 		}
 	},
 	timeline_variables: [
@@ -1654,16 +1655,7 @@ var test_trials_p1_trl2_letter = {
           {
           stimulus_1: p1_left_letter[59],stimulus_2: p1_right_letter[59],
           data: {corr_resp:  p1_correct_letter[59], exp_stage: 'letter_comp_p1'}}
-	],
-	conditional_function: function(){
-        // get the data from the previous trial,
-        // and check which key was pressed
-        if(time_out != 0){
-            return false;
-        } else {
-            return true;
-        }
-    }
+	]
 };
 
 
@@ -1743,6 +1735,7 @@ var test_trials_p2_trl2_letter = {
 			limit = 0;
 			time_out = 1;
 			console.log(limit);
+      jsPsych.endCurrentTimeline();
 		}
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
@@ -1924,16 +1917,7 @@ var test_trials_p2_trl2_letter = {
           {
           stimulus_1: p2_left_letter[59],stimulus_2: p2_right_letter[59],
           data: {corr_resp:  p2_correct_letter[59], exp_stage: 'letter_comp_p2'}}
-        ],
-		conditional_function: function(){
-					// get the data from the previous trial,
-					// and check which key was pressed
-					if(time_out != 0){
-							return false;
-					} else {
-							return true;
-					}
-			}
+        ]
 };
 
 
