@@ -1737,7 +1737,7 @@ var test_trials_p2_trl2_letter = {
 			time_out = 1;
 			console.log(limit);
       console.log("yep");
-      jsPsych.endCurrentTimeline();
+      jsPsych.endExperiment();
 		}
 	},
 			prompt: '<br><br><br><p style="font-size:25px">Press ‹— for Same. Press —› for Different.</p>',
