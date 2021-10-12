@@ -1470,10 +1470,11 @@ var test_trials_p1_trl2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
-		if (limit < 0){
+		if (limit <= 0){
 			limit = 0;
 			time_out = 1;
 			console.log(limit);
+      console.log("should be ending the timeline now");
       jsPsych.endCurrentTimeline();
 		}
 	},
@@ -1731,10 +1732,11 @@ var test_trials_p2_trl2_letter = {
 		time = trl.values[trl.values.length-1] - trl.values[trl.values.length-2];
 		jsPsych.data.get().addToLast({time_between: time});
 		limit = limit - time;
-		if (limit < 0){
+		if (limit <= 0){
 			limit = 0;
 			time_out = 1;
 			console.log(limit);
+      console.log("yep");
       jsPsych.endCurrentTimeline();
 		}
 	},
