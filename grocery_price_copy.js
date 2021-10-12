@@ -1420,6 +1420,11 @@ var instr_p1_letter = {
 var trial_1_letter = {
 	timeline: [generic_trial_letter],
 	data: jsPsych.timelineVariable('data'),
+  on_start: function(){
+    if(time_out == 1){
+      jsPsych.endCurrentTimeline();
+    }
+  },
 	on_finish: function(){
 		jsPsych.data.get().addToLast({dur: limit});
 		trl = jsPsych.data.get().select('time_elapsed');
@@ -1716,6 +1721,11 @@ var trial_2_letter = {
 var test_trials_p2_trl2_letter = {
 	timeline: [generic_trial_letter],
   data: jsPsych.timelineVariable('data'),
+  on_start: function(){
+    if(time_out == 1){
+      jsPsych.endCurrentTimeline();
+    }
+  },
 	on_finish: function(){
 		console.log("limit");
 		console.log(limit);
