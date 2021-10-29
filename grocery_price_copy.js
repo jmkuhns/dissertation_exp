@@ -456,7 +456,7 @@ var test_function = {
     };
   var attention_check_three = {
       timeline: [attn_check],
-      timeline_variables: [attention_check_word_four],
+      timeline_variables: [attention_check_word_three],
       post_trial_gap: function(){
         // sample from range (250, 751]
   return getRandomInt(300, 751);
